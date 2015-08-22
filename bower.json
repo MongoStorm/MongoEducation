@@ -1,0 +1,12 @@
+{
+  "name": "MongoEducation",
+  "version": "1.0.0",
+  "homepage": "https://github.com/MongoStorm/MongoEducation",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
