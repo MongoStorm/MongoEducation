@@ -2,10 +2,11 @@
 
 var express = require('express');
 var router = express.Router();
+var HomeController = require('../../controllers/home-controller');
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+var homeController = new HomeController();
+
+router.get('/', homeController.create);
 
 router.get('/teacherProfile', function(req, res) {
   res.render('teacher-profile');
