@@ -13,14 +13,13 @@
     "express": "~4.13.0",
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
-  },
-  "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.3",
-    "jasmine": "^2.3.2",
     "mysql": "^2.9.0",
     "sequelize": "^3.6.0",
     "sequelize-cli": "^1.7.4"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.2"
   }
 }
