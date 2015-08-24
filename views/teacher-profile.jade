@@ -13,27 +13,17 @@ html
         button.btn.btn-default(type='button')
           span.glyphicon.glyphicon-search
     div.text-left
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
+      each course in courses
+        button.col-xs-1.col-xs-push-9 删除
+        p
+          h4 #{course}
+
     div.text-center
       a.add(href='#').font-size-base
         span.glyphicon.glyphicon-plus-sign
         |新增课程
 
-      .pagination#page
+    div.pagination#page.text-center
 
 script(src='/components/jquery/dist/jquery.min.js')
 script(src='/components/bootstrap/dist/js/bootstrap.min.js')
