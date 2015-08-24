@@ -7,62 +7,43 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/course-add.css')
     script(src='/components/jquery/dist/jquery.min.js')
     script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/js/course-add.js')
     title
-    script(type='text/javascript').
-      $(function(){
-        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-        $('.tree li.parent_li > span').on('click', function (e) {
-          var children = $(this).parent('li.parent_li').find(' > ul > li');
-          if (children.is(":visible")) {
-            children.hide('fast');
-            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-          } else {
-            children.show('fast');
-            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-          }
-          e.stopPropagation();
-        });
-      });
   body
     include partials/_header.jade
     form
       section.container.well.panel-primary
         h1 添加课程
-        ul
-          li
+        ul.list-unstyled.list-group
+          li.list-group-item
             label 请输入课程名:
-            input(type='text')
-          li
-            label 请选择分类
-            .tree.well
-              ul
-                li
-                  span  分类
-                  ul
-                    li
-                      span  分类1
-                      ul
-                        li
-                          span  分类1-1
-                        li
-                          span  分类1-2
-                    li
-                      span  分类2
-                      ul
-                        li
-                          span  分类2-1
-                        li
-                          span 分类2-2
-                        li
-                          span  分类2-3
-          li
+            input.form-control(type='text')
+          li.list-group-item
+            label 请选择分类:
+            select.form-control
+              option 英语
+              option 数学
+              option 语文
+              option 物理
+              option 生物
+
+          li.list-group-item
             label 请输入课程简要信息
-          li
-            textarea(rows='3', cols='134')
+            textarea.form-control(rows='3', cols='134')
+
+
       section.container.well.panel-primary
-        .col-md-6
-          label 第1章节:
-          input(type='text')
-        .col-md-6
-          label 上传文件:
-          input(type='file', value='上传文件')
+        ul.list-unstyled.list-group
+          li.list-group-item.col-md-12
+            label 第1章节:
+            input(type='text').form-control
+          li.list-group-item.col-md-12
+            label.col-md-12 上传文件:
+            input(type='file', value='上传文件').col-md-2.form-control
+            label.col-md-11
+            input(type='button' id='update' value='上传').col-md-1.
+
+          li.list-group
+            input(type='button' id='new' onclick='addNew' value='新增').col-md-6
+            input(type='button' id='delete' value='删除').col-md-6
+
