@@ -4,6 +4,7 @@ block content
   link(rel='stylesheet', href='/stylesheets/nav-search.css')
   link(rel='stylesheet', href='/stylesheets/index.css')
 
+
   .container.container-fluid
     .row
       form#custom-search-form.pull-right
@@ -24,7 +25,7 @@ block content
 
     hr
 
-    .course-detail
+    #page-content
       .row
         .col-lg-6
           a.thumbnail(href="#")
@@ -66,3 +67,11 @@ block content
                   h3="英语"
                 .description
                   h4="This is an English course"
+
+    hr
+
+    .text-center
+      ul#pagination.pagination
+
+  script(src="components/twbs-pagination/jquery.twbsPagination.min.js")
+  script(src="js/home.js")
