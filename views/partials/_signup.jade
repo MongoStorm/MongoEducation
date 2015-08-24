@@ -1,3 +1,15 @@
-//
-   Created by evan on 15-8-24.
-
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../public/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../../public/stylesheets/signup.css')
+    title SignUp
+  body
+    .container
+      form#signup.form-horizontal(action='#', method='post')
+        input.form-control(name='email', placeholder='邮箱', type='text')
+        input.form-control(name='password', placeholder='密码', type='text')
+        input.form-control(name='confirm', placeholder='确认密码', type='text')
+        button.btn(type='submit') 注册
