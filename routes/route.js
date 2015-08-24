@@ -2,7 +2,7 @@
 
 exports.setRoutes = function(app) {
   app.use('/', require('./routers/index'));
-  app.use('/user/courses_1/chapter_1', require('./routers/user/courses/chapters/chapter-1'));
+  app.use('/courses/:course_id/chapters/:chapter_id', require('./routers/user/courses/chapters/chapter'));
 
   app.use('/user/:course_id', require('./routers/user/courses/course'));
 
