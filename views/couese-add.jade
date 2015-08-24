@@ -1,0 +1,66 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    link(rel='stylesheet', href='../../public/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../../public/stylesheets/course-add.css')
+    script(type='text/javascript', src='../../public/components/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='../../public/components/bootstrap/dist/js/bootstrap.min.js')
+    title
+    script(type='text/javascript').
+      $(function(){
+        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li > span').on('click', function (e) {
+          var children = $(this).parent('li.parent_li').find(' > ul > li');
+          if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+          } else {
+            children.show('fast');
+            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+          }
+          e.stopPropagation();
+        });
+      });
+  body
+    form
+      section.container.well.panel-primary
+        h1 添加课程
+        ul
+          li
+            label 请输入课程名:
+            input(type='text')
+          li
+            label 请选择分类
+            .tree.well
+              ul
+                li
+                  span  分类
+                  ul
+                    li
+                      span  分类1
+                      ul
+                        li
+                          span  分类1-1
+                        li
+                          span  分类1-2
+                    li
+                      span  分类2
+                      ul
+                        li
+                          span  分类2-1
+                        li
+                          span 分类2-2
+                        li
+                          span  分类2-3
+          li
+            label 请输入课程简要信息
+          li
+            textarea(rows='3', cols='134')
+      section.container.well.panel-primary
+        .col-md-6
+          label 第1章节:
+          input(type='text')
+        .col-md-6
+          label 上传文件:
+          input(type='file', value='上传文件')
