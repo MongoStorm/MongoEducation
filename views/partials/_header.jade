@@ -1,2 +1,15 @@
+link(rel='stylesheet', href='/stylesheets/style.css')
 header
-  |demo
+  .navbar.navbar-default(role="navigation")
+    .navbar-header
+      a.navbar-brand(href='/')
+        .logo
+          img(src="/images/logo.png")
+
+    ul.nav.navbar-nav.navbar-right
+      li.active
+        a(href='/') 课程
+      li
+        a(href='/') 注册
+      li
+        a(href='/') 登陆
