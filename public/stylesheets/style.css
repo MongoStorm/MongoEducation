@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.logo {
+  padding-left: 50px;
+  display: inline;
+}
+.logo img {
+  height: 100%;
+}
+.navbar {
+  min-height: 70px;
+  line-height: 70px;
+}
+.nav > li > a {
+  padding: 24px 30px;
+}
+.navbar-brand {
+  padding: 0px 20px;
+  margin-top: 5px;
+  height: 60px;
+}
