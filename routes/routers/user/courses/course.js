@@ -3,8 +3,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.render('_course');
-});
+var CourseController = require('../../../../controllers/course-controller.js');
+
+var courseController = new CourseController();
+router.get('/', courseController.index);
 
 module.exports = router;
