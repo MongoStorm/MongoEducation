@@ -1,3 +1,56 @@
-//
-   Created by vermouth on 8/24/15.
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
+    title
+  body.container
+    .text-center
+      h1 我的课程
+    .input-group.col-xs-3.col-xs-push-9
+      input.form-control(type='text',placeholder="搜索")
+      span.input-group-btn
+        button.btn.btn-default(type='button')
+          span.glyphicon.glyphicon-search
+    div.text-left
+      button.col-xs-1.col-xs-push-9 删除
+      p
+        h4 课程1的名称
+      button.col-xs-1.col-xs-push-9 删除
+      p
+        h4 课程1的名称
+      button.col-xs-1.col-xs-push-9 删除
+      p
+        h4 课程1的名称
+      button.col-xs-1.col-xs-push-9 删除
+      p
+        h4 课程1的名称
+      button.col-xs-1.col-xs-push-9 删除
+      p
+        h4 课程1的名称
+    div.text-center
+      a.add(href='#').font-size-base
+        span.glyphicon.glyphicon-plus-sign
+        |新增课程
 
+    nav.text-center
+      ul.pagination
+        li
+          a(href='#', aria-label='上一页')
+            span(aria-hidden='true') 上一页
+        li.active
+          a(href='#') 1
+        li
+          a(href='#') 2
+        li
+          a(href='#') 3
+        li
+          a(href='#') 4
+        li
+          a(href='#') 5
+        li
+          a(href='#', aria-label='下一页')
+            span(aria-hidden='true') 下一页
+
+script(src='/components/jquery/dist/jquery.min.js')
+script(src='/components/bootstrap/dist/js/bootstrap.min.js')
