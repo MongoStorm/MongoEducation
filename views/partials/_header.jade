@@ -5,7 +5,7 @@ header
       a#logo.navbar-brand(href='/')
         .logo
           img(src="/images/logo.png")
-    .activate
+    .offline
       ul#navigation-list.nav.navbar-nav.navbar-right
         li.active
           a(href='/') 课程
@@ -13,3 +13,14 @@ header
           a(href='/login') 登录
         li
           a(href='/register') 注册
+    .online
+      ul#navigation-list.nav.navbar-nav.navbar-right
+        li.active
+          a(href='/') 课程
+        li.dropdown
+          a.dropdown-toggle(href='#')(data-toggle="dropdown")
+            .userInfo
+              b.caret
+          ul.dropdown-menu
+            li
+              a(href='/') 个人中心
