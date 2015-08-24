@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(rel='stylesheet', href='/stylesheets/nav-search.css')
+
+  .container
+    .row
+      form#custom-search-form.form-search.form-horizontal.pull-right
+        .input-append
+          input.search-query.mac-style(type='text', placeholder='搜索')
+          button.btn(type='submit')
+            i.glyphicon.glyphicon-search
+
