@@ -1,0 +1,12 @@
+extends layout
+block content
+  link(rel='stylesheet', href='/stylesheets/nav-search.css')
+  .container.container-fluid
+    .row
+      form#custom-search-form.pull-right
+        .form-inline
+          input.form-control.search-query(type='text', placeholder='搜索')
+          button.btn(type='submit')
+          i.glyphicon.glyphicon-search
+
+  include partials/_login
