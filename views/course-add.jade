@@ -2,10 +2,11 @@ doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
-    link(rel='stylesheet', href='../../public/components/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='../../public/stylesheets/course-add.css')
-    script(type='text/javascript', src='../../public/components/jquery/dist/jquery.min.js')
-    script(type='text/javascript', src='../../public/components/bootstrap/dist/js/bootstrap.min.js')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/course-add.css')
+    script(src='/components/jquery/dist/jquery.min.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
     title
     script(type='text/javascript').
       $(function(){
@@ -23,6 +24,7 @@ html(lang='en')
         });
       });
   body
+    include partials/_header.jade
     form
       section.container.well.panel-primary
         h1 添加课程
