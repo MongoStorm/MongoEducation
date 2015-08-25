@@ -6,6 +6,7 @@ $(document).ready(function () {
     last: '最后一页',
     totalPages: 35,
     visiblePages: 7,
+    href: '?page={{number}}',
     onPageClick: function (event, page) {
       //control page content
     }
