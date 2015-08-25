@@ -17,13 +17,13 @@
 }
 
 #signup button {
-  background-color: rgb(255,153,0);
+  background-color: rgba(255,153,0,1);
   border-radius: 30px;
   width: 200px;
 }
 
 #signup button:hover{
-  background-color: rgb(230, 138, 0);
+  background-color: rgba(230, 138, 0,1);
   border-radius: 30px;
   color: white;
   width: 200px;
