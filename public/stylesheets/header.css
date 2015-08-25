@@ -13,19 +13,23 @@ body{
   height: 100%;
 }
 #navigation {
-  min-height: 70px;
-  line-height: 70px;
+  min-height: 50px;
+  line-height: 50px;
 }
 #navigation-list {
   margin-right: 20px;
 }
 #navigation-list > li > a{
-  padding: 24px 30px;
+  padding: 10px 35px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #757584;
+  margin-top: 5px;
+  border-radius: 15px;
 }
 #logo{
-  padding: 0;
-  margin-top: 5px;
-  height: 60px;
+  padding: 3px;
+  height: 50px;
 }
 .offline{
   display:block;
