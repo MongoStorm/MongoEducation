@@ -3,9 +3,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.render('course-add');
-});
+var CourseAddControllerr = require('../../controllers/course-add');
+var courseAddControllerr = new CourseAddControllerr();
+router.get('/',courseAddControllerr.create );
 
 
 module.exports = router;
