@@ -15,8 +15,7 @@ exports.setRoutes = function(app) {
 
   app.use('/register',require('./routers/register'));
 
-  app.use('/login',require('./routers/login/login'));
 
-  app.use('/teacherProfile', require('./routers/teacher/profile.js'));
+  app.use('/teacherProfile', require('./routers/teacher/profile'));
 
 };
