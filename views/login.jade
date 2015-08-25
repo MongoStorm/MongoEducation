@@ -1,29 +1,31 @@
 extends layout
+
 block content
   .container
-    .container
-      .loginblock
-        .col-lg-6.col-sm-6.col-lg-offset-3
-          .btn-pref.btn-group.btn-group-justified.btn-group-lg(role='group', aria-label='...')
-            .btn-group(role='group')
-              button#stars.btn.btn-primary(type='button', href='#tab1', data-toggle='tab')
-                span(aria-hidden='true') 学生
-            .btn-group(role='group')
-              button#favorites.btn.btn-default(type='button', href='#tab2', data-toggle='tab')
-                span(aria-hidden='true') 老师
-          .well
-            .tab-content
-              #tab1.tab-pane.fade.in.active
-                form#login.form-horizontal(action='#', method='post')
-                  input.form-control(name='email', placeholder='邮箱', type='text')
-                  input.form-control(name='password', placeholder='密码', type='text')
-                  a(href='/register')
-                    p 没有帐号？立即注册
-                  button.btn(type='submit') 登录
-              #tab2.tab-pane.fade.in
-                form#login.form-horizontal(action='#', method='post')
-                  input.form-control(name='email', placeholder='工号', type='text')
-                  input.form-control(name='password', placeholder='密码', type='text')
-                  a(href='/register')
-                    p 没有帐号？立即注册
-                  button.btn(type='submit') 登录
+    .loginblock
+      .col-lg-6.col-sm-6.col-lg-offset-3
+        .btn-pref.btn-group.btn-group-justified.btn-group-lg(role='group', aria-label='...')
+          .btn-group(role='group')
+            button#stars.btn.btn-primary(type='button', href='#tab1', data-toggle='tab')
+              span(aria-hidden='true') 学生
+          .btn-group(role='group')
+            button#favorites.btn.btn-default(type='button', href='#tab2', data-toggle='tab')
+              span(aria-hidden='true') 老师
+        .well
+          .tab-content
+            #tab1.tab-pane.fade.in.active
+              form#login.form-horizontal(action='#', method='post')
+                input.form-control(name='email', placeholder='邮箱', type='text')
+                input.form-control(name='password', placeholder='密码', type='text')
+                a(href='/register')
+                  p 没有帐号？立即注册
+                button#submitbutton.btn(type='button') 登录
+            #tab2.tab-pane.fade.in
+              form#login.form-horizontal(action='#', method='post')
+                input.form-control(name='email', placeholder='工号', type='text')
+                input.form-control(name='password', placeholder='密码', type='text')
+                a(href='/register')
+                  p 没有帐号？立即注册
+                button#submitbutton.btn(type='button') 登录
+
+  script(src='js/login.js')
