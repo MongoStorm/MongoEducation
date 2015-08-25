@@ -20,12 +20,15 @@ body{
   margin-right: 20px;
 }
 #navigation-list > li > a{
-  padding: 10px 35px;
+  padding: 8px 35px;
   font-size: 15px;
   font-weight: bold;
   color: #757584;
-  margin-top: 5px;
-  border-radius: 15px;
+  margin: 7px 2px;
+  border-radius: 20px;
+}
+#navigation-list > li > a:hover{
+  background-color: #e7e7e7;
 }
 #logo{
   padding: 5px;
