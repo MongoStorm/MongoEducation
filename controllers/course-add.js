@@ -6,4 +6,4 @@ CourseAddController.prototype.create = function (req,res) {
   res.render('course-add');
 };
 
-module.exports = CourseAddControllerr;
+module.exports = CourseAddController;
