@@ -14,18 +14,18 @@ block content
         .well
           .tab-content
             #tab1.tab-pane.fade.in.active
-              form#login.form-horizontal(action='#', method='post')
-                input.form-control(id='userInput' ,name='email', placeholder='邮箱', type='text',value='')
-                input.form-control(id='password' ,name='password', placeholder='密码', type='text',value='')
+              form#login.form-horizontal(action='/login', method='post')
+                input.form-control(id='email' ,name='email', placeholder='邮箱', type='text',value='')
+                input.form-control(id='studentpassword' ,name='studentpassword', placeholder='密码', type='text',value='')
                 a(href='/register')
                   p 没有帐号？立即注册
-                button#submitbutton.btn(type='button') 登录
+                button#studentsubmit.btn(type='button') 登录
             #tab2.tab-pane.fade.in
-              form#login.form-horizontal(action='#', method='post')
-                input.form-control(id='userInput' ,name='email', placeholder='工号', type='text',value='')
-                input.form-control(id='password' ,name='password', placeholder='密码', type='text',value='')
+              form#login.form-horizontal(action='/login', method='post')
+                input.form-control(id='employeeId' ,name='employeeId', placeholder='工号', type='text',value='')
+                input.form-control(id='teacherpassword' ,name='teacherpassword', placeholder='密码', type='text',value='')
                 a(href='/register')
                   p 没有帐号？立即注册
-                button#submitbutton.btn(type='button') 登录
+                button#teachersubmit.btn(type='button') 登录
 
   script(src='js/login.js')
