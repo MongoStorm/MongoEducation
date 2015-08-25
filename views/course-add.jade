@@ -9,10 +9,10 @@ block content
         ul.list-unstyled.list-group
           li.list-group-item
             label 请输入课程名:
-            input.form-control(type='text')
+            input(type='text' placeholder='请输入课程名' name='course_name').form-control
           li.list-group-item
             label 请选择分类:
-            select.form-control
+            select(name='classification').form-control
               option 英语
               option 数学
               option 语文
@@ -21,23 +21,25 @@ block content
 
           li.list-group-item
             label 请输入课程简要信息
-            textarea.form-control(rows='3', cols='134')
+            textarea(rows='3' cols='134' name='course_desc' ).form-control
 
 
       section.container.well.panel-primary
         ul.list-unstyled.list-group
           li.list-group-item.col-md-12
             label 第1章节:
-            input(type='text').form-control
+            input(type='text' placeholder='请输入章节名').form-control
           li.list-group-item.col-md-12
             .col-md-12 上传文件:
-            input(type='file', value='上传文件').col-md-2.form-control
+            input(type='file' value='上传文件').col-md-2.form-control
             .col-md-11
-            input(type='button' id='update' value='上传').col-md-1.
+            input(type='button' id='update' value='上传').col-md-1.btn.btn-primary.btn-lg.text-right.sectionbk
 
           li.list-group
-            .col-md-5
-            input(type='button' id='addBtn'  value='新增').col-md-1
-            input(type='button' id='delete' value='删除').col-md-1
+            .col-md-11
+            input(type='button' id='addBtn' onclick='addChapter()' value='新增').col-md-1.btn.btn-primary.btn-lg.text-right.sectionbk
+
+      div#submit.container
+      input(type='submit' value='保存').btn.btn-primary.btn-lg.text-center.sectionbk
 
     script(src='/js/course-add.js')
