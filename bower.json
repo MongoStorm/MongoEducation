@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "twbs-pagination": "~1.2.5"
+    "twbs-pagination": "~1.2.5",
+    "jquery-cookie": "~1.4.1"
   }
 }
