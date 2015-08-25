@@ -1,16 +1,8 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
+extends layout
+
+block content
     link(rel='stylesheet', href='/stylesheets/course-add.css')
-    script(src='/components/jquery/dist/jquery.min.js')
-    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
-    script(src='/js/course-add.js')
-    title
-  body
-    include partials/_header.jade
+
     form
       section.container.well.panel-primary
         h1 添加课程
@@ -48,3 +40,4 @@ html(lang='en')
             input(type='button' id='addBtn'  value='新增').col-md-1
             input(type='button' id='delete' value='删除').col-md-1
 
+    script(src='/js/course-add.js')
