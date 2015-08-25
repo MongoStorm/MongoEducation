@@ -5,7 +5,7 @@ function ChapterController() {
 }
 
 ChapterController.prototype.detail = function(req,res) {
-  res.render('courses/chapters/chapter');
+  res.render('chapter');
 };
 
 module.exports = ChapterController;
