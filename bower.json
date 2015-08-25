@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "bootstrap-paginator": "~1.0.2",
     "jquery": "~2.1.4",
     "twbs-pagination": "~1.2.5"
   }
