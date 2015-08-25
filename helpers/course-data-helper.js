@@ -7,7 +7,7 @@ function CourseDataHelper() {
 CourseDataHelper.prototype.getCourseData = function(callback) {
 
   var mysql = require('mysql');
-  console.log(data);
+
   var connection = mysql.createConnection(data);
 
   connection.connect(function(err) {
@@ -26,12 +26,24 @@ CourseDataHelper.prototype.getCourseData = function(callback) {
   connection.query(select,function(err,rows) {
 
     courses = rows;
-    console.log(courses);
-    callback(courses);
+    var chapters = [];
+    var formatCourses = [];
+    for(var i = 0; i < courses.length; i++) {
+
+      if(chapters[courses[i].id]) {
+        chapters[courses[i].id].push({chapterName:courses[i].chapterName, videoUrl:courses[i].videoUrl });
+      }
+      else {
+        chapters[courses[i].id] = [];
+        chapters[courses[i].id].push({chapterName:courses[i].chapterName, videoUrl:courses[i].videoUrl });
+      }
+
+      formatCourses[courses[i].id-1] = {name:courses[i].name, description:courses[i].description,
+        chapters:chapters[courses[i].id]};
+
+    }
+    callback(formatCourses);
   });
-
-
-
 };
 
 module.exports = CourseDataHelper;
