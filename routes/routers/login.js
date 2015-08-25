@@ -2,9 +2,9 @@
 
 var express = require('express');
 var router = express.Router();
+var LoginController = require('../../controllers/login-controller.js');
 
-router.get('/', function(req, res) {
-  res.render('login');
-});
+var loginController = new LoginController();
+router.get('/',loginController.index);
 
 module.exports = router;
