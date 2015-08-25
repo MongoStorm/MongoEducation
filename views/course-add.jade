@@ -38,12 +38,13 @@ html(lang='en')
             label 第1章节:
             input(type='text').form-control
           li.list-group-item.col-md-12
-            label.col-md-12 上传文件:
+            .col-md-12 上传文件:
             input(type='file', value='上传文件').col-md-2.form-control
-            label.col-md-11
+            .col-md-11
             input(type='button' id='update' value='上传').col-md-1.
 
           li.list-group
-            input(type='button' id='new' onclick='addNew' value='新增').col-md-6
-            input(type='button' id='delete' value='删除').col-md-6
+            .col-md-5
+            input(type='button' id='addBtn'  value='新增').col-md-1
+            input(type='button' id='delete' value='删除').col-md-1
 
