@@ -4,19 +4,21 @@ block content
   link(rel='stylesheet', href='stylesheets/teacher-profile.css')
   link(rel='stylesheet', href='/stylesheets/nav-search.css')
   .container
-    .col-xs-10.text-center
+    .text-center
       h1 我的课程
     .row
       form#custom-search-form.pull-right
         .form-inline
           input.form-control.search-query(type='text', placeholder='搜索')
-          button.btn(type='submit')
+          button.btn.btn-default(type='button')
           i.glyphicon.glyphicon-search
-    ul#content.list-group.center-block
+    #content.center-block
       each course in courses
-        li.list-unstyled.list-group-item
-          h4(style='display: inline') #{course}
-          button.col-xs-1.col-xs-push-9 删除
+        .panel.panel-default.item
+          .panel-body
+            a(href='#').course
+              h4(style='display: inline') #{course}
+            button.btn.btn-danger.col-xs-1.col-xs-push-10 删除
     #addCourse.text-center
       a.add(href='#')
         span.glyphicon.glyphicon-plus-sign

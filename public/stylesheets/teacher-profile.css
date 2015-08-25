@@ -6,3 +6,11 @@
 #addCourse {
   height: 30px;
 }
+
+.course {
+  line-height: 35px;
+}
+
+.item {
+  margin: 5px;
+}
