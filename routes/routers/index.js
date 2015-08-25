@@ -12,9 +12,6 @@ router.get('/teacherProfile', function(req, res) {
   res.render('teacher-profile');
 });
 
-router.get('/courseadd', function(req, res) {
-  res.render('course-add');
-});
 
 
 module.exports = router;
