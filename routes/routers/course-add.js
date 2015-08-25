@@ -1,11 +1,11 @@
 'use strict';
 
 var express = require('express');
+var CourseAddController = require('../../controllers/course-add');
+
 var router = express.Router();
+var courseAddController = new CourseAddController();
 
-var CourseAddControllerr = require('../../controllers/course-add');
-var courseAddControllerr = new CourseAddControllerr();
-router.get('/',courseAddControllerr.create );
-
+router.get('/',courseAddController.create );
 
 module.exports = router;
