@@ -7,5 +7,9 @@ exports.setRoutes = function(app) {
   app.use('/user/:course_id', require('./routers/user/courses/course'));
 
   app.use('/login',require('./routers/login'));
+
   app.use('/courseadd',require('./routers/course-add'));
+
+  app.use('/register',require('./routers/register'));
+
 };
