@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 
-var HomeController = require('../../controllers/home-controller');
+var HomeController = require('../../controllers/home');
 
 
 var homeController = new HomeController();
