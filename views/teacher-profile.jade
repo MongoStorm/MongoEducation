@@ -1,9 +1,6 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
-    title
+extends layout
+
+block content
   body.container
     .text-center
       h1 我的课程
@@ -13,29 +10,18 @@ html
         button.btn.btn-default(type='button')
           span.glyphicon.glyphicon-search
     div.text-left
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
-      button.col-xs-1.col-xs-push-9 删除
-      p
-        h4 课程1的名称
+      each course in courses
+        button.col-xs-1.col-xs-push-8 删除
+        p
+          h4 #{course}
+
     div.text-center
-      a.add(href='#').font-size-base
+      a.add(href='#')
         span.glyphicon.glyphicon-plus-sign
         |新增课程
 
-      .pagination#page
+    .pagination#page
 
-script(src='/components/jquery/dist/jquery.min.js')
-script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+
 script(src='/components/bootstrap-paginator/build/bootstrap-paginator.min.js')
 script(src='/js/teacher-profile.js')
