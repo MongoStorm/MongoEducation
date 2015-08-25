@@ -7,7 +7,7 @@
   font-weight: 300;
   max-width: 400px;
   padding: 30px 30px 30px 30px;
-  margin: 30px auto 0 auto;
+  margin: 0 auto 0 auto;
   text-align: center;
 }
 
@@ -28,4 +28,10 @@
   color: white;
   width: 200px;
 
+}
+
+
+.loginbloack ul{
+  width: 400px;
+  margin:30px auto 0px auto;
 }
