@@ -11,3 +11,11 @@ db.Course.create({name: 'bootstrap', description: 'Bootstrap'}).then(function (b
       });
     });
 });
+
+db.Course.create({name: 'Sequlize', description: 'Sequelize is a promise-based ORM for Node.js and io.js. '});
+
+db.Teacher.create({EmployeeId: 131232113, password: '123456'}).then(function(teacher) {
+  db.Course.findAll().then(function(courses) {
+    teacher.setCourse(courses);
+  });
+});

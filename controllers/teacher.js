@@ -1,10 +1,20 @@
 'use strict';
+
+var TeacherHelper = require('../helpers/teacher-helper');
+
 function TeacherController() {
 
 }
 
 TeacherController.prototype.index = function(req, res) {
-  res.render('teacher-profile',{courses: ['第一个课程的名称','第二个课程的名称','第三个课程的名称']});
+  var teacherHelper = new TeacherHelper();
+
+  teacherHelper.queryCourses(function(courses){
+    console.log(courses);
+    res.render('teacher-profile',{courses: courses});
+  });
+
+
 };
 
 module.exports = TeacherController;
