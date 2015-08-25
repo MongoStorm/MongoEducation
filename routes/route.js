@@ -16,6 +16,6 @@ exports.setRoutes = function(app) {
   app.use('/register',require('./routers/register'));
 
 
-  app.use('/teacherProfile', require('./routers/profile'));
+  app.use('/profile', require('./routers/profile'));
 
 };
