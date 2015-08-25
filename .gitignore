@@ -148,3 +148,6 @@ bower_components
 ### Custom ###
 public/components/
 config/config.json
+
+### Ming's video ###
+public/1-2-en.mp4
