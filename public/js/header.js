@@ -1,6 +1,6 @@
 $(function () {
   var id = $.cookie('id');
-  if(id === 'null'){
+  if(id === 'null' || id === undefined){
     return;
   }
 
