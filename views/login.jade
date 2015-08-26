@@ -14,16 +14,16 @@ block content
         .well
           .tab-content
             #tab1.tab-pane.fade.in.active
-              form#login.form-horizontal(action='/login', method='post')
+              form#login.form-horizontal(action='/login', method='post',autocomplete="off")
                 input.form-control(id='email' ,name='email', placeholder='邮箱', type='text',value='')
-                input.form-control(id='studentpassword' ,name='studentpassword', placeholder='密码', type='text',value='')
+                input.form-control(id='studentpassword' ,name='studentpassword', placeholder='密码', type='password',value='')
                 a(href='/register')
                   p 没有帐号？立即注册
                 button#studentsubmit.btn(type='button') 登录
             #tab2.tab-pane.fade.in
-              form#login.form-horizontal(action='/login', method='post')
+              form#login.form-horizontal(action='/login', method='post',autocomplete="off")
                 input.form-control(id='employeeId' ,name='employeeId', placeholder='工号', type='text',value='')
-                input.form-control(id='teacherpassword' ,name='teacherpassword', placeholder='密码', type='text',value='')
+                input.form-control(id='teacherpassword' ,name='teacherpassword', placeholder='密码', type='password',value='')
                 a(href='/register')
                   p 没有帐号？立即注册
                 button#teachersubmit.btn(type='button') 登录
