@@ -37,6 +37,13 @@ module.exports = function(sequelize, DataTypes) {
 
             callback(result);
           });
+      },
+      deleteById: function(courseId, callback) {
+        this.destroy({
+          where: {
+            id: courseId
+          }
+        }).then(callback);
       }
     }
    });

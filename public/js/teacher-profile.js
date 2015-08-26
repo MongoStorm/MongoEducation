@@ -1,3 +1,5 @@
+'use strict';
+
 $(function () {
 
   $('.delete').on('click', function() {
@@ -6,6 +8,10 @@ $(function () {
       method: 'POST',
       data: {
         courseId: $(this).val()
+      },
+      context: this,
+      success: function() {
+        $(this).closest('.panel').remove();
       }
     });
   });
