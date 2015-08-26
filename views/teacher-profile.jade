@@ -17,8 +17,8 @@ block content
         .panel.panel-default.item
           .panel-body
             a(href='/courses/#{course.id}').course
-              h4(style='display: inline') #{course.name}
-            button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.id}').delete 删除
+              h4(style='display: inline') #{course.dataValues.name}
+            button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.dataValues.id}').delete 删除
     #addCourse.text-center
       a.add(href='/courseadd')
         span.glyphicon.glyphicon-plus-sign

@@ -26,9 +26,6 @@ $(function () {
     last: '最后一页',
     totalPages: pageCount,
     visiblePages: 7,
-    href: '?page={{number}}&count='+8,
-    onPageClick: function (event, page) {
-      //control page content
-    }
+    href: '?pageIndex={{number}}&pageSize='+8,
   });
 });

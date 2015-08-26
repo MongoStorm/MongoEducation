@@ -3,18 +3,18 @@
 var db = require('../models/index');
 
 function TeacherController() {
-  this.demo = 'test';
+
 }
 
 TeacherController.prototype.show = function(req, res) {
-  var page = req.query.page || 1;
-  var count = req.query.count || 8;
+  var pageIndex = req.query.pageIndex || 1;
+  var pageSize = req.query.pageSize || 8;
 
-  db.Course.findByTeacherId(page, count, function(courses){
+  db.Course.findByTeacherId(pageIndex, pageSize, function(courses){
     res.render('teacher-profile',{
-      "courses": courses.course,
+      "courses": courses.rows,
       "totalPages": courses.count,
-      "pageCount": Math.ceil(courses.count/count)
+      "pageCount": Math.ceil(courses.count / pageSize)
     });
   });
 
@@ -23,7 +23,7 @@ TeacherController.prototype.show = function(req, res) {
 TeacherController.prototype.delete = function(req, res) {
 
   db.Course.deleteById(req.body.courseId, function(){
-   res.send();
+    res.send();
   });
 };
 
