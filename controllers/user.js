@@ -33,10 +33,10 @@ User.prototype.submit = function (req, res) {
       if (isTrue) {
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
         res.cookie('id', userInput, {expires: new Date(Date.now() + 1800000)});
-        res.send({judge: true});
+        res.send({isTrue: true});
       }
       else {
-        res.send({judge: false});
+        res.send({isTrue: false});
       }
     });
   }
@@ -46,10 +46,10 @@ User.prototype.submit = function (req, res) {
       if (isTrue) {
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
         res.cookie('id', userInput, {expires: new Date(Date.now() + 1800000)});
-        res.send({judge: true});
+        res.send({isTrue: true});
       }
       else {
-        res.send({judge: false});
+        res.send({isTrue: false});
       }
     });
   }

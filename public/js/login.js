@@ -11,7 +11,7 @@ $(document).ready(function () {
       },
       dataType: "json",
       complete: function (data) {
-        if(data.responseJSON.judge){
+        if(data.responseJSON.isTrue){
          location.href='/';
         }
       }
@@ -31,7 +31,7 @@ $(document).ready(function () {
       },
       dataType: "json",
       complete: function (data) {
-        if(data.responseJSON.judge){
+        if(data.responseJSON.isTrue){
          location.href='/';
         }
       }
