@@ -8,7 +8,17 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       add:function(email,password){
          Student.create({email:email,password:password});
-        }
+        },
+      verify:function(email,password,callback){
+        this.findAll({
+          where: {
+            email: email,
+            password: password
+          }
+        }).then(function(data){
+          callback(data.length > 0);
+        })
+      }
     }
   });
   return Student;

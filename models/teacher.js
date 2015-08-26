@@ -8,6 +8,17 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Teacher.hasMany(models.Course, {as: 'Course'})
+      },
+      verify:function(employeeId,password,callback){
+
+        this.findAll({
+          where: {
+            employeeId: employeeId,
+            password: password
+          }
+        }).then(function(data){
+          callback(data.length > 0);
+        })
       }
     }
   });

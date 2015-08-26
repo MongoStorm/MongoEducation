@@ -12,8 +12,7 @@ $(document).ready(function () {
       dataType: "json",
       complete: function (data) {
         if(data.responseJSON.judge){
-          console.log(data);
-          window.location.href='/';
+         location.href='/';
         }
       }
     });
@@ -33,8 +32,7 @@ $(document).ready(function () {
       dataType: "json",
       complete: function (data) {
         if(data.responseJSON.judge){
-          console.log(data);
-          window.location.href='/';
+         location.href='/';
         }
       }
     });
