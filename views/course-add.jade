@@ -3,7 +3,7 @@ extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/course-add.css')
 
-    form(action='/teacher-profile')
+    form(action='/profile')
       section.container.well.panel-primary
         h1 添加课程
         ul.list-unstyled.list-group
@@ -28,16 +28,16 @@ block content
         ul.list-unstyled.list-group
           li.list-group-item.col-md-12
             label 第1章节:
-            input(type='text' placeholder='请输入章节名').form-control
+            input(type='text' placeholder='请输入章节名' name="chapter-1").form-control
           li.list-group-item.col-md-12
             .col-md-12 上传文件:
-            input(type='file' value='上传文件').col-md-2.form-control
+            input(type='file' value='上传文件' name='commit-file-1').col-md-2.form-control
             .col-md-5
             input(type='button' id='update' value='上传').col-md-1.btn.btn-primary.text-right.sectionbk
 
           li.list-group
             .col-md-10
-            input(type='button' id='addBtn' onclick='addChapter()' value='新增').col-md-1.btn.btn-primary.text-right.sectionbk
+            input(type='button' name='addBtn' onclick='addChapter()' value='新增').col-md-1.btn.btn-primary.text-right.sectionbk
 
       div#submit.container
         input(type='submit' value='保存').col-md-1.btn.btn-primary.text-center.sectionbk
