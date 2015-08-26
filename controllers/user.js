@@ -4,8 +4,8 @@ function User() {
 
 }
 
-User.prototype.create = function (req, res) {
-  //:TODO
+User.prototype.RegisterCreate = function (req, res) {
+  res.render('index')
 };
 
 User.prototype.loginIndex = function (req, res) {
