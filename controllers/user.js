@@ -1,5 +1,9 @@
 'use strict';
+
 var db = require('../models/index');
+
+
+var VerifyHelper = require('../helpers/verify-helper');
 
 function User() {
 
@@ -12,7 +16,6 @@ User.prototype.RegisterCreate = function (req, res) {
 };
 
 User.prototype.loginIndex = function (req, res) {
-
   res.render('login');
 };
 
@@ -21,7 +24,20 @@ User.prototype.RegisterIndex = function (req, res) {
 };
 
 User.prototype.submit = function (req, res) {
-  //:TODO
+  var userinput = req.body.data.userInput;
+  var password = req.body.data.password;
+  var user = req.body.data.user;
+
+  var verifyhelper = new VerifyHelper();
+  var isTrue = verifyhelper.verify(userinput,password,user);
+
+  if(isTrue){
+
+  }
+  else{
+
+  }
+
 };
 
 User.prototype.logout = function (req, res) {

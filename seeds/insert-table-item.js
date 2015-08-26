@@ -1,6 +1,7 @@
 'use strict';
 
 var db = require('../models/index');
+
 var video = require('../config/video.json');
 
 db.Course.create({name: 'bootstrap', description: 'Bootstrap'}).then(function (bootstrap) {
@@ -19,3 +20,19 @@ db.Teacher.create({EmployeeId: 131232113, password: '123456'}).then(function(tea
     teacher.setCourse(courses);
   });
 });
+
+
+
+db.Student.bulkCreate([
+  {email:'12345678@qq.com',password:'1234567'},
+  {email:'sialvsic@163.com',password:'123456'}
+]);
+
+db.Teacher.bulkCreate([
+  {EmployeeId:1,password:'123456'},
+  {EmployeeId:2,password:'123456'},
+  {EmployeeId:3,password:'123456'},
+  {EmployeeId:4,password:'123456'},
+  {EmployeeId:5,password:'123456'},
+  {EmployeeId:6,password:'123456'}
+]);

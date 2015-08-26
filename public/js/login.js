@@ -5,7 +5,8 @@ $(document).ready(function () {
       url: "/login",
       data: {
         userInput: $("#email").val(),
-        password: $("#studentpassword").val()
+        password: $("#studentpassword").val(),
+        userIdentity:'student'
       },
       dataType: "json",
       complete: function (data) {
@@ -22,7 +23,8 @@ $(document).ready(function () {
       url: "/login",
       data: {
         userInput: $("#employeeId").val(),
-        password: $("#teacherpassword").val()
+        password: $("#teacherpassword").val(),
+        userIdentity:'teacher'
       },
       dataType: "json",
       complete: function (data) {
