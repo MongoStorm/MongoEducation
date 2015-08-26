@@ -44,6 +44,9 @@ module.exports = function(sequelize, DataTypes) {
             id: courseId
           }
         }).then(callback);
+      },
+      interCourseData: function(name, description) {
+        this.create({name: name, description: description});
       }
     }
    });
