@@ -7,5 +7,7 @@ var user = new User();
 
 router.get('/', user.RegisterIndex);
 
+router.post('/',user.RegisterCreate);
+
 module.exports = router;
 
