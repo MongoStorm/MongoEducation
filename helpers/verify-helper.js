@@ -7,9 +7,8 @@ function VerifyHelper() {
   this.password;
 }
 
-
 VerifyHelper.prototype.verify = function (userinput, password, user, callback) {
-  
+
   if (user = 'student') {
     db.Student.findAll({
       where: {
@@ -21,6 +20,7 @@ VerifyHelper.prototype.verify = function (userinput, password, user, callback) {
     });
 
   }
+
   else if (user = 'teacher') {
     db.Teacher.findAll({
       where: {
@@ -31,8 +31,6 @@ VerifyHelper.prototype.verify = function (userinput, password, user, callback) {
       callback(evt.length > 0);
     });
   }
-
-
 };
 
 module.exports = VerifyHelper;
