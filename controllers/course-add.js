@@ -2,7 +2,7 @@
 
 function CourseAddController() {}
 
-CourseAddController.prototype.create = function (req,res) {
+CourseAddController.prototype.new = function (req,res) {
   res.render('course-add');
 };
 

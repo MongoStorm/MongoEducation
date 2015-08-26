@@ -6,6 +6,6 @@ var CourseAddController = require('../../controllers/course-add');
 var router = express.Router();
 var courseAddController = new CourseAddController();
 
-router.get('/',courseAddController.create );
+router.get('/',courseAddController.new );
 
 module.exports = router;
