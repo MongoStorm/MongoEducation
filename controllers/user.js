@@ -10,11 +10,12 @@ function User() {
 
 User.prototype.RegisterCreate = function (req, res) {
   db.Student.add(req.body.email,req.body.password);
-  console.log(req.body);
+
   res.render('index',{})
 };
 
 User.prototype.loginIndex = function (req, res) {
+
   res.render('login');
 };
 
@@ -23,19 +24,26 @@ User.prototype.RegisterIndex = function (req, res) {
 };
 
 User.prototype.submit = function (req, res) {
-  var userinput = req.body.data.userInput;
-  var password = req.body.data.password;
-  var user = req.body.data.user;
+
+  var userinput = req.body.userInput;
+  var password = req.body.password;
+  var user = req.body.user;
 
   var verifyhelper = new VerifyHelper();
-  var isTrue = verifyhelper.verify(userinput,password,user);
 
-  if(isTrue){
+  verifyhelper.verify(userinput,password,user,function(isTrue){
+    console.log(isTrue);
+    if(isTrue){
+      res.cookie('type', user, { expires: new Date(Date.now() + 1800000)});
+      res.cookie('id', userinput, { expires: new Date(Date.now() + 1800000)});
+      res.send({judge:true});
+    }
+    else{
+      res.send({judge:false});
+    }
+  });
 
-  }
-  else{
 
-  }
 
 };
 
