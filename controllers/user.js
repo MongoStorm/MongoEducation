@@ -27,12 +27,12 @@ User.prototype.submit = function (req, res) {
 
   var userinput = req.body.userInput;
   var password = req.body.password;
-  var user = req.body.user;
+  var user = req.body.userIdentity;
 
   var verifyhelper = new VerifyHelper();
 
   verifyhelper.verify(userinput,password,user,function(isTrue){
-    console.log(isTrue);
+
     if(isTrue){
       res.cookie('type', user, { expires: new Date(Date.now() + 1800000)});
       res.cookie('id', userinput, { expires: new Date(Date.now() + 1800000)});
