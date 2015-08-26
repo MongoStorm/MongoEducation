@@ -1,6 +1,6 @@
 $(function () {
   var id = $.cookie('id');
-  if(id === 'null' || id === undefined){
+  if(id === 'null' || id === undefined || id === ''){
     return;
   }
 
@@ -17,6 +17,6 @@ $(function () {
   $('#exit').on('click',function(){
     $.cookie('id',null);
     $.cookie('type',null);
-    window.location.href='localhost:3000';
+    window.location.href='/';
   });
 });
