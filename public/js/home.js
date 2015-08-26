@@ -2,9 +2,9 @@ $(document).ready(function () {
 
   var totalPages = $('#pagination').attr('totalPages');
   var query = $('form input').val();
-  if(query !== '') {
-    var href = '?page={{number}}&query='+ query;
-  }else{
+  if (query !== '') {
+    var href = '?page={{number}}&query=' + query;
+  } else {
     var href = '?page={{number}}';
   }
 
