@@ -8,7 +8,7 @@ var HomeController = require('../../controllers/home');
 
 var homeController = new HomeController();
 
-router.get('/', homeController.create);
+router.get('/', homeController.index);
 
 
 module.exports = router;

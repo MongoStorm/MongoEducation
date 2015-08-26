@@ -2,7 +2,7 @@
 
 function HomeController() {}
 
-HomeController.prototype.create = function (req,res) {
+HomeController.prototype.index = function (req,res) {
   res.render('index');
 };
 
