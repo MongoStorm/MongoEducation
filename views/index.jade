@@ -45,51 +45,24 @@ block content
         #menu3.tab-pane.fade
 
 
-
     hr
 
-    #page-content
-      .row
-        .col-lg-6
-          a.thumbnail(href="courses/1")
-            .row
-              img.col-lg-3(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
-              .col-lg-6
-                .course-name
-                  h3="英语"
-                .description
-                  h4="This is an English course"
+    -var courses = [{name:"数学1",id:1,description:"This is an English course"},{name:"数学2",id:2,description:"This is an English course"},{name:"数学3",id:3,description:"This is an English course"}]
 
+    #page-content.container.container-fluid
+      mixin course-item(name,index,description)
         .col-lg-6
-          a.thumbnail(href="courses/2")
+          a.thumbnail(href="courses/#{index}")
             .row
-              img.col-lg-3(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
-              .col-lg-6
+              img.col-lg-4.col-xs-4(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
+              .col-lg-8col-xs-8
                 .course-name
-                  h3="英语"
+                  h3= name
                 .description
-                  h4="This is an English course"
+                  h4= description
 
-
-      .row
-        .col-lg-6
-          a.thumbnail(href="courses/3")
-            .row
-              img.col-lg-3(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
-              .col-lg-6
-                .course-name
-                  h3="英语"
-                .description
-                  h4="This is an English course"
-        .col-lg-6
-          a.thumbnail(href="courses/4")
-            .row
-              img.col-lg-3(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
-              .col-lg-6
-                .course-name
-                  h3="英语"
-                .description
-                  h4="This is an English course"
+      each course in courses
+        +course-item(course.name,course.id,course.description)
 
     hr
 
