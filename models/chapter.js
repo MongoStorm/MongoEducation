@@ -5,9 +5,21 @@ module.exports = function(sequelize, DataTypes) {
     videoUrl: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
+      associate: function (models) {
         Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: 'CourseId'});
-      }
+      },
+    findChaptersData: function (callback) {
+      this.findAll({attributes: ['CourseId', 'name', 'videoUrl']})
+        .then(function (datas) {
+          var result = [];
+
+          datas.forEach(function(data) {
+            result.push(data.dataValues);
+          });
+
+          callback(result);
+        });
+    }
     }
   });
   return Chapter;
