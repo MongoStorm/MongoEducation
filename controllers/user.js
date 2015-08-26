@@ -2,7 +2,6 @@
 
 var db = require('../models/index');
 
-
 var VerifyHelper = require('../helpers/verify-helper');
 
 function User() {
