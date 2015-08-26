@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Course = sequelize.define('Course', {
     name: DataTypes.STRING,
     description: DataTypes.STRING
@@ -26,21 +26,41 @@ module.exports = function(sequelize, DataTypes) {
           .then(function (datas) {
             var result = [];
 
-            datas.forEach(function(data) {
+            datas.forEach(function (data) {
               result.push(data.dataValues);
             });
 
             callback(result);
           });
       },
-      deleteById: function(courseId, callback) {
+      deleteById: function (courseId, callback) {
         this.destroy({
           where: {
             id: courseId
           }
         }).then(callback);
+      },
+      interCourseData: function (name, description) {
+        this.create({name: name, description: description});
+      },
+      pageAll: function (pageSize, pageIndex, callback) {
+
+        this.findAndCountAll({offset: pageIndex * pageSize, limit: pageSize}).then(function (result) {
+          var totalPages = Math.ceil(result.count / pageSize);
+          var courses = result.rows;
+          callback(totalPages, courses);
+        });
+      },
+      queryAndPage: function (pageSize, pageIndex, query, callback) {
+
+        this.findAndCountAll({where:{name: {$like: '%' + query + '%'}},offset: pageIndex * pageSize, limit: pageSize}).then(function (result) {
+          var totalPages = Math.ceil(result.count / pageSize);
+          var courses = result.rows;
+          callback(totalPages, courses);
+        });
       }
+
     }
-   });
+  });
   return Course;
 };
