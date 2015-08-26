@@ -7,12 +7,11 @@ block content
 
   .container.container-fluid
     .row
-      form#custom-search-form.pull-right
+      form#custom-search-form.pull-right(action="/search",method="get")
         .form-inline
-          input.form-control.search-query(type='text', placeholder='搜索')
+          input.form-control.search-query(type='text',name="query",placeholder='搜索',value='#{query}')
           button.btn(type='submit')
           i.glyphicon.glyphicon-search
-
 
     .category
       ul.nav.nav-pills
@@ -69,5 +68,5 @@ block content
       ul#pagination.pagination(totalPages="#{totalPages}")
 
 
-  script(src="components/twbs-pagination/jquery.twbsPagination.min.js")
+  script(src="components/twbs-pagination/jquery.twbsPagination.js")
   script(src="js/home.js")

@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
   var totalPages = $('#pagination').attr('totalPages');
+  var query = $('form input').val();
+  if(query !== '') {
+    var href = '?page={{number}}&query='+ query;
+  }else{
+    var href = '?page={{number}}';
+  }
 
   $('#pagination').twbsPagination({
     first: '首页',
@@ -9,7 +15,7 @@ $(document).ready(function () {
     last: '最后一页',
     totalPages: totalPages,
     visiblePages: 7,
-    href: '?page={{number}}'
+    href: href
   });
 
 
