@@ -7,7 +7,8 @@ CourseAddController.prototype.new = function(req, res) {
 };
 
 CourseAddController.prototype.show = function(req, res) {
+
   res.render('teacher-profilr')
-}
+};
 
 module.exports = CourseAddController;
