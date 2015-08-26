@@ -7,27 +7,18 @@ block content
       h4
         | 所有课程
         span.glyphicon.glyphicon-chevron-right
-        | Bootstrap
+        |#{course.name}
     hr
     .container
       .row
         .col-lg-6
           h3 课程介绍
           p
-            | Bootstrap，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，
-            | 它简洁灵活，使得 Web 开发更加快捷。本教程将向您讲解 Bootstrap 框架的基础，通过学习这些内容，您将可
-            | 以轻松地创建 Web 项目。
+            |#{course.description}
         .col-lg-6
-          p
-            button.btn.btn-primary.btn-lg.btn-block(type='button', onClick="location.href='5'")
-              | 章节一
-          p
-            button.btn.btn-primary.btn-lg.btn-block(type='button', onClick="location.href='5'")
-              | 章节二
-          p
-            button.btn.btn-primary.btn-lg.btn-block(type='button', onClick="location.href='5'")
-              | 章节三
-          p
-            button.btn.btn-primary.btn-lg.btn-block(type='button', onClick="location.href='5'")
-              | 章节四
+          each chapter in course.chapters
+            p
+              button.btn.btn-primary.btn-lg.btn-block(type='button', onClick="location.href='5'")
+                | #{chapter.name}
+
 
