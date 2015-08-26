@@ -20,9 +20,6 @@ module.exports = function (sequelize, DataTypes) {
 
             callback(result);
           });
-      },
-      insertChapterData: function (name, courseId, videoUrl) {
-        this.create({name: name, CourseId: courseId, videoUrl:videoUrl});
       }
     }
   });
