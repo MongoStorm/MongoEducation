@@ -8,22 +8,31 @@ function VerifyHelper() {
 }
 
 
-VerifyHelper.prototype.verify = function (userinput, password, user) {
-
+VerifyHelper.prototype.verify = function (userinput, password, user, callback) {
+  
   if (user = 'student') {
     db.Student.findAll({
-      attributes: ['id', 'name'],
       where: {
-        TeacherId: 1
+        email: userinput,
+        password: password
       }
-    }).then(function (courses) {
-      callback(getCourses(courses));
+    }).then(function (evt) {
+      callback(evt.length > 0);
     });
 
   }
   else if (user = 'teacher') {
-
+    db.Teacher.findAll({
+      where: {
+        EmployeeId: userinput,
+        password: password
+      }
+    }).then(function (evt) {
+      callback(evt.length > 0);
+    });
   }
 
 
 };
+
+module.exports = VerifyHelper;
