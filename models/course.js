@@ -8,6 +8,22 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Course.hasMany(models.Chapter, {as: 'Chapter'});
         Course.belongsTo(models.Teacher,{as: 'Teacher'});
+      },
+      findByTeacherId: function(callback) {
+        this.findAll({
+          attributes:['id', 'name'],
+          where: {
+            TeacherId: 1
+          }
+        }).then(function(datas) {
+          var courses = [];
+
+          datas.forEach(function(data) {
+            courses.push(data.dataValues);
+          });
+
+          callback(courses);
+        });
       }
     }
   });
