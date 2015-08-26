@@ -3,7 +3,7 @@
 exports.setRoutes = function(app) {
   app.use('/', require('./routers/index'));
 
-  app.use('/chapters', require('./routers/chapter'));
+  app.use('/courses', require('./routers/chapter'));
 
   app.use('/courses', require('./routers/course'));
 
