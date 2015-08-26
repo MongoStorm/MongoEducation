@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: 'CourseId'});
       },
       findChaptersData: function (callback) {
-        this.findAll({attributes: ['CourseId', 'name', 'videoUrl']})
+        this.findAll({attributes: ['id', 'CourseId', 'name', 'videoUrl']})
           .then(function (datas) {
             var result = [];
 
