@@ -9,12 +9,12 @@ User.prototype.create = function (req, res) {
 };
 
 User.prototype.loginIndex = function (req, res) {
-  //:TODO
+
   res.render('login');
 };
 
-User.prototype.loginRegister = function (req, res) {
-  //:TODO
+User.prototype.RegisterIndex = function (req, res) {
+  res.render('register')
 };
 
 User.prototype.submit = function (req, res) {
