@@ -4,7 +4,8 @@ function ChapterController() {
 
 }
 
-ChapterController.prototype.detail = function(req,res) {
+ChapterController.prototype.show = function(req,res) {
+  console.log(req.params.chapter_id);
   res.render('chapter');
 };
 
