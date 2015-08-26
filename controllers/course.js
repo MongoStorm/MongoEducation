@@ -1,6 +1,6 @@
 'use strict';
 
-var CourseDataHelper = require('../helpers/course-data-helper');
+var db = require('../models/index');
 
 function CourseController() {
 
@@ -8,17 +8,16 @@ function CourseController() {
 
 CourseController.prototype.index = function(req,res) {
 
-  var courseDataHelper = new CourseDataHelper();
+  db.Course.findCoursesData(function(coursesData){
+     var courses = coursesData;
+    db.Chapter.findChaptersData(function(chaptersData){
 
-  courseDataHelper.getCourseData(function(courses) {
-    console.log(courses);
-    res.render('course',courses);
+       console.log(courses);
+       console.log(chaptersData);
+    });
   });
-  courseDataHelper.getChapterData(function(chapters) {
-    console.log(chapters);
-  });
 
-
+  res.render('course');
 };
 
 module.exports = CourseController;
