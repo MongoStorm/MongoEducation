@@ -14,11 +14,11 @@ User.prototype.RegisterCreate = function (req, res) {
 
 User.prototype.loginIndex = function (req, res) {
 
-  res.render('login');
+  res.render('./user/login');
 };
 
 User.prototype.RegisterIndex = function (req, res) {
-  res.render('register')
+  res.render('./user/register')
 };
 
 User.prototype.submit = function (req, res) {
