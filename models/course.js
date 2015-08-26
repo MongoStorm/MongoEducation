@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       findByTeacherId: function (page, count, callback) {
         this.findAndCount({
           where: {
-            TeacherId: 1
+            teacherId: 1
           },
           limit: count,
           offset: (page - 1) * count
