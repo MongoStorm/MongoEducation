@@ -5,6 +5,7 @@ function User() {
 }
 
 User.prototype.RegisterCreate = function (req, res) {
+  console.log(req.body);
   res.render('index')
 };
 
