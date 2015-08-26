@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(sequelize, DataTypes) {
   var Teacher = sequelize.define('Teacher', {
     EmployeeId: DataTypes.INTEGER,
