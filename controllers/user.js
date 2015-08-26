@@ -1,12 +1,14 @@
 'use strict';
+var db = require('../models/index');
 
 function User() {
 
 }
 
 User.prototype.RegisterCreate = function (req, res) {
+  db.Student.add(req.body.email,req.body.password);
   console.log(req.body);
-  res.render('index')
+  res.render('index',{})
 };
 
 User.prototype.loginIndex = function (req, res) {
