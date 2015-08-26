@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Chapter.belongsTo(models.Course,{as: 'Course', foreignKey: 'CourseId'});
+        Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: 'CourseId'});
       }
     }
   });
