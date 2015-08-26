@@ -11,7 +11,7 @@ TeacherController.prototype.show = function(req, res) {
   var pageSize = req.query.pageSize || 8;
 
   db.Course.findByTeacherId(pageIndex, pageSize, function(courses){
-    res.render('teacher-profile',{
+    res.render('teacher/show',{
       "courses": courses.rows,
       "totalPages": courses.count,
       "pageCount": Math.ceil(courses.count / pageSize)
