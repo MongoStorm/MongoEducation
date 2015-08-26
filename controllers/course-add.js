@@ -1,6 +1,7 @@
 'use strict';
 
-var db = require('../models/index');
+var Course = require('../models/index').Course;
+var Chapter = require('../models/index').Chapter;
 
 function CourseAddController() {}
 
@@ -9,8 +10,10 @@ CourseAddController.prototype.show = function(req, res) {
 };
 
 CourseAddController.prototype.new = function(req, res) {
-  db.Course.interCourseData(req.body.course_name, req.body.course_desc);
-
+  Course.create({name: req.body.course_name, description: req.body.course_desc});
+  for(var i = 0; i < req.body.chapter_name.length; i++) {
+    Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
+  }
   res.render('course-add');
 };
 
