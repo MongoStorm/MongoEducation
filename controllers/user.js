@@ -10,6 +10,7 @@ User.prototype.create = function (req, res) {
 
 User.prototype.loginIndex = function (req, res) {
   //:TODO
+  res.render('login');
 };
 
 User.prototype.loginRegister = function (req, res) {
