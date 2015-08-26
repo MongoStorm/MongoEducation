@@ -29,10 +29,10 @@ db.Student.bulkCreate([
 ]);
 
 db.Teacher.bulkCreate([
-  {EmployeeId:1,password:'123456'},
-  {EmployeeId:2,password:'123456'},
-  {EmployeeId:3,password:'123456'},
-  {EmployeeId:4,password:'123456'},
-  {EmployeeId:5,password:'123456'},
-  {EmployeeId:6,password:'123456'}
+  {employeeId:1,password:'123456'},
+  {employeeId:2,password:'123456'},
+  {employeeId:3,password:'123456'},
+  {employeeId:4,password:'123456'},
+  {employeeId:5,password:'123456'},
+  {employeeId:6,password:'123456'}
 ]);
