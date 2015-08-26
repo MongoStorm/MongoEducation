@@ -47,8 +47,6 @@ block content
 
     hr
 
-    -var courses = [{name:"数学1",id:1,description:"This is an English course"},{name:"数学2",id:2,description:"This is an English course"},{name:"数学3",id:3,description:"This is an English course"}]
-
     #page-content.container.container-fluid
       mixin course-item(name,index,description)
         .col-lg-6
@@ -61,13 +59,15 @@ block content
                 .description
                   h4= description
 
+
       each course in courses
         +course-item(course.name,course.id,course.description)
 
     hr
 
     .text-center
-      ul#pagination.pagination
+      ul#pagination.pagination(totalPages="#{totalPages}")
+
 
   script(src="components/twbs-pagination/jquery.twbsPagination.min.js")
   script(src="js/home.js")
