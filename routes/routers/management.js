@@ -6,6 +6,6 @@ var router = express.Router();
 
 var teacherController = new TeacherController();
 
-router.get('/', teacherController.index);
+router.get('/', teacherController.show);
 
 module.exports = router;
