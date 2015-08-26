@@ -18,7 +18,7 @@ block content
           .panel-body
             a(href='#').course
               h4(style='display: inline') #{course.name}
-            button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.id}') 删除
+            button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.id}').delete 删除
     #addCourse.text-center
       a.add(href='#')
         span.glyphicon.glyphicon-plus-sign

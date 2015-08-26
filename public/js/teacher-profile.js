@@ -1,4 +1,15 @@
 $(function () {
+
+  $('.delete').on('click', function() {
+    $.ajax({
+      url: '/management',
+      method: 'POST',
+      data: {
+        courseId: $(this).val()
+      }
+    });
+  });
+
   $('#pagination').twbsPagination({
     first: '首页',
     prev: '前一页',

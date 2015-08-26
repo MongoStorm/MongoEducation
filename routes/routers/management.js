@@ -8,4 +8,6 @@ var teacherController = new TeacherController();
 
 router.get('/', teacherController.show);
 
+router.post('/', teacherController.delete);
+
 module.exports = router;

@@ -12,6 +12,9 @@ TeacherController.prototype.show = function(req, res) {
     res.render('teacher-profile',{courses: courses});
   });
 
+};
+
+TeacherController.prototype.delete = function(req, res) {
 
 };
 
