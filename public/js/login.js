@@ -1,43 +1,34 @@
 $(document).ready(function () {
-  $('#studentsubmit').on('click',function(){
+  $('#studentsubmit').on('click', function () {
     $.ajax({
       type: "POST",
       url: "/login",
-      data: {userInput:$("#email").val(), password:$("#studentpassword").val()},
-      dataType: "json",
-      complete: function(data) {
-
+      data: {
+        userInput: $("#email").val(),
+        password: $("#studentpassword").val()
       },
-      statusCode: {
-        404: function() {
-          alert( "page not found" );
-        }
+      dataType: "json",
+      complete: function (data) {
+
       }
 
     });
   });
 
 
-  $('#teachersubmit').on('click',function(){
-
+  $('#teachersubmit').on('click', function () {
     $.ajax({
       type: "POST",
       url: "/login",
-      data: {userInput:$("#employeeId").val(), password:$("#teacherpassword").val()},
-      dataType: "json",
-      complete: function(data) {
-
+      data: {
+        userInput: $("#employeeId").val(),
+        password: $("#teacherpassword").val()
       },
+      dataType: "json",
+      complete: function (data) {
 
-      statusCode: {
-        404: function() {
-          alert( "page not found" );
-        }
       }
-
     });
   });
-
-
 });
 
