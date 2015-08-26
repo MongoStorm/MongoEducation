@@ -32,12 +32,18 @@
 
 }
 
-#email-error,#email-null{
+#email-error,
+#email-null,
+#password-error,
+#confirm-error{
   margin: 0 auto;
   padding: 0 20px;
   display: none;
 }
 
-#email-error small,#email-null small{
+#email-error small,
+#email-null small,
+#password-error small,
+#confirm-error small{
   margin: auto 10px;
 }
