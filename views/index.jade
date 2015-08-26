@@ -58,9 +58,11 @@ block content
                 .description
                   h4= description
 
-
-      each course in courses
-        +course-item(course.name,course.id,course.description)
+      if !courses.length
+        h3 0条课程
+      else
+        each course in courses
+          +course-item(course.name,course.id,course.description)
 
     hr
 
