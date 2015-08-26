@@ -25,7 +25,7 @@ $(document).ready(function(){
       $('#email-error').css('display', 'none');
       return ;
     }
-    
+
   });
 
   $('#sign-up').on('click',function(){
