@@ -3,10 +3,10 @@
 var express = require('express');
 var router = express.Router();
 
-var LoginController = require('../../controllers/login.js');
-var loginController = new LoginController();
+var User = require('../../controllers/user.js');
+var user = new User();
 
-router.get('/', loginController.index);
-router.post('/', loginController.submit);
+router.get('/', user.loginIndex);
+router.post('/', user.submit);
 
 module.exports = router;
