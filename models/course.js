@@ -10,17 +10,22 @@ module.exports = function(sequelize, DataTypes) {
         Course.hasMany(models.Chapter, {as: 'Chapter'});
         Course.belongsTo(models.Teacher, {as: 'Teacher'});
       },
-      findByTeacherId: function (callback) {
-        this.findAll({
+      findByTeacherId: function (page, count, callback) {
+        this.findAndCount({
           attributes: ['id', 'name'],
           where: {
             TeacherId: 1
-          }
+          },
+          limit: count,
+          offset: (page-1)*count
         }).then(function (datas) {
-          var courses = [];
+          var courses = {
+            count: datas.count,
+            course: []
+          };
 
-          datas.forEach(function (data) {
-            courses.push(data.dataValues);
+          datas.rows.forEach(function (data) {
+            courses.course.push(data.dataValues);
           });
 
           callback(courses);

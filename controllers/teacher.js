@@ -7,9 +7,15 @@ function TeacherController() {
 }
 
 TeacherController.prototype.show = function(req, res) {
+  var page = req.query.page || 1;
+  var count = req.query.count || 8;
 
-  db.Course.findByTeacherId(function(courses){
-    res.render('teacher-profile',{courses: courses});
+  db.Course.findByTeacherId(page, count, function(courses){
+    res.render('teacher-profile',{
+      "courses": courses.course,
+      "totalPages": courses.count,
+      "pageCount": Math.ceil(courses.count/count)
+    });
   });
 
 };

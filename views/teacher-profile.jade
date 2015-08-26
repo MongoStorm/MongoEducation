@@ -25,8 +25,8 @@ block content
         |新增课程
 
     .text-center
-      ul#pagination.pagination
-
+      ul#pagination.pagination(totalPages="#{totalPages}")
+    button#pageCount.hidden(type="button") #{pageCount}
 
   script(src="components/twbs-pagination/jquery.twbsPagination.min.js")
   script(src='js/teacher-profile.js')
