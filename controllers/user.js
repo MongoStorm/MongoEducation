@@ -24,4 +24,10 @@ User.prototype.submit = function (req, res) {
   //:TODO
 };
 
+User.prototype.logout = function (req, res) {
+  res.clearCookie('id', { path: '/' });
+  res.clearCookie('type', { path: '/' });
+  res.redirect('/');
+};
+
 module.exports = User;
