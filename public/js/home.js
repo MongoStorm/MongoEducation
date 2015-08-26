@@ -1,4 +1,6 @@
-$(document).ready(function () {
+'use strict';
+
+$(function () {
 
   var totalPages = $('#pagination').attr('totalPages');
   var query = $('form input').val();
@@ -17,6 +19,5 @@ $(document).ready(function () {
     visiblePages: 7,
     href: href
   });
-
 
 });
