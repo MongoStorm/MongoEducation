@@ -10,10 +10,10 @@ function addChapter(){
                       '<ul class="list-unstyled list-group"> ' +
                       '<li class="list-group-item col-md-12"> ' +
                       '<label name="chapterId">第'+chapterId+'章节:</label> ' +
-                      '<input type="text" name='+'"'+'chapter_'+chapterId+'"'+' class="form-control" placeholder="请输入章节名" />' +
+                      '<input type="text" name="chapter_name" class="form-control" placeholder="请输入章节名" />' +
                       '</li>' +
                       '<li class="list-group-item col-md-12"> <div class="col-md-12">上传文件:</div>' +
-                      '<input type="file" value="上传文件" name="'+'commit_file_'+chapterId+'" class="col-md-2 form-control"/>' +
+                      '<input type="file" value="上传文件" name="commit_file" class="col-md-2 form-control"/>' +
                       '<div class="col-md-5"> </div> ' +
                       '<input type="button" id="update" value="上传" class="col-md-1 btn btn-primary text-right sectionbk"/> ' +
                       '</li> ' +

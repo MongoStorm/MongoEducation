@@ -28,13 +28,10 @@ block content
         ul.list-unstyled.list-group
           li.list-group-item.col-md-12
             label(name='chapterId') 第1章节:
-            input(type='text' placeholder='请输入章节名' name="chapter_1").form-control
+            input(type='text' placeholder='请输入章节名' name="chapter_name").form-control
           li.list-group-item.col-md-12
             .col-md-12 上传文件:
-            input#fileupload(type='file', name='files[]', data-url='server/php/', multiple='')
-            #progress
-              .bar(style='width: 0%;')
-            input(type='file' value='上传文件' name='commit_file_1').col-md-2.form-control
+            input(type='file' value='上传文件' name='commit_file').col-md-2.form-control
             .col-md-5
             input(type='button' id='update' value='上传').col-md-1.btn.btn-primary.text-right.sectionbk
 
