@@ -1,3 +1,5 @@
+'use strict';
+
 $(function () {
   var id = $.cookie('id');
   var type = $.cookie('type');
