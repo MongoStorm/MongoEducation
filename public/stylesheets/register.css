@@ -20,6 +20,8 @@
   background-color: rgba(255,153,0,1);
   border-radius: 30px;
   width: 200px;
+  color: white;
+  outline: none;
 }
 
 #signup button:hover{
@@ -28,4 +30,14 @@
   color: white;
   width: 200px;
 
+}
+
+#email-error,#email-null{
+  margin: 0 auto;
+  padding: 0 20px;
+  display: none;
+}
+
+#email-error small,#email-null small{
+  margin: auto 10px;
 }
