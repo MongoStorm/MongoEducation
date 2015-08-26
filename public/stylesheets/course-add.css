@@ -1,3 +1,7 @@
 .sectionbk{
   background: rgba(255,153,0,1);
 }
+.bar {
+  height: 18px;
+  background: green;
+}

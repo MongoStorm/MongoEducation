@@ -10,6 +10,7 @@ CourseAddController.prototype.show = function(req, res) {
 
 CourseAddController.prototype.new = function(req, res) {
   db.Course.interCourseData(req.body.course_name, req.body.course_desc);
+
   res.render('course-add');
 };
 

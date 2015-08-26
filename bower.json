@@ -10,9 +10,10 @@
     "tests"
   ],
   "dependencies": {
+    "blueimp-file-upload": "blueimp-file-upload-node#~9.11.1",
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "twbs-pagination": "~1.2.5",
-    "jquery-cookie": "~1.4.1"
+    "jquery-cookie": "~1.4.1",
+    "twbs-pagination": "~1.2.5"
   }
 }
