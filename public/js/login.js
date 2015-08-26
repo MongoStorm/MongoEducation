@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $('#studentsubmit').on('click', function () {
+    console.log('student submit in ');
     $.ajax({
       type: "POST",
       url: "/login",
@@ -10,14 +11,17 @@ $(document).ready(function () {
       },
       dataType: "json",
       complete: function (data) {
-
+        if(data.responseJSON.judge){
+          console.log(data);
+          window.location.href='/';
+        }
       }
-
     });
   });
 
 
   $('#teachersubmit').on('click', function () {
+    console.log('tearch submit in ');
     $.ajax({
       type: "POST",
       url: "/login",
@@ -28,7 +32,10 @@ $(document).ready(function () {
       },
       dataType: "json",
       complete: function (data) {
-
+        if(data.responseJSON.judge){
+          console.log(data);
+          window.location.href='/';
+        }
       }
     });
   });
