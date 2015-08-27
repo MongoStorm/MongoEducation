@@ -1,8 +1,10 @@
 extends ../layout
 
-block content
+block head
   link(rel='stylesheet', href='/stylesheets/teacher-profile.css')
   link(rel='stylesheet', href='/stylesheets/nav-search.css')
+
+block content
   .container
     .text-center
       h1 我的课程
@@ -18,15 +20,23 @@ block content
           .panel-body
             a(href='/courses/#{course.id}').course
               h4(style='display: inline') #{course.dataValues.name}
-            button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.dataValues.id}').delete 删除
+            button.btn.btn-danger.col-xs-1.col-xs-push-10.delete(value='#{course.dataValues.id}', data-toggle='modal', data-target='deleteModal') 删除
     #addCourse.text-center
-      a.add(href='/course/new')
+      a.add(href='/management/courses/new')
         span.glyphicon.glyphicon-plus-sign
-        |新增课程
-
+        | 新增课程
     .text-center
       ul#pagination.pagination(totalPages="#{totalPages}")
     button#pageCount.hidden(type="button") #{pageCount}
-
+    #deleteModal.modal.fade(role='dialog', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+          .modal-body
+            | 确定要删除吗？
+          .modal-footer
+            button#delete.btn.btn-default(type='button') 删除
+            button#cancle.btn.btn-default(type='button', data-dismiss="modal") 放弃
+block foot
   script(src="/components/twbs-pagination/jquery.twbsPagination.min.js")
   script(src='/js/teacher-profile.js')
