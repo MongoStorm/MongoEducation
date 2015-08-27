@@ -13,14 +13,16 @@ router.get('/', homeController.index);
 
 router.get('/search',homeController.search);
 
-
 router.get('/login', user.loginIndex);
 router.post('/login', user.submit);
 
 router.get('/register', user.RegisterIndex);
 router.post('/register',user.RegisterCreate);
+router.post('/register/judge',user.RegisterJudge);
 
 router.get('/logout', user.logout);
+
+
 
 
 module.exports = router;
