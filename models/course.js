@@ -64,7 +64,8 @@ module.exports = function (sequelize, DataTypes) {
             datas.forEach(function (data) {
               result.push(data.dataValues);
             });
-            callback(result);
+
+            callback(result[result.length-1].id);
           });
       }
     }
