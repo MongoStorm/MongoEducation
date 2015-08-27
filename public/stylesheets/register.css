@@ -35,7 +35,8 @@
 #email-error,
 #email-null,
 #password-error,
-#confirm-error{
+#confirm-error,
+#email-repeat{
   margin: 0 auto;
   padding: 0 20px;
   display: none;
@@ -44,6 +45,7 @@
 #email-error small,
 #email-null small,
 #password-error small,
-#confirm-error small{
+#confirm-error small,
+#email-repeat small{
   margin: auto 10px;
 }
