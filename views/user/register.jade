@@ -20,10 +20,11 @@ block content
       input#confirm.form-control(name='confirm', placeholder='确认密码', type='password', value='')
       #confirm-error.text-danger.text-left
         small 两次密码不一致!
-      button#sign-up.btn(type='button') 注册
       #redirect
         small
           | 已有账号?
           a(href='/login') 立即登录
+      button#sign-up.btn(type='button') 注册
+
 block foot
   script(src='js/register.js')
