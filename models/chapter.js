@@ -12,7 +12,11 @@ module.exports = function (sequelize, DataTypes) {
       findChaptersData: function (callback) {
         this.findAll({attributes: ['id', 'courseId', 'name', 'videoUrl']})
           .then(function (datas) {
-            callback(datas);
+            var result = [];
+            datas.forEach(function(data) {
+              result.push(data.dataValues);
+            });
+            callback(result);
           });
       }
     }

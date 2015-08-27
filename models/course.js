@@ -28,7 +28,11 @@ module.exports = function (sequelize, DataTypes) {
       findCoursesData: function (callback) {
         this.findAll()
           .then(function (datas) {
-            callback(datas);
+            var result = [];
+            datas.forEach(function(data) {
+               result.push(data.dataValues);
+            });
+            callback(result);
           });
       },
       deleteById: function (courseId, callback) {
