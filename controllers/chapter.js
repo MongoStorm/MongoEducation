@@ -13,7 +13,7 @@ ChapterController.prototype.show = function(req,res) {
     var thisChapterId = parseInt(req.params.chapter_id);
 
     var thisChapters = chaptersInfo.filter(function(chapter){
-      return chapter.dataValues.courseId === thisCourseId
+      return chapter.dataValues.CourseId === thisCourseId
     });
 
     var thisVideoUrl = '';
