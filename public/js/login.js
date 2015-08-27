@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+  var email = false;
+  var password = false;
+  var employeeId = false ;
   $('#studentsubmit').on('click', function () {
 
     $.ajax({
@@ -38,6 +42,32 @@ $(document).ready(function () {
     });
   });
 
+  var $email = $('#email');
+  $($email).on('blur',function(){
+    if($email.val()===''){
+      $('#email-error').css('display', 'none');
+      $('#email-null').css('display', 'block');
+      return ;
+    }
+
+    var JUDGE = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+
+    if (JUDGE.test($email.val()) == false) {
+      $('#email-null').css('display', 'none');
+      $('#email-error').css('display', 'block');
+
+      return ;
+    } else {
+      $('#email-null').css('display', 'none');
+      $('#email-error').css('display', 'none');
+      email = true;
+      return ;
+    }
+
+
+  });
+
+
   $('#userTab').on('click',function(event){
     if(event.target.id === 'student'){
       $('#student').prop('class','btn btn-default current');
@@ -47,4 +77,5 @@ $(document).ready(function () {
       $('#teacher').prop('class','btn btn-default current');
     }
   });
+
 });

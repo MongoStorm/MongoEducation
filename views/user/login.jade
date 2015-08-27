@@ -16,6 +16,12 @@ block content
             #tab1.tab-pane.fade.in.active
               form#login.form-horizontal(action='/login', method='post',autocomplete="off")
                 input.form-control(id='email' ,name='email', placeholder='邮箱', type='text',value='')
+                #email-error.text-danger.text-left
+                  small 邮箱格式不正确!
+                #email-null.text-danger.text-left
+                  small 邮箱不能为空!
+                #email-repeat.text-danger.text-left
+                  small 邮箱已被注册!
                 input.form-control(id='studentpassword' ,name='studentpassword', placeholder='密码', type='password',value='')
                 a(href='/register')
                   p 没有帐号？立即注册
