@@ -10,7 +10,7 @@ router.get('/courses', teacherController.show);
 
 router.post('/courses', teacherController.delete);
 
-router.get('/courses/create',teacherController.create );
-router.post('/courses/new',teacherController.new);
+router.get('/courses/new',teacherController.new );
+router.post('/courses/create',teacherController.create);
 
 module.exports = router;
