@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Teacher = sequelize.define('Teacher', {
-    EmployeeId: DataTypes.INTEGER,
+    employeeId: DataTypes.INTEGER,
     password: DataTypes.STRING
   }, {
     classMethods: {
