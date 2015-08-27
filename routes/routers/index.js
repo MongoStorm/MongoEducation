@@ -24,5 +24,4 @@ router.post('/register/judge',user.isRepeat);
 
 router.get('/logout', user.logout);
 
-
 module.exports = router;

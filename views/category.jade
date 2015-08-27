@@ -1,4 +1,4 @@
-ul.nav.nav-pills
+ul.nav.nav-pills(parentId="#{parentId}")
   each category in categories
-    li
+    li(level="#{level}")
       a(data-toggle="pill",categoryId="#{category.id}", href="#{category.id}") #{category.name}

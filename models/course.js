@@ -42,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       pageAll: function (pageSize, pageIndex, callback) {
 
-        this.findAndCountAll({offset: pageIndex * pageSize, limit: pageSize}).then(function (result) {
+        this.findAndCountAll({offset: (pageIndex-1) * pageSize, limit: pageSize}).then(function (result) {
           var totalPages = Math.ceil(result.count / pageSize);
           var courses = result.rows;
           callback(totalPages, courses);
@@ -50,7 +50,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       queryAndPage: function (pageSize, pageIndex, query, callback) {
 
-        this.findAndCountAll({where:{name: {$like: '%' + query + '%'}},offset: pageIndex * pageSize, limit: pageSize}).then(function (result) {
+        this.findAndCountAll({where:{name: {$like: '%' + query + '%'}},offset: (pageIndex-1) * pageSize, limit: pageSize}).then(function (result) {
           var totalPages = Math.ceil(result.count / pageSize);
           var courses = result.rows;
           callback(totalPages, courses);
