@@ -15,7 +15,7 @@ CourseController.prototype.index = function(req,res) {
       var courseHelper = new CourseHelper();
       var viewData = courseHelper.getFormatData(courses,chapters);
       var id = req.params.course_id;
-      console.log(id);
+
       res.render('course',{course:viewData[id-1]});
     });
   });

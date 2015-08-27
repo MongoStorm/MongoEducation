@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $('#studentsubmit').on('click', function () {
-    console.log('student submit in ');
+
     $.ajax({
       type: "POST",
       url: "/login",
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 
   $('#teachersubmit').on('click', function () {
-    console.log('tearch submit in ');
+
     $.ajax({
       type: "POST",
       url: "/login",

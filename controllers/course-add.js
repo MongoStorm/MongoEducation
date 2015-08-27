@@ -59,7 +59,7 @@ CourseAddController.prototype.new = function(req, res) {
     var avatarName = Math.random() + '.' + extName;
     var newPath = form.uploadDir + avatarName;
 
-    console.log(newPath);
+
     fs.renameSync(files.fulAvatar.path, newPath);  //重命名
   });
 
