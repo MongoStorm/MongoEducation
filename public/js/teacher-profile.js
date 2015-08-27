@@ -11,7 +11,7 @@ $(function () {
 
   $('.delete').on('click', function() {
     $.ajax({
-      url: '/management',
+      url: '/management/courses',
       method: 'POST',
       data: {
         courseId: $(this).val()

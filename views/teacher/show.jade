@@ -1,13 +1,13 @@
 extends ../layout
 
 block content
-  link(rel='stylesheet', href='stylesheets/teacher-profile.css')
+  link(rel='stylesheet', href='/stylesheets/teacher-profile.css')
   link(rel='stylesheet', href='/stylesheets/nav-search.css')
   .container
     .text-center
       h1 我的课程
     .row
-      form#custom-search-form.pull-right(action='/management')
+      form#custom-search-form.pull-right(action='/management/courses')
         .form-inline
           input.form-control.search-query(type='text', name='search', placeholder='搜索', value='#{search}')#search
           button.btn.btn-default(type='button')
@@ -20,7 +20,7 @@ block content
               h4(style='display: inline') #{course.dataValues.name}
             button.btn.btn-danger.col-xs-1.col-xs-push-10(value='#{course.dataValues.id}').delete 删除
     #addCourse.text-center
-      a.add(href='/courseadd')
+      a.add(href='/course/new')
         span.glyphicon.glyphicon-plus-sign
         |新增课程
 
@@ -28,5 +28,5 @@ block content
       ul#pagination.pagination(totalPages="#{totalPages}")
     button#pageCount.hidden(type="button") #{pageCount}
 
-  script(src="components/twbs-pagination/jquery.twbsPagination.min.js")
-  script(src='js/teacher-profile.js')
+  script(src="/components/twbs-pagination/jquery.twbsPagination.min.js")
+  script(src='/js/teacher-profile.js')

@@ -13,10 +13,4 @@ exports.setRoutes = function(app) {
 
   app.use('/new',require('./routers/course-add'));
 
-
-
-
-
-  app.use('/management', require('./routers/management'));
-
 };
