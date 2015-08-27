@@ -18,7 +18,7 @@ router.post('/login', user.submit);
 
 router.get('/register', user.registerIndex);
 router.post('/register',user.addUser);
-router.post('/register/judge',user.RegisterJudge);
+router.post('/register/judge',user.isRepeat);
 
 router.get('/logout', user.logout);
 

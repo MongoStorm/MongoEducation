@@ -63,7 +63,7 @@ User.prototype.logout = function (req, res) {
   res.redirect('/');
 };
 
-User.prototype.RegisterJudge = function(req,res){
+User.prototype.isRepeat = function(req,res){
   db.Student.judge(req.param('email'),function(isExist){
     if(isExist){
       res.send({isExist:true});
