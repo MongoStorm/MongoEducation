@@ -5,3 +5,7 @@
   height: 18px;
   background: green;
 }
+.file-boxs{ position:relative;width:340px}
+.txts{ height:22px; border:1px solid #cdcdcd; width:200px;border-right:none;}
+.btns{ background-color:#FFF; border:1px solid #CDCDCD;height:26px; width:70px;}
+.files{ position:absolute; top:0; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
