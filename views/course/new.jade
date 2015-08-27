@@ -3,7 +3,7 @@ extends ../layout
 block content
     link(rel='stylesheet', href='/stylesheets/course-add.css')
 
-    form(method="post" action="/management/courses/create" enctype='multipart/form-data').form-signin
+    form(method="post" action="/management/courses/new" enctype='multipart/form-data').form-signin
       section.container.well.panel-primary
         h1 添加课程
         ul.list-unstyled.list-group
@@ -31,7 +31,7 @@ block content
             input(type='text' placeholder='请输入章节名' name="chapter_name").form-control
           li.list-group-item.col-md-12
             .col-md-12 上传文件:
-            input#fulAvatar.form-control(name='commit_file', type='file')
+            input#commit_file.form-control(name='commit_file', type='file')
             .col-md-3
           li.list-group
             .col-md-10
