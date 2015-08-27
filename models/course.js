@@ -61,6 +61,17 @@ module.exports = function (sequelize, DataTypes) {
           var courses = result.rows;
           callback(totalPages, courses);
         });
+      },
+      findLastId: function (callback) {
+        this.findAll({attributes: ['id']})
+          .then(function (datas) {
+            var result = [];
+
+            datas.forEach(function (data) {
+              result.push(data.dataValues);
+            });
+            callback(result);
+          });
       }
     }
   });
