@@ -2,7 +2,6 @@ $(document).ready(function () {
 
   var email = false;
   var password = false;
-  var employeeId = false;
 
   var $email = $('#email');
   $($email).on('blur', function () {
@@ -11,7 +10,6 @@ $(document).ready(function () {
       $('#email-null').css('display', 'block');
       return;
     }
-
     var JUDGE = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
 
     if (JUDGE.test($email.val()) == false) {
@@ -25,8 +23,6 @@ $(document).ready(function () {
       email = true;
       return;
     }
-
-
   });
 
   var PASSWORD = /^(\w){6,16}$/;
@@ -42,7 +38,6 @@ $(document).ready(function () {
     if (PASSWORD.test($password.val()) === false) {
       $('#password-null').css('display', 'none');
       $('#password-error').css('display', 'block');
-
       return;
     } else {
       $('#password-error').css('display', 'none');
@@ -75,7 +70,6 @@ $(document).ready(function () {
     });
 
   });
-
 
   $('#teachersubmit').on('click', function () {
 

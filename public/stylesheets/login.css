@@ -45,12 +45,12 @@
   padding: 0;
 }
 
-#student{
+#student {
   border-bottom-width: 0px;
   border-radius: 8px 8px 0px 0px;
 }
 
-#teacher{
+#teacher {
   border-bottom-width: 0px;
   border-radius: 8px 8px 0px 0px;
 }
@@ -79,11 +79,10 @@
   background-color: rgb(255, 255, 255);
 }
 
-
 #email-error,
 #email-null,
 #password-null,
-#password-error{
+#password-error {
   padding-left: 30px;
   display: none;
 }
@@ -91,11 +90,10 @@
 #email-error small,
 #email-null small,
 #password-error small,
-#password-null small{
+#password-null small {
   padding: 0 10px;
   margin: 0 auto;
 }
-
 
 #redirect {
   margin: 10px auto;
@@ -105,6 +103,6 @@
 
 }
 
-#redirect a{
+#redirect a {
   color: #E68A00;
 }

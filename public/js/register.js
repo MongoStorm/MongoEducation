@@ -2,8 +2,8 @@
 
 $(document).ready(function () {
   var email = false,
-      password = false,
-      confirm = false;
+    password = false,
+    confirm = false;
 
   var $email = $('#email');
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
       $('#email-repeat').css('display', 'none');
       $('#email-null').css('display', 'block');
 
-      return ;
+      return;
     }
 
     var JUDGE = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
@@ -24,13 +24,13 @@ $(document).ready(function () {
       $('#email-null').css('display', 'none');
       $('#email-error').css('display', 'block');
 
-      return ;
+      return;
     } else {
       $('#email-null').css('display', 'none');
       $('#email-error').css('display', 'none');
       $('#email-repeat').css('display', 'none');
       email = true;
-      return ;
+      return;
     }
 
   });
@@ -38,28 +38,28 @@ $(document).ready(function () {
   var PASSWORD = /^(\w){6,16}$/;
   var $password = $('#password');
 
-  $($password).on('blur',function(){
+  $($password).on('blur', function () {
 
     if (PASSWORD.test($password.val()) === false) {
       $('#password-error').css('display', 'block');
 
       return;
-    }else{
+    } else {
       $('#password-error').css('display', 'none');
       password = true;
     }
 
   });
 
-  $('#confirm').on('blur',function(){
+  $('#confirm').on('blur', function () {
 
     if ($password.val() !== $('#confirm').val()) {
 
       $('#confirm-error').css('display', 'block');
 
-      return ;
+      return;
 
-    }else{
+    } else {
 
       $('#confirm-error').css('display', 'none');
       confirm = true;
@@ -67,28 +67,28 @@ $(document).ready(function () {
   });
 
   $('#sign-up').on('click', function () {
-    if($email.val() === ''){
+    if ($email.val() === '') {
       $('#email-null').css('display', 'block');
-      return ;
+      return;
     }
-    if($password.val() === ''){
+    if ($password.val() === '') {
       $('#password-error').css('display', 'block');
-      return ;
+      return;
     }
-    if($('#confirm').val() === ''){
+    if ($('#confirm').val() === '') {
       $('#confirm-error').css('display', 'block');
 
-      return ;
+      return;
     }
-    if(email && password && confirm){
+    if (email && password && confirm) {
       $.post("/register/judge",
         {
           email: $email.val()
         },
-        function(res){
-          if(res.isExist){
+        function (res) {
+          if (res.isExist) {
             $('#email-repeat').css('display', 'block');
-          }else{
+          } else {
             $('form').submit();
           }
         });

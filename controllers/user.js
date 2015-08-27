@@ -7,7 +7,7 @@ function User() {
 }
 
 User.prototype.addUser = function (req, res) {
-  db.Student.add(req.body.email,req.body.password);
+  db.Student.add(req.body.email, req.body.password);
   res.cookie('type', 'student', {expires: new Date(Date.now() + 1800000)});
   res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});
   res.redirect('/')
@@ -29,7 +29,7 @@ User.prototype.submit = function (req, res) {
   var user = req.body.userIdentity;
 
   if (user === 'student') {
-    db.Student.verify(userInput, password,function (isTrue) {
+    db.Student.verify(userInput, password, function (isTrue) {
 
       if (isTrue) {
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
@@ -63,12 +63,12 @@ User.prototype.logout = function (req, res) {
   res.redirect('/');
 };
 
-User.prototype.isRepeat = function(req,res){
-  db.Student.judge(req.param('email'),function(isExist){
-    if(isExist){
-      res.send({isExist:true});
-    }else{
-      res.send({isExist:false});
+User.prototype.isRepeat = function (req, res) {
+  db.Student.judge(req.param('email'), function (isExist) {
+    if (isExist) {
+      res.send({isExist: true});
+    } else {
+      res.send({isExist: false});
     }
   });
 
