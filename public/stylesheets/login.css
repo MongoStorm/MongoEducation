@@ -2,11 +2,11 @@
   background-color: rgb(255, 255, 255);
 
   border-radius: 8px;
-  height: auto;
+  padding-top: 30px;
   color: #fff;
   font-weight: 300;
   max-width: 400px;
-
+  height: 250px;
   margin: 0 auto 0 auto;
   text-align: center;
 }
@@ -34,5 +34,14 @@
 .loginblock {
   width: 800px;
   margin:30px auto 0px auto;
+}
+
+.well{
+  padding: 0;
+}
+
+
+#student{
+  background-color: rgb(230, 138, 0);
 }
 
