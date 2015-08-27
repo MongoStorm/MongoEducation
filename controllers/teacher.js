@@ -38,9 +38,22 @@ TeacherController.prototype.new = function(req, res) {
 };
 
 TeacherController.prototype.create = function(req, res) {
-  db.Course.create({name: req.body.course_name, description: req.body.course_desc});
+  var courseId = 0;
+  db.Course.create({name: req.body.course_name, description: req.body.course_desc}).then(function(){
+    courseId = db.Course.findLastId(function(result){
+      courseId = result[result.length-1].id;
+    }).then(function(){
+      if(typeof(req.body.chapter_name) === 'string'){
+        db.Chapter.create({name: req.body.chapter_name, CourseId:courseId, videoUrl: req.body.commit_file});
+      }else {
+        for (var i = 0; i < req.body.chapter_name.length; i++) {
+          db.Chapter.create({name: req.body.chapter_name[i], CourseId: courseId, videoUrl: req.body.commit_file[i]});
+        }
+      }
+    });
+  });
   for(var i = 0; i < req.body.chapter_name.length; i++) {
-    db.Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
+    db.Chapter.create({name: req.body.chapter_name[i], CourseId:courseId, videoUrl: req.body.commit_file[i]});
   }
 
   var form = new formidable.IncomingForm();
@@ -53,7 +66,6 @@ TeacherController.prototype.create = function(req, res) {
   form.parse(req, function( fields, files) {
 
   });
-
   res.locals.success = '上传成功';
   res.render('course/new');
 };
