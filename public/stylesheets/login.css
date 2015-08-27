@@ -54,14 +54,14 @@
 }
 
 .other-options {
-  background-color: rgba(255, 153, 0, 1);
-  border-color: rgba(255, 153, 0, 1);
+  background-color: #AAAAAA;
+  border-color: #AAAAAA;
   color: #FFFFFF;
 }
 
 .other-options:hover {
-  background-color: rgba(230, 138, 0, 1);
-  border-color: rgba(230, 138, 0, 1);
+  background-color: #7D7D7D;
+  border-color: #7D7D7D;
   color: #FFFFFF;
 }
 
