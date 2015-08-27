@@ -4,7 +4,7 @@
   color: #fff;
   font-weight: 300;
   max-width: 400px;
-  height: 230px;
+  height: auto;
   margin: 0 auto 0 auto;
   text-align: center;
 }
@@ -15,7 +15,7 @@
 }
 
 #login button {
-  margin-top: 15px;
+  margin: 15px auto;
   background-color: rgb(255, 153, 0);
   border-radius: 30px;
   width: 200px;
@@ -38,7 +38,7 @@
 
 .well {
   background-color: rgb(255, 255, 255);
-  height: 250px;
+  height: auto;
   border-top-width: 0px;
   border-radius: 0px 0px 8px 8px;
   border-color: #CCC;
@@ -82,15 +82,27 @@
 #email-error,
 #email-null,
 #password-null,
-#password-error {
+#password-error,
+#password-length,
+#employeeId-null,
+#employeeId-error,
+#teacherpassword-null,
+#teacherpassword-length,
+#teacherpassword-error {
   padding-left: 30px;
   display: none;
 }
 
 #email-error small,
 #email-null small,
+#password-null small,
 #password-error small,
-#password-null small {
+#password-length small,
+#employeeId-null small,
+#employeeId-error small,
+#teacherpassword-null small,
+#teacherpassword-length small,
+#teacherpassword-error small{
   padding: 0 10px;
   margin: 0 auto;
 }
