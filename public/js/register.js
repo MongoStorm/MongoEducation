@@ -29,9 +29,7 @@ $(document).ready(function(){
   });
 
   $('#sign-up').on('click',function(){
-
-
-
+    
     var PASSWORD = /^(\w){6,20}$/;
     var $password = $('#password').val();
     if(PASSWORD.test($password) === false){
