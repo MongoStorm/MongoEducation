@@ -1,4 +1,8 @@
 extends ../layout
+
+block head
+  link(rel='stylesheet', href='/stylesheets/register.css')
+
 block content
 
   .container
@@ -21,4 +25,5 @@ block content
         small
           | 已有账号?
           a(href='/login') 立即登录
+block foot
   script(src='js/register.js')
