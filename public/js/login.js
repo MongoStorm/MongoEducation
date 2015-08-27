@@ -37,5 +37,14 @@ $(document).ready(function () {
       }
     });
   });
-});
 
+  $('#userTab').on('click',function(event){
+    if(event.target.id === 'student'){
+      $('#student').prop('class','btn current');
+      $('#teacher').prop('class','btn btn-default');
+    }else if(event.target.id === 'teacher'){
+      $('#student').prop('class','btn btn-default');
+      $('#teacher').prop('class','btn current');
+    }
+  });
+});

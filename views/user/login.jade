@@ -6,11 +6,11 @@ block content
       .col-lg-6.col-sm-6.col-lg-offset-3
         #userTab.btn-pref.btn-group.btn-group-justified.btn-group-lg(role='group', aria-label='...')
           .btn-group(role='group')
-            button#student.btn.btn-primary(type='button', href='#tab1', data-toggle='tab')
-              span(aria-hidden='true') 学生
+            button#student.btn.current(type='button', href='#tab1', data-toggle='tab')
+              | 学生
           .btn-group(role='group')
             button#teacher.btn.btn-default(type='button', href='#tab2', data-toggle='tab')
-              span(aria-hidden='true') 老师
+              | 老师
         .well
           .tab-content
             #tab1.tab-pane.fade.in.active
