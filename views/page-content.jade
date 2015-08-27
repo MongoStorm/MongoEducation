@@ -15,6 +15,7 @@ if !courses.length
 else
   each course in courses
     +course-item(course.name,course.id,course.description,course.categoryId)
+    
 
-.text-center
+.text-center.col-lg-12
   ul#pagination.pagination(totalPages="#{totalPages}")
