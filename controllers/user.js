@@ -8,8 +8,9 @@ function User() {
 
 User.prototype.RegisterCreate = function (req, res) {
   db.Student.create({email: req.body.email, password: req.body.password});
-
-  res.render('index');
+  res.cookie('type', 'student', {expires: new Date(Date.now() + 1800000)});
+  res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});
+  res.redirect('/')
 };
 
 User.prototype.loginIndex = function (req, res) {
