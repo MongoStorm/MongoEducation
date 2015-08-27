@@ -36,3 +36,5 @@ db.Teacher.bulkCreate([
   {employeeId:5,password:'123456'},
   {employeeId:6,password:'123456'}
 ]);
+
+
