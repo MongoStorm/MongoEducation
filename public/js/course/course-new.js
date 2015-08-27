@@ -6,6 +6,24 @@ $(function () {
     addChapter();
   });
 
+  $('#category_parent').on('change',function(){
+    if($('#category_parent').val()=='语文') {
+      $('#category_child').empty();
+      $('#category_child').append('<option>作文</option>' +
+                                  '<option>诗词</option>')
+    }
+    else if($('#category_parent').val()=='数学') {
+      $('#category_child').empty();
+      $('#category_child').append('<option>几何</option>' +
+                                  '<option>应用题</option>')
+    }
+    else if($('#category_parent').val()=='英语') {
+      $('#category_child').empty();
+      $('#category_child').append('<option>语法</option>' +
+                                  '<option>口语</option>')
+    }
+  });
+
 });
 
 function addChapter(){
