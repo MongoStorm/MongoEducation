@@ -8,10 +8,12 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       verify: function (email, password, callback) {
+        var salt = bcrypt.genSaltSync(8);
+        var hash = bcrypt.hashSync(password,salt,null);
         this.findAll({
           where: {
             email: email,
-            password: password
+            password: hash
           }
         }).then(function (data) {
           callback(data.length > 0);
@@ -28,9 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       add:function(email,password){
         var salt = bcrypt.genSaltSync(8);
-        console.log(salt);
         var hash = bcrypt.hashSync(password,salt,null);
-        console.log(hash);
         this.create({email: email, password: hash});
       }
     }
