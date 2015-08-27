@@ -1,6 +1,9 @@
 'use strict';
 
 $(document).ready(function () {
+  var email = false,
+      password = false,
+      confirm = false;
 
   var $email = $('#email');
 
@@ -23,6 +26,7 @@ $(document).ready(function () {
     } else {
       $('#email-null').css('display', 'none');
       $('#email-error').css('display', 'none');
+      email = true;
       return ;
     }
 
@@ -34,15 +38,12 @@ $(document).ready(function () {
   $($password).on('blur',function(){
 
     if (PASSWORD.test($password.val()) === false) {
-      $('#email-error').css('display', 'none');
-      $('#email-null').css('display', 'none');
       $('#password-error').css('display', 'block');
 
       return;
     }else{
-      $('#email-error').css('display', 'none');
-      $('#email-null').css('display', 'none');
       $('#password-error').css('display', 'none');
+      password = true;
     }
 
   });
@@ -50,18 +51,15 @@ $(document).ready(function () {
   $('#confirm').on('blur',function(){
 
     if ($password.val() !== $('#confirm').val()) {
-      $('#email-error').css('display', 'none');
-      $('#email-null').css('display', 'none');
-      $('#password-error').css('display', 'none');
+
       $('#confirm-error').css('display', 'block');
 
       return ;
 
     }else{
-      $('#email-error').css('display', 'none');
-      $('#email-null').css('display', 'none');
-      $('#password-error').css('display', 'none');
+
       $('#confirm-error').css('display', 'none');
+      confirm = true;
     }
   });
 
@@ -79,18 +77,20 @@ $(document).ready(function () {
 
       return ;
     }
+    if(email && password && confirm){
+      $.post("/register/judge",
+        {
+          email: $email.val()
+        },
+        function(isExist){
+          if(isExist){
+            $('#email-repeat').css('display', 'block');
+          }else{
+            $('form').submit();
+          }
+        });
+    }
 
-    $.post("/register/judge",
-      {
-        email: $email.val()
-      },
-      function(isExist){
-        if(isExist){
-          $('#email-repeat').css('display', 'block');
-        }else{
-          $('form').submit();
-        }
-      });
 
   });
 });
