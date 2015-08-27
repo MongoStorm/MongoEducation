@@ -18,7 +18,7 @@ User.prototype.loginIndex = function (req, res) {
   res.render('./user/login');
 };
 
-User.prototype.RegisterIndex = function (req, res) {
+User.prototype.registerIndex = function (req, res) {
   res.render('./user/register')
 };
 

@@ -16,7 +16,7 @@ router.get('/search',homeController.search);
 router.get('/login', user.loginIndex);
 router.post('/login', user.submit);
 
-router.get('/register', user.RegisterIndex);
+router.get('/register', user.registerIndex);
 router.post('/register',user.addUser);
 router.post('/register/judge',user.RegisterJudge);
 
