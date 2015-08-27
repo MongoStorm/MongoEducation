@@ -50,3 +50,8 @@
   border-color: rgba(230, 138, 0, 1);
   color: #FFFFFF;
 }
+
+.current:focus{
+  outline: none;
+  color: #FFFFFF;
+}
