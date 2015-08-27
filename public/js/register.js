@@ -11,6 +11,7 @@ $(document).ready(function () {
 
     if ($email.val() === '') {
       $('#email-error').css('display', 'none');
+      $('#email-repeat').css('display', 'none');
       $('#email-null').css('display', 'block');
 
       return ;
@@ -19,6 +20,7 @@ $(document).ready(function () {
     var JUDGE = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
 
     if (JUDGE.test($email.val()) == false) {
+      $('#email-repeat').css('display', 'none');
       $('#email-null').css('display', 'none');
       $('#email-error').css('display', 'block');
 
@@ -26,6 +28,7 @@ $(document).ready(function () {
     } else {
       $('#email-null').css('display', 'none');
       $('#email-error').css('display', 'none');
+      $('#email-repeat').css('display', 'none');
       email = true;
       return ;
     }
@@ -82,8 +85,8 @@ $(document).ready(function () {
         {
           email: $email.val()
         },
-        function(isExist){
-          if(isExist){
+        function(res){
+          if(res.isExist){
             $('#email-repeat').css('display', 'block');
           }else{
             $('form').submit();
