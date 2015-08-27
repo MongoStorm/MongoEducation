@@ -19,6 +19,8 @@
   background-color: rgb(255, 153, 0);
   border-radius: 30px;
   width: 200px;
+  outline: none;
+  color: #FFFFFF;
 }
 
 #login button:hover {
@@ -78,6 +80,18 @@
 }
 
 
-small{
- padding-left: 10px;
+#email-error,
+#email-null,
+#password-null,
+#password-error{
+  padding-left: 30px;
+  display: none;
+}
+
+#email-error small,
+#email-null small,
+#password-error small,
+#password-null small{
+  padding: 0 10px;
+  margin: 0 auto;
 }
