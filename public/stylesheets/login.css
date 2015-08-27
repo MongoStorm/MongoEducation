@@ -81,28 +81,28 @@
 
 #email-error,
 #email-null,
-#password-null,
-#password-error,
-#password-length,
+#studentPassword-null,
+#studentPassword-error,
+#studentPassword-length,
 #employeeId-null,
 #employeeId-error,
-#teacherpassword-null,
-#teacherpassword-length,
-#teacherpassword-error {
+#teacherPassword-null,
+#teacherPassword-length,
+#teacherPassword-error {
   padding-left: 30px;
   display: none;
 }
 
 #email-error small,
 #email-null small,
-#password-null small,
-#password-error small,
-#password-length small,
+#studentPassword-null small,
+#studentPassword-error small,
+#studentPassword-length small,
 #employeeId-null small,
 #employeeId-error small,
-#teacherpassword-null small,
-#teacherpassword-length small,
-#teacherpassword-error small{
+#teacherPassword-null small,
+#teacherPassword-length small,
+#teacherPassword-error small{
   padding: 0 10px;
   margin: 0 auto;
 }

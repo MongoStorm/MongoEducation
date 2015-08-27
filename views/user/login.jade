@@ -22,18 +22,18 @@ block content
                   small 邮箱格式不正确!
                 #email-null.text-danger.text-left
                   small 邮箱不能为空!
-                input.form-control(id='studentpassword' ,name='studentpassword', placeholder='密码', type='password',value='')
-                #password-null.text-danger.text-left
+                input.form-control(id='studentPassword' ,name='studentPassword', placeholder='密码', type='password',value='')
+                #studentPassword-null.text-danger.text-left
                   small 密码不能为空!
-                #password-length.text-danger.text-left
+                #studentPassword-length.text-danger.text-left
                   small 密码应大于6位小于17位
-                #password-error.text-danger.text-left
+                #studentPassword-error.text-danger.text-left
                   small 密码错误，请重新输入
                 #redirect
                   small
                     | 没有账号?
                     a(href='/register') 立即注册
-                button#studentsubmit.btn(type='button') 登录
+                button#studentSubmit.btn(type='button') 登录
 
             #tab2.tab-pane.fade.in
               form#login.form-horizontal(action='/login', method='post',autocomplete="off")
@@ -42,18 +42,18 @@ block content
                   small 工号不能为空!
                 #employeeId-error.text-danger.text-left
                   small 工号格式不正确
-                input.form-control(id='teacherpassword' ,name='teacherpassword', placeholder='密码', type='password',value='')
-                #teacherpassword-null.text-danger.text-left
+                input.form-control(id='teacherPassword' ,name='teacherPassword', placeholder='密码', type='password',value='')
+                #teacherPassword-null.text-danger.text-left
                   small 密码不能为空!
-                #teacherpassword-length.text-danger.text-left
+                #teacherPassword-length.text-danger.text-left
                   small 密码应大于6位小于17位
-                #teacherpassword-error.text-danger.text-left
+                #teacherPassword-error.text-danger.text-left
                   small 密码错误，请重新输入
                 #redirect
                   small
                     | 没有账号?
                     a(href='/register') 立即注册
-                button#teachersubmit.btn(type='button') 登录
+                button#teacherSubmit.btn(type='button') 登录
 
 block foot
   script(src='js/login.js')
