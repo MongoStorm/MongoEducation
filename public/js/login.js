@@ -111,7 +111,7 @@ $(function () {
         data: {
           userInput: $("#email").val(),
           password: $("#studentPassword").val(),
-          userIdentity: 'student'
+          userType: 'student'
         },
         dataType: "json",
         complete: function (data) {
@@ -136,7 +136,7 @@ $(function () {
         data: {
           userInput: $("#employeeId").val(),
           password: $("#teacherPassword").val(),
-          userIdentity: 'teacher'
+          userType: 'teacher'
         },
         dataType: "json",
         complete: function (data) {

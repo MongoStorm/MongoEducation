@@ -23,7 +23,7 @@ UserController.prototype.registerIndex = function (req, res) {
 UserController.prototype.submit = function (req, res) {
   var userInput = req.body.userInput;
   var password = req.body.password;
-  var user = req.body.userIdentity;
+  var user = req.body.userType;
 
   if (user === 'student') {
     db.Student.verify(userInput, password, function (isTrue) {
