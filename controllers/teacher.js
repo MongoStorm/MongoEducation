@@ -2,6 +2,8 @@
 
 var db = require('../models/index');
 var Course = require('../models/index').Course;
+var Chapter = require('../models/index').Chapter;
+
 
 var formidable = require('formidable');
 var fs = require('fs');
@@ -39,20 +41,18 @@ TeacherController.prototype.create = function(req, res) {
 };
 
 TeacherController.prototype.new = function(req, res) {
-  var courseId = 0;
-  db.Course.create({name: req.body.course_name, description: req.body.course_desc}).then(function(){
-    courseId = db.Course.findLastId(function(result){
-      courseId = parseInt(result[result.length-1].id);
-      console.log(courseId);
+  Course.create({name: req.body.course_name, description: req.body.course_desc}).then(function(){
+    db.Course.findLastId(function(currentId){
       if(typeof(req.body.chapter_name) === 'string'){
-        db.Chapter.create({name: req.body.chapter_name, CourseId:courseId, videoUrl: req.body.commit_file});
+        Chapter.create({name: req.body.chapter_name, CourseId:currentId, videoUrl: req.body.commit_file});
       }else {
         for (var i = 0; i < req.body.chapter_name.length; i++) {
-          db.Chapter.create({name: req.body.chapter_name[i], CourseId: courseId, videoUrl: req.body.commit_file[i]});
+          Chapter.create({name: req.body.chapter_name[i], CourseId: currentId, videoUrl: req.body.commit_file[i]});
         }
       }
     });
   });
+
 
   var form = new formidable.IncomingForm();
 
