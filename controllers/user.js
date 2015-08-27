@@ -29,7 +29,7 @@ User.prototype.submit = function (req, res) {
   var user = req.body.userIdentity;
 
   if (user === 'student') {
-    db.Student.verify(userInput, password, function (isTrue) {
+    db.Student.verify(userInput, password,function (isTrue) {
 
       if (isTrue) {
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
