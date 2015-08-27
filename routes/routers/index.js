@@ -11,7 +11,7 @@ var user = new User();
 
 router.get('/', homeController.index);
 
-router.get('/search',homeController.search);
+router.get('/page-content',homeController.page);
 
 router.get('/login', user.loginIndex);
 router.post('/login', user.submit);

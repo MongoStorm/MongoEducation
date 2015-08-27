@@ -25,7 +25,7 @@ function init() {
 
 function initPagination(currentPage,totalPages) {
   $('#pagination').remove();
-  $('.text-center').html('<div id="pagination" totalPages='+totalPages +'></div>');
+  $('.text-center').html('<div id="pagination" totalPages='+ totalPages +'></div>');
   $('#pagination').twbsPagination({
     startPage: currentPage,
     first: '首页',
@@ -37,7 +37,7 @@ function initPagination(currentPage,totalPages) {
     onPageClick: function (event, page) {
       $.get('/page-content',{page:page, query: $('#query').val()},function (result) {
         $('#page-content').html(result);
-        initPagination(currentPage+1,totalPages);
+        initPagination(page,totalPages);
       });
     }
   });

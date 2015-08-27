@@ -13,10 +13,13 @@ HomeController.prototype.index = function (req, res) {
 
 };
 
-HomeController.prototype.search = function (req, res) {
+HomeController.prototype.page = function (req, res) {
 
   Course.queryAndPage(8,req.query.page-1,req.query.query,function(totalPages,courses) {
-    res.render('index', {courses: courses, totalPages: totalPages, query: req.query.query});
+
+    console.log(courses);
+
+    res.render('page-content', {courses: courses, totalPages: totalPages});
   });
 
 };
