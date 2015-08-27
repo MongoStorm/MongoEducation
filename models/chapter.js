@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function (models) {
-        Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: {name:'id'}});
+        Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: 'courseId'});
       },
       findChaptersData: function (callback) {
         this.findAll({attributes: ['id', 'courseId', 'name', 'videoUrl']})
