@@ -1,9 +1,9 @@
 extends ../layout
 
 block head
-    link(rel='stylesheet', href='/stylesheets/course-create.css')
+    link(rel='stylesheet', href='/stylesheets/course/course-create.css')
 block content
-    form(method="post" action="/management/courses/new" ).form-signin
+    form(method="post" action="/management/courses/new"  ).form-signin
       section.container.well.panel-primary
         h1 添加课程
         ul.list-unstyled.list-group
@@ -40,7 +40,7 @@ block content
         input(type='submit' value='保存').col-md-1.btn.btn-primary.text-center.sectionbk
 
 block foot
-  script(src='/js/course-new.js')
+  script(src='/js/course/course-new.js')
   script(src='/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js')
   script(src='/components/blueimp-file-upload/js/jquery.iframe-transport.js')
   script(src='/components/blueimp-file-upload/js/jquery.fileupload.js')
