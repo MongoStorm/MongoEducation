@@ -3,8 +3,8 @@
 var db = require('../models/index');
 
 var formidable = require('formidable');
-
-var AVATAR_UPLOAD_FOLDER = '/components/video';
+var fs = require('fs');
+var UPLOAD_FOLDER = '/components/video';
 
 function TeacherController() {
 
@@ -38,23 +38,20 @@ TeacherController.prototype.new = function(req, res) {
 };
 
 TeacherController.prototype.create = function(req, res) {
-  //db.Course.create({name: req.body.course_name, description: req.body.course_desc});
-  ////for(var i = 0; i < (req.body.chapter_name).length; i++) {
-  ////  db.Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
-  ////}
+  db.Course.create({name: req.body.course_name, description: req.body.course_desc});
+  for(var i = 0; i < req.body.chapter_name.length; i++) {
+    db.Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
+  }
+
   var form = new formidable.IncomingForm();
+
   form.encoding = 'utf-8';
-  form.uploadDir = 'public' + AVATAR_UPLOAD_FOLDER;
+  form.uploadDir = 'public' + UPLOAD_FOLDER;
   form.keepExtensions = true;
   form.maxFieldsSize = 2 * 1024 * 1024;
 
   form.parse(req, function( fields, files) {
 
-    var extName = 'mp4';  //后缀名
-    var videoName = Math.random() + '.' + extName;
-    var newPath = form.uploadDir + videoName;
-
-    //fs.renameSync(files.fulAvatar.path, newPath);  //重命名
   });
 
   res.locals.success = '上传成功';
