@@ -11,9 +11,9 @@ block content
         .panel-body
           video#sampleVideo(src=thisVideoUrl)(width='890', height='500', controls='')
     .col-md-9.col-md-offset-1
-      button#last.btn.btn-default(name='last', type='button') 上一节
+      button#last.btn.btn-default(name='last', type='button')(value=lastChapterId) 上一节
     .col-md-1
-      button#next.btn.btn-default(name='next', type='button') 下一节
+      button#next.btn.btn-default(name='next', type='button')(value=nextChapterId) 下一节
 
 block foot
   script(src="/js/chapter.js")
