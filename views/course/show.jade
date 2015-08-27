@@ -1,0 +1,25 @@
+extends ../layout
+block content
+  .header
+    h1.text-center Bootstrap
+  hr
+  div
+    h4
+      | 所有课程
+      span.glyphicon.glyphicon-chevron-right
+      |#{course.name}
+  hr
+  .container
+    .row
+      .col-lg-6
+        h3 课程介绍
+        p
+          |#{course.description}
+      .col-lg-6
+          each chapter in course.chapters
+            p
+              button.gotoChapter.btn.btn-primary.btn-lg.btn-block(type='button')(value=chapter.id)(name = course.id)
+                | #{chapter.name}
+
+block foot
+  script(src="/js/course.js")
