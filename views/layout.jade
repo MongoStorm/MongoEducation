@@ -5,7 +5,6 @@ html
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
 
     link(rel='stylesheet', href='/stylesheets/register.css')
-    link(rel='stylesheet', href='/stylesheets/chapter.css')
 
     link(rel='stylesheet', href='/stylesheets/login.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
@@ -13,7 +12,10 @@ html
     script(src="/components/bootstrap/dist/js/bootstrap.min.js")
     script(src="/components/jquery/dist/jquery.min.js")
     script(src="/components/jquery-cookie/jquery.cookie.js")
+    block head
   body
     include partials/_header.jade
     block content
     include partials/_footer.jade
+
+  block foot
