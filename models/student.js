@@ -16,9 +16,7 @@ module.exports = function(sequelize, DataTypes) {
           if(data){
             var hash = data.dataValues.password;
             var isTrue = bcrypt.compareSync(password,hash);
-            if (isTrue){
-              callback(true);
-            }
+            isTrue === true ? callback(true):callback(false);
           }
           else{
             callback(false);
