@@ -36,11 +36,11 @@ TeacherController.prototype.delete = function(req, res) {
   });
 };
 
-TeacherController.prototype.create = function(req, res) {
+TeacherController.prototype.new = function(req, res) {
   res.render('course/create');
 };
 
-TeacherController.prototype.new = function(req, res) {
+TeacherController.prototype.create = function(req, res) {
   Course.create({name: req.body.course_name, description: req.body.course_desc}).then(function(){
     db.Course.findLastId(function(currentId){
       if(typeof(req.body.chapter_name) === 'string'){
