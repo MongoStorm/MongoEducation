@@ -95,3 +95,16 @@
   padding: 0 10px;
   margin: 0 auto;
 }
+
+
+#redirect {
+  margin: 10px auto;
+  color: #B8B8B8;
+  font-weight: bolder;
+  padding-left: 200px;
+
+}
+
+#redirect a{
+  color: #E68A00;
+}
