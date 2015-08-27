@@ -2,27 +2,27 @@
 
 var db = require('../models/index');
 
-function User() {
+function UserController() {
 
 }
 
-User.prototype.addUser = function (req, res) {
+UserController.prototype.addUser = function (req, res) {
   db.Student.add(req.body.email, req.body.password);
   res.cookie('type', 'student', {expires: new Date(Date.now() + 1800000)});
   res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});
   res.redirect('/')
 };
 
-User.prototype.loginIndex = function (req, res) {
+UserController.prototype.loginIndex = function (req, res) {
 
   res.render('./user/login');
 };
 
-User.prototype.registerIndex = function (req, res) {
+UserController.prototype.registerIndex = function (req, res) {
   res.render('./user/register')
 };
 
-User.prototype.submit = function (req, res) {
+UserController.prototype.submit = function (req, res) {
 
   var userInput = req.body.userInput;
   var password = req.body.password;
@@ -57,13 +57,13 @@ User.prototype.submit = function (req, res) {
 
 };
 
-User.prototype.logout = function (req, res) {
+UserController.prototype.logout = function (req, res) {
   res.clearCookie('id', {path: '/'});
   res.clearCookie('type', {path: '/'});
   res.redirect('/');
 };
 
-User.prototype.isRepeat = function (req, res) {
+UserController.prototype.isRepeat = function (req, res) {
   db.Student.judge(req.param('email'), function (isExist) {
     if (isExist) {
       res.send({isExist: true});
@@ -74,4 +74,4 @@ User.prototype.isRepeat = function (req, res) {
 
 };
 
-module.exports = User;
+module.exports = UserController;
