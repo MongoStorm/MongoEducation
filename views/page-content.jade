@@ -1,0 +1,17 @@
+mixin course-item(name,index,description)
+  .col-lg-6
+    a.thumbnail(href="courses/#{index}")
+      .row
+        img.col-lg-4.col-xs-4(height="100px" src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://img2.ph.126.net/-z6Ldz9KwPgshEdq6rQ2iw==/6608750978190047825.jpg_387x218x1x95.png")
+        .col-lg-8col-xs-8
+          .course-name
+            h3= name
+          .description
+            h4= description
+if !courses.length
+  h3 0条课程
+else
+  each course in courses
+    +course-item(course.name,course.id,course.description)
+.text-center
+  ul#pagination.pagination(totalPages="#{totalPages}")
