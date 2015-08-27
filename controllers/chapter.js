@@ -37,7 +37,7 @@ ChapterController.prototype.show = function(req,res) {
       }
     });
 
-    res.render('chapter',{
+    res.render('chapter/chapter',{
       thisCourseId : thisCourseId,
       thisVideoUrl : thisVideoUrl,
       lastChapterId : lastChapterId,
