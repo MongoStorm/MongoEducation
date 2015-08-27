@@ -6,9 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {
     classMethods: {
-      add:function(email,password){
-         Student.create({email:email,password:password});
-        },
       verify:function(email,password,callback){
         this.findAll({
           where: {
