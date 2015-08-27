@@ -1,12 +1,10 @@
 #login {
   background-color: rgb(255, 255, 255);
-
-  border-radius: 8px;
   padding-top: 30px;
   color: #fff;
   font-weight: 300;
   max-width: 400px;
-  height: 250px;
+  height: 230px;
   margin: 0 auto 0 auto;
   text-align: center;
 }
@@ -17,6 +15,7 @@
 }
 
 #login button {
+  margin-top: 15px;
   background-color: rgb(255, 153, 0);
   border-radius: 30px;
   width: 200px;
@@ -36,22 +35,44 @@
 }
 
 .well {
+  background-color: rgb(255, 255, 255);
+  height: 250px;
+  border-top-width: 0px;
+  border-radius: 0px 0px 8px 8px;
+  border-color: #CCC;
   padding: 0;
 }
 
-.current {
+#student{
+  border-bottom-width: 0px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+#teacher{
+  border-bottom-width: 0px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.other-options {
   background-color: rgba(255, 153, 0, 1);
   border-color: rgba(255, 153, 0, 1);
   color: #FFFFFF;
 }
 
-.current:hover {
+.other-options:hover {
   background-color: rgba(230, 138, 0, 1);
   border-color: rgba(230, 138, 0, 1);
   color: #FFFFFF;
 }
 
-.current:focus{
+.current:focus {
+  border-color: #CCC;
   outline: none;
-  color: #FFFFFF;
+  background-color: rgb(255, 255, 255);
+}
+
+.current:active {
+  border-color: #CCC;
+  outline: none;
+  background-color: rgb(255, 255, 255);
 }

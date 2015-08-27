@@ -40,11 +40,11 @@ $(document).ready(function () {
 
   $('#userTab').on('click',function(event){
     if(event.target.id === 'student'){
-      $('#student').prop('class','btn current');
-      $('#teacher').prop('class','btn btn-default');
+      $('#student').prop('class','btn btn-default current');
+      $('#teacher').prop('class','btn other-options');
     }else if(event.target.id === 'teacher'){
-      $('#student').prop('class','btn btn-default');
-      $('#teacher').prop('class','btn current');
+      $('#student').prop('class','btn other-options');
+      $('#teacher').prop('class','btn btn-default current');
     }
   });
 });
