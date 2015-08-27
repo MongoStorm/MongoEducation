@@ -7,16 +7,22 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {
     classMethods: {
-      verify: function (email, password, callback) {
-        var salt = bcrypt.genSaltSync(8);
-        var hash = bcrypt.hashSync(password,salt,null);
-        this.findAll({
+      verify: function (email,password, callback) {
+        this.find({
           where: {
-            email: email,
-            password: hash
+            email: email
           }
         }).then(function (data) {
-          callback(data.length > 0);
+          if(data){
+            var hash = data.dataValues.password;
+            var isTrue = bcrypt.compareSync(password,hash);
+            if (isTrue){
+              callback(true);
+            }
+          }
+          else{
+            callback(false);
+          }
         })
       },
       judge: function (email,callback) {
