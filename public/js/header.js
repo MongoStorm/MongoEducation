@@ -12,7 +12,7 @@ $(function () {
   $dropdownMenu.empty().prepend('<li><a id="exit" href="/logout">注销</a></li>');
 
   if (type === 'teacher') {
-    $dropdownMenu.prepend('<li><a href="/profile">个人中心</a></li>');
+    $dropdownMenu.prepend('<li><a href="/management">个人中心</a></li>');
   }
 
   $('.offline').css('display', 'none');
