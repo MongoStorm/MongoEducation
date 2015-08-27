@@ -1,6 +1,7 @@
 extends ../layout
 block head
   link(rel='stylesheet', href='/stylesheets/chapter.css')
+  script(src="/js/chapter.js")
 
 block content
   .container
@@ -17,5 +18,4 @@ block content
       if nextChapterId
         button#next.btn.btn-default(name='next', type='button')(value=nextChapterId) 下一节
 
-block foot
-  script(src="/js/chapter.js")
+
