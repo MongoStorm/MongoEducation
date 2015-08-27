@@ -5,7 +5,6 @@ $(function () {
   var search = '';
 
   $('#search').bind('keypress', 'enter', function(){
-    //TODO search data from course table
     $('#custom-search-form').submit();
   });
 
