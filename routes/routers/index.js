@@ -22,4 +22,5 @@ router.post('/register',user.RegisterCreate);
 
 router.get('/logout', user.logout);
 
+
 module.exports = router;
