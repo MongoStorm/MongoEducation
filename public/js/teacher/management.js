@@ -30,13 +30,10 @@ $(function () {
         success: function() {
 
           if($('#content>div').length <= 1) {
+            var pageInfo = parseUrl(location.search.substring(1));
+            var pageIndex = parseInt(pageInfo.pageIndex) - 1;
 
-            var queryString = location.search.split(/=|&/);
-            var pageIndex = (queryString[1]- 1 > 1) ? queryString[1]- 1 : 1;
-            var pageSize = queryString[3];
-            var search = queryString[5];
-
-            location.search = '?pageIndex=' + pageIndex + '&pageSize=' + pageSize + '&search=' + search;
+            location.search = '?pageIndex=' + pageIndex + '&pageSize=' + pageInfo.pageSize + '&search=' + pageInfo.search;
           }else{
             location.reload();
           }
@@ -49,7 +46,7 @@ $(function () {
   var pageCount = $('#pageCount').text();
 
   $pagination.twbsPagination({
-    first: '首页',
+    first: '第一页',
     prev: '前一页',
     next: '下一页',
     last: '最后一页',
@@ -57,4 +54,15 @@ $(function () {
     visiblePages: 7,
     href: '?pageIndex={{number}}&pageSize=' + 8 +  '&search=' + $search.val()
   });
+
+  function parseUrl(url) {
+    var pageInfo = {};
+    var parameters = url.split('&');
+
+    parameters.forEach(function(parameter) {
+      pageInfo[parameter.split('=')[0]] = parameter.split('=')[1];
+    });
+
+    return pageInfo;
+  }
 });

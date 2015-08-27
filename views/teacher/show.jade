@@ -17,7 +17,7 @@ block content
     #content.center-block
       each course in courses
         .panel.panel-default.item
-          .panel-body
+          .panel-body.course-list
             a(href='/courses/#{course.id}').course
               h4(style='display: inline') #{course.dataValues.name}
             button.btn.btn-danger.col-xs-1.col-xs-push-10.delete(value='#{course.dataValues.id}', data-toggle='modal', data-target='deleteModal') 删除
