@@ -1,0 +1,4 @@
+ul.nav.nav-pills
+  each category in categories
+    li
+      a(data-toggle="pill",categoryId="#{category.id}", href="#{category.id}") #{category.name}

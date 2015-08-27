@@ -16,11 +16,12 @@ HomeController.prototype.index = function (req, res) {
 HomeController.prototype.page = function (req, res) {
 
   Course.queryAndPage(8,req.query.page-1,req.query.query,function(totalPages,courses) {
-
-    console.log(courses);
-
     res.render('page-content', {courses: courses, totalPages: totalPages});
   });
+
+};
+
+HomeController.prototype.classify = function (req, res) {
 
 };
 
