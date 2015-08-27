@@ -34,7 +34,7 @@ TeacherController.prototype.delete = function(req, res) {
 };
 
 TeacherController.prototype.create = function(req, res) {
-  res.render('course/new');
+  res.render('course/create');
 };
 
 TeacherController.prototype.new = function(req, res) {
@@ -64,7 +64,7 @@ TeacherController.prototype.new = function(req, res) {
 
   });
   res.locals.success = '上传成功';
-  res.render('course/new');
+  res.render('course/create');
 };
 
 
