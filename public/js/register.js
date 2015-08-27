@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function () {
+$(function () {
   var email = false,
     password = false,
     confirm = false;

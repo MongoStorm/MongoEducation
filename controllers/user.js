@@ -3,7 +3,6 @@
 var db = require('../models/index');
 
 function UserController() {
-
 }
 
 UserController.prototype.addUser = function (req, res) {
@@ -14,7 +13,6 @@ UserController.prototype.addUser = function (req, res) {
 };
 
 UserController.prototype.loginIndex = function (req, res) {
-
   res.render('./user/login');
 };
 
@@ -23,7 +21,6 @@ UserController.prototype.registerIndex = function (req, res) {
 };
 
 UserController.prototype.submit = function (req, res) {
-
   var userInput = req.body.userInput;
   var password = req.body.password;
   var user = req.body.userIdentity;
@@ -42,7 +39,6 @@ UserController.prototype.submit = function (req, res) {
     });
   }
   else if (user === 'teacher') {
-
     db.Teacher.verify(userInput, password, function (isTrue) {
       if (isTrue) {
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
@@ -54,7 +50,6 @@ UserController.prototype.submit = function (req, res) {
       }
     });
   }
-
 };
 
 UserController.prototype.logout = function (req, res) {
@@ -71,7 +66,6 @@ UserController.prototype.isRepeat = function (req, res) {
       res.send({isExist: false});
     }
   });
-
 };
 
 module.exports = UserController;

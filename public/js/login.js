@@ -1,5 +1,6 @@
-$(document).ready(function () {
+'use strict';
 
+$(function () {
   var bemail = false;
   var bstudentPassword = false;
   var bemplyeeId = false;
@@ -19,15 +20,12 @@ $(document).ready(function () {
       hideBlock('#email-null');
       showBlock('#email-error');
       bemail = false;
-
     } else {
       hideBlock('#email-null');
       hideBlock('#email-error');
       bemail = true;
-
     }
   });
-
 
   var $studentPassword = $('#studentPassword');
   $($studentPassword).keydown(function () {
@@ -49,24 +47,20 @@ $(document).ready(function () {
       hideBlock('#studentPassword-error');
       hideBlock('#studentPassword-null');
       showBlock('#studentPassword-length');
-
       bstudentPassword = false;
     } else {
       hideBlock('#studentPassword-error');
       hideBlock('#studentPassword-length');
       hideBlock('#studentPassword-error');
-
       bstudentPassword = true;
     }
   });
-
 
   var $employeeId = $('#employeeId');
   $($employeeId).on('blur', function () {
     if ($employeeId.val() === '') {
       hideBlock('#employeeId-error');
       showBlock('#employeeId-null');
-
       bemplyeeId = false;
       return;
     }
@@ -75,17 +69,14 @@ $(document).ready(function () {
     if (validTeacherId.test($employeeId.val()) === false) {
       hideBlock('#employeeId-null');
       showBlock('#employeeId-error');
-
       bemplyeeId = false;
     }
     else {
       hideBlock('#employeeId-null');
       hideBlock('#employeeId-error');
-
       bemplyeeId = true;
     }
   });
-
 
   var $teacherPassword = $('#teacherPassword');
   $($teacherPassword).keydown(function () {
@@ -93,7 +84,6 @@ $(document).ready(function () {
       hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-length');
       showBlock('#teacherPassword-null');
-
       bteacherPassword = false;
       return;
     }
@@ -103,18 +93,15 @@ $(document).ready(function () {
       hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-null');
       showBlock('#teacherPassword-length');
-
       bteacherPassword = false;
     } else {
       hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-length');
       hideBlock('#teacherPassword-null');
-
       bteacherPassword = true;
     }
 
   });
-
 
   $('#studentSubmit').on('click', function () {
     if (bemail && bstudentPassword) {
@@ -163,7 +150,6 @@ $(document).ready(function () {
         }
       });
     }
-
   });
 
   $('#userTab').on('click', function (event) {
@@ -176,13 +162,11 @@ $(document).ready(function () {
     }
   });
 
-
-  function showBlock($blockName){
+  function showBlock($blockName) {
     $($blockName).css('display', 'block');
   }
 
-  function hideBlock($blockName){
+  function hideBlock($blockName) {
     $($blockName).css('display', 'none');
   }
-
 });
