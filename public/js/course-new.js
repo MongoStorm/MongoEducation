@@ -1,3 +1,5 @@
+'use strict';
+
 $(function () {
 
   $('input[name="addBtn"]').on('click',function(){
