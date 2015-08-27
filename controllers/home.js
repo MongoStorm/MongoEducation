@@ -1,6 +1,7 @@
 'use strict';
 
 var Course = require('../models/index').Course;
+var Category = require('../models/index').Category;
 
 function HomeController() {
 }
@@ -20,28 +21,11 @@ HomeController.prototype.page = function (req, res) {
 };
 
 HomeController.prototype.classify = function (req, res) {
-  var allCategories = [{id: 1,name:'1',parentId:0},
-    {id: 2,name:'2',parentId:0}, {id: 3,name:'3',parentId:0},
-    {id: 11,name:'11',parentId:1},{id: 12,name:'12',parentId:1},
-    {id: 21,name:'21',parentId:2},{id: 22,name:'22',parentId:2},
-    {id: 31,name:'31',parentId:3},{id:331,name:'331',parentId:31}
-  ];
 
-  function find(parentId) {
-    var result = [];
-    allCategories.forEach(function (item) {
+  Category.findAll({where: {parentId: req.query.id }}).then(function(categories) {
+    res.render('category', {parentId: req.query.id,level:+req.query.level+1,categories: categories});
+  });
 
-      if(item.parentId.toString() === parentId.toString() ) {
-        result.push(item);
-      }
-    });
-
-    return result;
-  }
-
-  var categories = find(req.query.id);
-
-  res.render('category', {parentId: req.query.id,level:+req.query.level+1,categories: categories});
 };
 
 module.exports = HomeController;
