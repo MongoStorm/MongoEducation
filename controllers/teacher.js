@@ -42,13 +42,17 @@ TeacherController.prototype.new = function(req, res) {
 
 TeacherController.prototype.create = function(req, res) {
   Course.create({name: req.body.course_name, description: req.body.course_desc}).then(function(){
-    db.Course.findLastId(function(currentId){
+    Course.findLastId(function(currentId){
       if(typeof(req.body.chapter_name) === 'string'){
+
         Chapter.create({name: req.body.chapter_name, CourseId:currentId, videoUrl: req.body.commit_file});
+
       }else {
+
         for (var i = 0; i < req.body.chapter_name.length; i++) {
           Chapter.create({name: req.body.chapter_name[i], CourseId: currentId, videoUrl: req.body.commit_file[i]});
         }
+
       }
     });
   });
@@ -62,7 +66,6 @@ TeacherController.prototype.create = function(req, res) {
   form.maxFieldsSize = 2 * 1024 * 1024;
 
   form.parse(req, function( fields, files) {
-
   });
   res.locals.success = '上传成功';
   res.render('course/create');
