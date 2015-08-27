@@ -8,14 +8,12 @@ block content
     .col-md-10.col-md-offset-1
       .panel.panel-default
         .panel-heading
-          button#return.btn.btn-default(name='return', type='button')(value=thisCourseId) 返回
+          button#return.btn.btn-default(name='return', type='button',value=thisCourseId) 返回
         .panel-body
-          video#sampleVideo(src=thisVideoUrl)(width='890', height='500', controls='')
+          video#sampleVideo(src=thisVideoUrl,width='890', height='500', controls='')
     .col-md-9.col-md-offset-1
       if lastChapterId
-        button#last.btn.btn-default(name='last', type='button')(value=lastChapterId) 上一节
+        button#last.btn.btn-default(name='last', type='button',value=lastChapterId) 上一节
     .col-md-1
       if nextChapterId
-        button#next.btn.btn-default(name='next', type='button')(value=nextChapterId) 下一节
-
-
+        button#next.btn.btn-default(name='next', type='button',value=nextChapterId) 下一节
