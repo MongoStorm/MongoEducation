@@ -1,5 +1,5 @@
 #signup {
-  background-color: rgb(255, 255, 255);
+  background-color: #FFFFFF;
 
   border-radius: 8px;
   height: auto;
@@ -17,7 +17,7 @@
 }
 
 #signup button {
-  background-color: rgba(255,153,0,1);
+  background-color: #FF9900;
   border-radius: 30px;
   width: 200px;
   color: white;
@@ -25,7 +25,7 @@
 }
 
 #signup button:hover{
-  background-color: rgba(230, 138, 0,1);
+  background-color: #E68A00;
   border-radius: 30px;
   color: white;
   width: 200px;
@@ -48,4 +48,15 @@
 #confirm-error small,
 #email-repeat small{
   margin: auto 10px;
+}
+
+#redirect {
+  margin: 10px auto;
+  color: #B8B8B8;
+  font-weight: bolder;
+
+}
+
+#redirect a{
+  color: #E68A00;
 }

@@ -17,8 +17,8 @@ block content
       #confirm-error.text-danger.text-left
         small 两次密码不一致!
       button#sign-up.btn(type='button') 注册
-      #login
+      #redirect
         small
           | 已有账号?
-          a 立即登录
+          a(href='/login') 立即登录
   script(src='js/register.js')
