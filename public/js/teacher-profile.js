@@ -2,8 +2,6 @@
 
 $(function () {
 
-  var search = '';
-
   $('#search').bind('keypress', 'enter', function(){
     $('#custom-search-form').submit();
   });
@@ -17,8 +15,17 @@ $(function () {
       },
       context: this,
       success: function() {
-        //TODO refresh th page or new request
-        location.reload();
+        if($('#content>div').length <= 1) {
+          
+          var queryString = location.search.split(/=|&/);
+          var pageIndex = (queryString[1]- 1 > 1) ? queryString[1]- 1 : 1;
+          var pageSize = queryString[3];
+          var search = queryString[5];
+
+          location.search = '?pageIndex=' + pageIndex + '&pageSize=' + pageSize + '&search=' + search;
+        }else{
+          location.reload();
+        }
       }
     });
   });
