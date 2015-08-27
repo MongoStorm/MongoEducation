@@ -7,11 +7,11 @@ block content
     .text-center
       h1 我的课程
     .row
-      form#custom-search-form.pull-right
+      form#custom-search-form.pull-right(action='/management')
         .form-inline
-          input.form-control.search-query(type='text', placeholder='搜索')
+          input.form-control.search-query(type='text', name='search', placeholder='搜索', value='#{search}')#search
           button.btn.btn-default(type='button')
-          i.glyphicon.glyphicon-search
+            i.glyphicon.glyphicon-search
     #content.center-block
       each course in courses
         .panel.panel-default.item

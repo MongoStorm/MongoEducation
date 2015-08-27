@@ -2,6 +2,13 @@
 
 $(function () {
 
+  var search = '';
+
+  $('#search').bind('keypress', 'enter', function(){
+    //TODO search data from course table
+    $('#custom-search-form').submit();
+  });
+
   $('.delete').on('click', function() {
     $.ajax({
       url: '/management',
@@ -11,7 +18,8 @@ $(function () {
       },
       context: this,
       success: function() {
-        $(this).closest('.panel').remove();
+        //TODO refresh th page or new request
+        location.reload();
       }
     });
   });
@@ -26,6 +34,6 @@ $(function () {
     last: '最后一页',
     totalPages: pageCount,
     visiblePages: 7,
-    href: '?pageIndex={{number}}&pageSize='+8,
+    href: '?pageIndex={{number}}&pageSize=' + 8 +  '&search=' + $('#search').val(),
   });
 });
