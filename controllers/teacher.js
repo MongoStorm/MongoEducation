@@ -14,11 +14,15 @@ function TeacherController() {
 }
 
 TeacherController.prototype.show = function(req, res) {
+
+  //TODO get teacherId from session, if not, redirect to login page
+  var teacherId = 1;
+
   var pageIndex = req.query.pageIndex || 1;
   var pageSize = req.query.pageSize || 8;
   var search = req.query.search || '';
 
-  Course.findByTeacherId(pageIndex, pageSize, search, function(instance){
+  Course.findByTeacherId(pageIndex, pageSize, search, teacherId, function(instance){
     res.render('teacher/show',{
       "courses": instance.rows,
       "totalPages": instance.count,

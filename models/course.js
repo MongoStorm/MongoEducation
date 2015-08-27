@@ -11,10 +11,10 @@ module.exports = function (sequelize, DataTypes) {
         Course.hasMany(models.Chapter);
         Course.belongsTo(models.Teacher, {as: 'Teacher'});
       },
-      findByTeacherId: function (page, count, search, callback) {
+      findByTeacherId: function (page, count, search, teacherId, callback) {
         this.findAndCount({
           where: {
-            teacherId: 1,
+            teacherId: teacherId,
             name: {
               $like:'%' + search + '%'
             }
