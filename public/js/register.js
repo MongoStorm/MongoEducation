@@ -35,7 +35,7 @@ $(document).ready(function () {
 
   });
 
-  var PASSWORD = /^(\w){6,20}$/;
+  var PASSWORD = /^(\w){6,16}$/;
   var $password = $('#password');
 
   $($password).on('blur',function(){
