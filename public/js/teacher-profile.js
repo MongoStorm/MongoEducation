@@ -4,16 +4,22 @@ $(function () {
   var $search = $('#search');
   var $pagination = $('#pagination');
 
-  $search.bind('keypress', 'enter', function(){
+  $search.bind('keypress', 'enter', function() {
     $('#custom-search-form').submit();
-    //TODO 要给按钮事件也添加
+  });
+
+  $search.next('button').on('click', function() {
+    $('#custom-search-form').submit();
   });
 
   $('.delete').on('click', function() {
 
     $('#deleteModal').modal('show');
+
     var courseId = $(this).val();
+
     $('#delete').on('click', function() {
+
       $.ajax({
         url: '/management/courses',
         method: 'POST',
@@ -34,9 +40,6 @@ $(function () {
           }else{
             location.reload();
           }
-        },
-        complete: function() {
-          $('#alert').fadeOut('slow');
         }
       });
     });
