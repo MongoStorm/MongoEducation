@@ -9,3 +9,13 @@
 .txts{ height:22px; border:1px solid #cdcdcd; width:200px;border-right:none;}
 .btns{ background-color:#FFF; border:1px solid #CDCDCD;height:26px; width:70px;}
 .files{ position:absolute; top:0; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

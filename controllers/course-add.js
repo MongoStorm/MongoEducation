@@ -3,24 +3,23 @@
 var Course = require('../models/index').Course;
 var Chapter = require('../models/index').Chapter;
 var express = require('express');
-var router = express.Router(),
-  formidable = require('formidable'),
+var formidable = require('formidable'),
   fs = require('fs'),
   TITLE = 'formidable上传示例',
-  AVATAR_UPLOAD_FOLDER = '/avatar/';
+  AVATAR_UPLOAD_FOLDER = '/components/video';
 
 
 function CourseAddController() {}
 
 CourseAddController.prototype.show = function(req, res) {
-  res.render('course-add');
+  res.render('course/new');
 };
 
 CourseAddController.prototype.new = function(req, res) {
-  Course.create({name: req.body.course_name, description: req.body.course_desc});
-  for(var i = 0; i < req.body.chapter_name.length; i++) {
-    Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
-  }
+  //Course.create({name: req.body.course_name, description: req.body.course_desc});
+  //for(var i = 0; i < req.body.chapter_name.length; i++) {
+  //  Chapter.create({name: req.body.chapter_name[i], videoUrl: req.body.commit_file[i]});
+  //}
   var form = new formidable.IncomingForm();   //创建上传表单
   form.encoding = 'utf-8';		//设置编辑
   form.uploadDir = 'public' + AVATAR_UPLOAD_FOLDER;	 //设置上传目录
@@ -65,8 +64,8 @@ CourseAddController.prototype.new = function(req, res) {
   });
 
   res.locals.success = '上传成功';
-  res.render('index', { title: TITLE });
-  res.render('course-add');
+  res.render('course/new');
+  //res.render('course/new');
 };
 
 module.exports = CourseAddController;
