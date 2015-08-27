@@ -7,18 +7,12 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function (models) {
-        Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: 'courseId'});
+        Chapter.belongsTo(models.Course, {as: 'Course', foreignKey: {name:'id'}});
       },
       findChaptersData: function (callback) {
         this.findAll({attributes: ['id', 'courseId', 'name', 'videoUrl']})
           .then(function (datas) {
-            var result = [];
-
-            datas.forEach(function (data) {
-              result.push(data.dataValues);
-            });
-
-            callback(result);
+            callback(datas);
           });
       }
     }

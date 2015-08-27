@@ -25,15 +25,9 @@ module.exports = function (sequelize, DataTypes) {
         });
       },
       findCoursesData: function (callback) {
-        this.findAll({attributes: ['id', 'name', 'description']})
+        this.findAll()
           .then(function (datas) {
-            var result = [];
-
-            datas.forEach(function (data) {
-              result.push(data.dataValues);
-            });
-
-            callback(result);
+            callback(datas);
           });
       },
       deleteById: function (courseId, callback) {
