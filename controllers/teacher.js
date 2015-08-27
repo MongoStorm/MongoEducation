@@ -1,6 +1,7 @@
 'use strict';
 
 var db = require('../models/index');
+var Course = require('../models/index').Course;
 
 var formidable = require('formidable');
 var fs = require('fs');
@@ -15,11 +16,11 @@ TeacherController.prototype.show = function(req, res) {
   var pageSize = req.query.pageSize || 8;
   var search = req.query.search || '';
 
-  db.Course.findByTeacherId(pageIndex, pageSize, search, function(courses){
+  Course.findByTeacherId(pageIndex, pageSize, search, function(instance){
     res.render('teacher/show',{
-      "courses": courses.rows,
-      "totalPages": courses.count,
-      "pageCount": Math.ceil(courses.count / pageSize),
+      "courses": instance.rows,
+      "totalPages": instance.count,
+      "pageCount": Math.ceil(instance.count / pageSize),
       "search" : search
     });
   });
@@ -28,7 +29,7 @@ TeacherController.prototype.show = function(req, res) {
 
 TeacherController.prototype.delete = function(req, res) {
 
-  db.Course.deleteById(req.body.courseId, function(){
+  Course.deleteById(req.body.courseId, function(){
     res.send();
   });
 };

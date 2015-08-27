@@ -32,11 +32,13 @@ block content
       .modal-dialog
         .modal-content
           .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
           .modal-body
-            | 确定要删除吗？
+            h4 确定要删除吗？
           .modal-footer
             button#delete.btn.btn-default(type='button') 删除
             button#cancle.btn.btn-default(type='button', data-dismiss="modal") 放弃
 block foot
   script(src="/components/twbs-pagination/jquery.twbsPagination.min.js")
-  script(src='/js/teacher-profile.js')
+  script(src='/js/teacher/management.js')
