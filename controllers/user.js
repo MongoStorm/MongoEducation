@@ -6,7 +6,7 @@ function User() {
 
 }
 
-User.prototype.RegisterCreate = function (req, res) {
+User.prototype.addUser = function (req, res) {
   db.Student.add(req.body.email,req.body.password);
   res.cookie('type', 'student', {expires: new Date(Date.now() + 1800000)});
   res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});

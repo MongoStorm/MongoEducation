@@ -17,7 +17,7 @@ router.get('/login', user.loginIndex);
 router.post('/login', user.submit);
 
 router.get('/register', user.RegisterIndex);
-router.post('/register',user.RegisterCreate);
+router.post('/register',user.addUser);
 router.post('/register/judge',user.RegisterJudge);
 
 router.get('/logout', user.logout);
