@@ -3,21 +3,21 @@ extends ../layout
 block head
     link(rel='stylesheet', href='/stylesheets/course/course-create.css')
 block content
-    form(method="post" action="/management/courses/new"  ).form-signin
+    form(method="post" action="/management/courses/create"  enctype="multipart/form-data" ).form-signin
       section.container.well.panel-primary
         h1 添加课程
         ul.list-unstyled.list-group
           li.list-group-item
             label 请输入课程名:
-            input(type='text' placeholder='请输入课程名' name='course_name').form-control
+            input(type='text' style='width:300px' placeholder='请输入课程名' name='course_name').form-control
           li.list-group-item
             label 请选择分类:
-            select(name='classification').form-control
+            select(id='category_parent' style='width:300px').form-control
               option 英语
               option 数学
               option 语文
-              option 物理
-              option 生物
+
+            select(id='category_child' style='width:300px').form-control
 
           li.list-group-item
             label 请输入课程简要信息
