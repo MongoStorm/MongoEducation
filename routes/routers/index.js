@@ -20,7 +20,7 @@ router.post('/login', user.submit);
 
 router.get('/register', user.registerIndex);
 router.post('/register',user.addUser);
-router.post('/register/judge',user.isRepeat);
+router.post('/register/judge',user.isCorrect);
 
 router.get('/logout', user.logout);
 
