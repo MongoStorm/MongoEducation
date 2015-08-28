@@ -9,20 +9,11 @@ $(function () {
   var $email = $('#email');
   $($email).on('blur', function () {
     if ($email.val() === '') {
-      hideBlock('#email-error');
       showBlock('#email-null');
       bemail = false;
-      return;
     }
-
-    var emailValidation = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;;
-    if (emailValidation.test($email.val()) == false) {
+    else {
       hideBlock('#email-null');
-      showBlock('#email-error');
-      bemail = false;
-    } else {
-      hideBlock('#email-null');
-      hideBlock('#email-error');
       bemail = true;
     }
   });
@@ -34,24 +25,11 @@ $(function () {
 
   $($studentPassword).keydown(function () {
     if ($studentPassword.val() === '') {
-      hideBlock('#studentPassword-error');
-      hideBlock('#studentPassword-length');
       showBlock('#studentPassword-null');
-
       bstudentPassword = false;
-      return;
     }
-
-    var studentPasswordValidation = /^(\w){5,16}$/;
-    if (studentPasswordValidation.test($studentPassword.val()) === false) {
-      hideBlock('#studentPassword-error');
+    else {
       hideBlock('#studentPassword-null');
-      showBlock('#studentPassword-length');
-      bstudentPassword = false;
-    } else {
-      hideBlock('#studentPassword-error');
-      hideBlock('#studentPassword-length');
-      hideBlock('#studentPassword-error');
       bstudentPassword = true;
     }
   });
@@ -59,21 +37,10 @@ $(function () {
   var $employeeId = $('#employeeId');
   $($employeeId).on('blur', function () {
     if ($employeeId.val() === '') {
-      hideBlock('#employeeId-error');
       showBlock('#employeeId-null');
-      bemplyeeId = false;
-      return;
-    }
-
-    var teacherIdValidation = /^[0-9]\d*$/;
-    if (teacherIdValidation.test($employeeId.val()) === false) {
-      hideBlock('#employeeId-null');
-      showBlock('#employeeId-error');
-      bemplyeeId = false;
     }
     else {
       hideBlock('#employeeId-null');
-      hideBlock('#employeeId-error');
       bemplyeeId = true;
     }
   });
@@ -81,22 +48,10 @@ $(function () {
   var $teacherPassword = $('#teacherPassword');
   $($teacherPassword).keydown(function () {
     if ($teacherPassword.val() === '') {
-      hideBlock('#teacherPassword-error');
-      hideBlock('#teacherPassword-length');
       showBlock('#teacherPassword-null');
       bteacherPassword = false;
-      return;
     }
-
-    var teacherPasswordValidation = /^(\w){5,15}$/;
-    if (teacherPasswordValidation.test($teacherPassword.val()) === false) {
-      hideBlock('#teacherPassword-error');
-      hideBlock('#teacherPassword-null');
-      showBlock('#teacherPassword-length');
-      bteacherPassword = false;
-    } else {
-      hideBlock('#teacherPassword-error');
-      hideBlock('#teacherPassword-length');
+    else {
       hideBlock('#teacherPassword-null');
       bteacherPassword = true;
     }
@@ -118,6 +73,7 @@ $(function () {
             location.href = '/';
           }
           else {
+            $('#email').val('');
             $('#studentPassword').val('');
             showBlock('#studentPassword-error');
           }
@@ -143,6 +99,7 @@ $(function () {
             location.href = '/';
           }
           else {
+            $('#employeeId').val('');
             $('#teacherPassword').val('');
             showBlock('#teacherPassword-error');
           }
