@@ -27,6 +27,7 @@ UserController.prototype.submit = function (req, res) {
   var user = req.body.userType;
 
   if (user === 'student') {
+
     db.Student.verify(userInput, password, function (data) {
 
       if (data) {
@@ -39,19 +40,27 @@ UserController.prototype.submit = function (req, res) {
         res.send({isTrue: false});
       }
     });
+
   }
   else if (user === 'teacher') {
-    db.Teacher.verify(userInput, password, function (data) {
-      if (data) {
-        res.cookie('teacherId', data.dataValues.id, {expires: new Date(Date.now() + 1800000)});
-        res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
-        res.cookie('id', userInput, {expires: new Date(Date.now() + 1800000)});
-        res.send({isTrue: true});
-      }
-      else {
-        res.send({isTrue: false});
-      }
-    });
+    var teacherIdValidation = /^[0-9]\d*$/;
+    if (teacherIdValidation.test(userInput)) {
+      db.Teacher.verify(userInput, password, function (data) {
+        if (data) {
+          res.cookie('teacherId', data.dataValues.id, {expires: new Date(Date.now() + 1800000)});
+          res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
+          res.cookie('id', userInput, {expires: new Date(Date.now() + 1800000)});
+          res.send({isTrue: true});
+        }
+        else {
+          res.send({isTrue: false});
+        }
+      });
+
+    }
+    else {
+      res.send({isTrue: false});
+    }
   }
 };
 
