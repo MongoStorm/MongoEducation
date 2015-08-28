@@ -8,7 +8,6 @@ mixin course-item(name,index,description)
             h3= name
           .description
             h4= description
-            h4= categoryId
 
 if !courses.length
   h3 无相关课程
@@ -17,5 +16,5 @@ else
     +course-item(course.name,course.id,course.description)
 
 
-.text-center.col-lg-12
+.page-foot.text-center.col-lg-12
   ul#pagination.pagination(totalPages="#{totalPages}")

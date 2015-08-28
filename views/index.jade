@@ -8,16 +8,19 @@ block content
 
   .container.container-fluid
     .row
+
+      a(href="/").all 全部课程
       #custom-search-form.pull-right
         .form-inline
-          input.form-control(type='text',id="query",placeholder='搜索',value='#{query}')
-          i.glyphicon.glyphicon-search(id="search")
+          input.form-control.search-query(type='text', name='search', placeholder='搜索', value='')#search
+          button.btn.btn-default(type='button')
+            i.glyphicon.glyphicon-search
 
     .category
 
     hr
 
-  #page-content.container.container-fluid
+  #page-content.container.container-fluid.text-center
 
 
   script(src="components/twbs-pagination/jquery.twbsPagination.js")

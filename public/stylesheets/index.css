@@ -16,3 +16,8 @@
 .thumbnail:hover {
   background-color: #70572b;
 }
+
+a.all {
+  line-height:40px;
+  padding-left: 30px;
+}
