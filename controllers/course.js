@@ -28,7 +28,6 @@ CourseController.prototype.index = function(req,res) {
       singleCourse.chapters = chapters;
       courses.push(singleCourse);
     });
-    console.log(courses[0]);
     var id = req.params.course_id;
     res.render('course/show',{course:courses[id-1]});
   });
