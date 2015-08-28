@@ -43,11 +43,17 @@ TeacherController.prototype.delete = function(req, res) {
 };
 
 TeacherController.prototype.new = function(req, res) {
+  var teacherId = req.cookies.teacherId;
+
+  if(!teacherId) {
+    res.redirect('/login');
+  }
   res.render('course/create');
 };
 
 TeacherController.prototype.create = function(req, res) {
   var teacherId = req.cookies.teacherId;
+
   Course.create({name: req.body.course_name, description: req.body.course_desc,teacherId:teacherId,categoryId: req.body.category_child}).then(function(){
 
     Course.findLastId(function(currentId){
@@ -66,6 +72,9 @@ TeacherController.prototype.create = function(req, res) {
 
   });
 
+};
+
+TeacherController.prototype.updata = function(req, res) {
 
   var form = new formidable.IncomingForm();
 
@@ -75,6 +84,7 @@ TeacherController.prototype.create = function(req, res) {
   form.maxFieldsSize = 2 * 1024 * 1024;
 
   form.parse(req, function( fields, files) {
+    //fs.renameSync(files.upload.path, "tmp/test.png");
   });
   res.locals.success = '上传成功';
   res.redirect('/management/courses');

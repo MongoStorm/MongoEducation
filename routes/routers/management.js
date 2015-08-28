@@ -12,5 +12,6 @@ router.post('/courses', teacherController.delete);
 
 router.get('/courses/new',teacherController.new );
 router.post('/courses/create',teacherController.create);
+router.post('/courses/updata',teacherController.updata);
 
 module.exports = router;
