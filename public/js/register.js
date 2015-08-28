@@ -4,7 +4,6 @@ $(function () {
   var emailError = true,
     pwdError = true,
     confirmError = true;
-
   var $email = $('#email');
 
   $($email).on('blur', function () {
@@ -39,7 +38,7 @@ $(function () {
       return;
     } else {
       $('#password-error').css('display', 'none');
-      pwdError = true;
+      pwdError = false;
     }
 
   });
@@ -55,7 +54,7 @@ $(function () {
     } else {
 
       $('#confirm-error').css('display', 'none');
-      confirmError = true;
+      confirmError = false;
     }
   });
 
@@ -81,12 +80,19 @@ $(function () {
           email: $email.val(),
           password: $password.val()
         },
-        function (res) {
-          if (res.isExist) {
-            $('#email-repeat').css('display', 'block');
-          } else {
-            $('form').submit();
+        function (verify) {
+
+          if(verify.isCorrect){
+            if (!verify.isExist) {
+              $('#email-repeat').css('display', 'block');
+            } else {
+              $('form').submit();
+            }
+          }else{
+
+            alert('数据提交错误!请重新填写!');
           }
+
         });
     }
 
