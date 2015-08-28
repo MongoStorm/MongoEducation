@@ -11,9 +11,7 @@ UserController.prototype.addUser = function (req, res) {
   res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});
   res.redirect('/');
 
-
 };
-
 
 UserController.prototype.loginIndex = function (req, res) {
   res.render('./user/login');
