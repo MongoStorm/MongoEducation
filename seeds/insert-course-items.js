@@ -34,7 +34,7 @@ var categories = [{id: 1, name:'Language'},{id:2 ,name:'Computer'},
   {id:122, name:'English Writing',parentId:12},{id:131,name:'Japenese Writing',parentId:13}
 ];
 
-Category.bulkCreate(categories).then(function (data) {
+Category.bulkCreate(categories).then(function () {
   Course.bulkCreate(courses).then(function(){
     Chapter.bulkCreate([{name: '1', videoUrl:path.video+'1-1.ogg', courseId: 1},
       {name: '2', videoUrl:path.video+'1-2.ogg', courseId: 1},
