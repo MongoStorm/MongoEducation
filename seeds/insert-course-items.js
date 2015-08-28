@@ -2,47 +2,49 @@
 
 var Course = require('../models/index').Course;
 var Category = require('../models/index').Category;
+var Chapter = require('../models/index').Chapter;
+var video = require('../config/video.json');
 
 var courses = [
-  {"name": "数学1", "description": "This is an English course","categoryId": 1},
-  {"name": "数学2", "description": "This is an English course","categoryId": 2},
-  {"name": "数学3", "description": "This is an English course","categoryId": 3},
-  {"name": "数学4", "description": "This is an English course","categoryId": 11},
-  {"name": "数学5", "description": "This is an English course","categoryId": 11},
-  {"name": "数学6", "description": "This is an English course","categoryId": 1},
-  {"name": "数学7", "description": "This is an English course","categoryId": 2},
-  {"name": "数学8", "description": "This is an English course","categoryId": 3},
-  {"name": "数学9", "description": "This is an English course","categoryId": 12},
-  {"name": "数学10", "description": "This is an English course","categoryId": 13},
-  {"name": "数学11", "description": "This is an English course","categoryId": 13 },
-  {"name": "数学12", "description": "This is an English course","categoryId": 3},
-  {"name": "数学13", "description": "This is an English course","categoryId": 21},
-  {"name": "数学14", "description": "This is an English course","categoryId":11 },
-  {"name": "数学15", "description": "This is an English course","categoryId": 13},
-  {"name": "数学16", "description": "This is an English course","categoryId": 13 },
-  {"name": "数学17", "description": "This is an English course","categoryId": 11},
-  {"name": "数学18", "description": "This is an English course","categoryId": 11},
-  {"name": "数学19", "description": "This is an English course","categoryId": 11},
-  {"name": "数学20", "description": "This is an English course","categoryId": 11},
-  {"name": "数学21", "description": "This is an English course","categoryId": 12},
-  {"name": "数学22", "description": "This is an English course","categoryId": 12},
-  {"name": "数学23", "description": "This is an English course","categoryId": 21},
-  {"name": "数学24", "description": "This is an English course","categoryId": 21},
-  {"name": "数学25", "description": "This is an English course","categoryId": 22},
-  {"name": "数学26", "description": "This is an English course","categoryId": 13},
-  {"name": "数学27", "description": "This is an English course","categoryId": 11},
-  {"name": "数学28", "description": "This is an English course","categoryId": 12},
-  {"name": "数学29", "description": "This is an English course","categoryId": 12},
-  {"name": "数学30", "description": "This is an English course","categoryId": 122},
-  {"name": "数学31", "description": "This is an English course","categoryId": 21},
-  {"name": "数学32", "description": "This is an English course","categoryId": 22},
-  {"name": "数学33", "description": "This is an English course","categoryId": 11},
-  {"name": "数学34", "description": "This is an English course","categoryId": 21},
-  {"name": "数学35", "description": "This is an English course","categoryId": 13},
-  {"name": "数学36", "description": "This is an English course","categoryId": 121},
-  {"name": "数学37", "description": "This is an English course","categoryId": 122},
-  {"name": "数学38", "description": "This is an English course","categoryId": 131},
-  {"name": "数学39", "description": "This is an English course","categoryId": 13}
+  {"name": "Math1", "description": "This is an English course","categoryId": 1},
+  {"name": "Math2", "description": "This is an English course","categoryId": 2},
+  {"name": "Math3", "description": "This is an English course","categoryId": 3},
+  {"name": "Math4", "description": "This is an English course","categoryId": 11},
+  {"name": "Math5", "description": "This is an English course","categoryId": 11},
+  {"name": "Math6", "description": "This is an English course","categoryId": 1},
+  {"name": "Math7", "description": "This is an English course","categoryId": 2},
+  {"name": "Math8", "description": "This is an English course","categoryId": 3},
+  {"name": "Math9", "description": "This is an English course","categoryId": 12},
+  {"name": "Math10", "description": "This is an English course","categoryId": 13},
+  {"name": "Math11", "description": "This is an English course","categoryId": 13 },
+  {"name": "Math12", "description": "This is an English course","categoryId": 3},
+  {"name": "Math13", "description": "This is an English course","categoryId": 21},
+  {"name": "Math14", "description": "This is an English course","categoryId":11 },
+  {"name": "Math15", "description": "This is an English course","categoryId": 13},
+  {"name": "Math16", "description": "This is an English course","categoryId": 13 },
+  {"name": "Math17", "description": "This is an English course","categoryId": 11},
+  {"name": "Math18", "description": "This is an English course","categoryId": 11},
+  {"name": "Math19", "description": "This is an English course","categoryId": 11},
+  {"name": "Math20", "description": "This is an English course","categoryId": 11},
+  {"name": "Math21", "description": "This is an English course","categoryId": 12},
+  {"name": "Math22", "description": "This is an English course","categoryId": 12},
+  {"name": "Math23", "description": "This is an English course","categoryId": 21},
+  {"name": "Math24", "description": "This is an English course","categoryId": 21},
+  {"name": "Math25", "description": "This is an English course","categoryId": 22},
+  {"name": "Math26", "description": "This is an English course","categoryId": 13},
+  {"name": "Math27", "description": "This is an English course","categoryId": 11},
+  {"name": "Math28", "description": "This is an English course","categoryId": 12},
+  {"name": "Math29", "description": "This is an English course","categoryId": 12},
+  {"name": "Math30", "description": "This is an English course","categoryId": 122},
+  {"name": "Math31", "description": "This is an English course","categoryId": 21},
+  {"name": "Math32", "description": "This is an English course","categoryId": 22},
+  {"name": "Math33", "description": "This is an English course","categoryId": 11},
+  {"name": "Math34", "description": "This is an English course","categoryId": 21},
+  {"name": "Math35", "description": "This is an English course","categoryId": 13},
+  {"name": "Math36", "description": "This is an English course","categoryId": 121},
+  {"name": "Math37", "description": "This is an English course","categoryId": 122},
+  {"name": "Math38", "description": "This is an English course","categoryId": 131},
+  {"name": "Math39", "description": "This is an English course","categoryId": 13}
 
 ];
 
@@ -54,7 +56,14 @@ var categories = [{id: 1, name:'1'},{id:2 ,name:'2'},
 ];
 
 Category.bulkCreate(categories).then(function (data) {
-  Course.bulkCreate(courses);
+  Course.bulkCreate(courses).then(function(){
+    Chapter.bulkCreate([{name: '1', videoUrl:video.path+'1-1.ogg', courseId: 1},
+      {name: '2', videoUrl:video.path+'1-2.ogg', courseId: 1},
+      {name: '3', videoUrl:video.path+'1-2.ogg', courseId: 1},
+      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 2},
+      {name: '2', videoUrl:video.path+'1-2.ogg', courseId: 2},
+      {name: '3', videoUrl:video.path+'1-2.ogg', courseId: 2}]);
+  })
 });
 
 

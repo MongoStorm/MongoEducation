@@ -12,10 +12,6 @@ db.Teacher.create({EmployeeId: 131232113, password: '123456'}).then(function(tea
   });
 });
 
-db.Course.create({name: 'bootstrap', description: 'Bootstrap'});
-db.Chapter.bulkCreate([{name: 'first', videoUrl:video.path+'1-1.ogg', courseId: 2},
-                       {name: 'second', videoUrl:video.path+'1-2.ogg', courseId: 2}]);
-
 
 db.Student.bulkCreate([
   {email:'12345678@qq.com',password:'1234567'},
