@@ -2,7 +2,7 @@
 
 var Course = require('../models/index').Course;
 var Chapter = require('../models/index').Chapter;
-
+var Category = require('../models/index').Category;
 
 var formidable = require('formidable');
 var fs = require('fs');
@@ -53,23 +53,24 @@ TeacherController.prototype.new = function(req, res) {
 
 TeacherController.prototype.create = function(req, res) {
   var teacherId = req.cookies.teacherId;
+  Category.findIdByName(req.body.category_child,function(categoryId){
 
-  Course.create({name: req.body.course_name, description: req.body.course_desc,teacherId:teacherId,categoryId: req.body.category_child}).then(function(){
+    Course.create({name: req.body.course_name, description: req.body.course_desc,teacherId:teacherId,categoryId:categoryId.toString()}).then(function(){
 
-    Course.findLastId(function(currentId){
-      if(typeof(req.body.chapter_name) === 'string'){
+      Course.findLastId(function(currentId){
+        if(typeof(req.body.chapter_name) === 'string'){
 
-        Chapter.create({name: req.body.chapter_name, CourseId:currentId, videoUrl: req.body.commit_file});
+          Chapter.create({name: req.body.chapter_name, courseId:currentId, videoUrl: req.body.commit_file});
 
-      }else {
+        }else {
 
-        for (var i = 0; i < req.body.chapter_name.length; i++) {
-          Chapter.create({name: req.body.chapter_name[i], CourseId: currentId, videoUrl: req.body.commit_file[i]});
+          for (var i = 0; i < req.body.chapter_name.length; i++) {
+            Chapter.create({name: req.body.chapter_name[i], courseId: currentId, videoUrl: req.body.commit_file[i]});
+          }
+
         }
-
-      }
+      });
     });
-
   });
 
 };
@@ -84,7 +85,7 @@ TeacherController.prototype.updata = function(req, res) {
   form.maxFieldsSize = 2 * 1024 * 1024;
 
   form.parse(req, function( fields, files) {
-    //fs.renameSync(files.upload.path, "tmp/test.png");
+
   });
   res.locals.success = '上传成功';
   res.redirect('/management/courses');
