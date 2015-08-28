@@ -88,7 +88,7 @@ $(function () {
       return;
     }
 
-    var teacherPasswordValidation = /^(\w){5,16}$/;
+    var teacherPasswordValidation = /^(\w){5,15}$/;
     if (teacherPasswordValidation.test($teacherPassword.val()) === false) {
       hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-null');
