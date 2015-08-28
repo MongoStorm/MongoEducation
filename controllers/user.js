@@ -61,13 +61,9 @@ UserController.prototype.logout = function (req, res) {
   res.redirect('/');
 };
 
-UserController.prototype.isCorrect = function (req, res) {
-  db.Student.registerVerify(req.param('email'), function (isExist) {
-    if (isExist) {
-      res.send({isExist: true});
-    } else {
-      res.send({isExist: false});
-    }
+UserController.prototype.isQualified = function (req, res) {
+  db.Student.registerVerify(req.param('email'),req.param('password'), function (verify) {
+    res.send(verify);
   });
 };
 
