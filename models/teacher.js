@@ -17,7 +17,9 @@ module.exports = function(sequelize, DataTypes) {
             password: password
           }
         }).then(function(data){
-          callback(data.length > 0);
+
+            callback(data);
+
         })
       }
     }
