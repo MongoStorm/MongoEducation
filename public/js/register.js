@@ -1,52 +1,45 @@
 'use strict';
 
 $(function () {
-  var email = false,
-    password = false,
-    confirm = false;
+  var emailError = true,
+    pwdError = true,
+    confirmError = true;
 
   var $email = $('#email');
 
   $($email).on('blur', function () {
 
     if ($email.val() === '') {
-      $('#email-error').css('display', 'none');
-      $('#email-repeat').css('display', 'none');
-      $('#email-null').css('display', 'block');
-
+      showError('email-null');
       return;
     }
 
-    var JUDGE = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+    var EMAIL_VERIFY = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;
 
-    if (JUDGE.test($email.val()) == false) {
-      $('#email-repeat').css('display', 'none');
-      $('#email-null').css('display', 'none');
-      $('#email-error').css('display', 'block');
-
+    if (!EMAIL_VERIFY.test($email.val())) {
+      showError('email-error');
       return;
     } else {
-      $('#email-null').css('display', 'none');
-      $('#email-error').css('display', 'none');
-      $('#email-repeat').css('display', 'none');
-      email = true;
+      showError();
+      emailError = false;
+
       return;
     }
 
   });
 
-  var PASSWORD = /^(\w){6,16}$/;
+  var PASSWORD_VERIFY = /^(\w){6,16}$/;
   var $password = $('#password');
 
   $($password).on('blur', function () {
 
-    if (PASSWORD.test($password.val()) === false) {
+    if (PASSWORD_VERIFY.test($password.val()) === false) {
       $('#password-error').css('display', 'block');
 
       return;
     } else {
       $('#password-error').css('display', 'none');
-      password = true;
+      pwdError = true;
     }
 
   });
@@ -62,7 +55,7 @@ $(function () {
     } else {
 
       $('#confirm-error').css('display', 'none');
-      confirm = true;
+      confirmError = true;
     }
   });
 
@@ -80,7 +73,9 @@ $(function () {
 
       return;
     }
-    if (email && password && confirm) {
+
+    if (!emailError && !pwdError && !confirmError) {
+
       $.post("/register/judge",
         {
           email: $email.val()
@@ -97,3 +92,23 @@ $(function () {
 
   });
 });
+
+function showError(id) {
+
+  var $emailNull = $('#email-null'),
+    $emailError = $('#email-error'),
+    $emailRepeat = $('#email-repeat');
+
+  $emailNull.css('display', 'none');
+  $emailError.css('display', 'none');
+  $emailRepeat.css('display', 'none');
+
+  if (id === 'email-null') {
+    $emailNull.css('display', 'block');
+  } else if (id === 'email-error') {
+    $emailError.css('display', 'block');
+  } else if (id === 'email-repeat') {
+    $emailRepeat.css('display', 'block');
+  }
+
+}
