@@ -9,8 +9,11 @@ UserController.prototype.addUser = function (req, res) {
   db.Student.add(req.body.email, req.body.password);
   res.cookie('type', 'student', {expires: new Date(Date.now() + 1800000)});
   res.cookie('id', req.body.email, {expires: new Date(Date.now() + 1800000)});
-  res.redirect('/')
+  res.redirect('/');
+
+
 };
+
 
 UserController.prototype.loginIndex = function (req, res) {
   res.render('./user/login');
@@ -62,7 +65,7 @@ UserController.prototype.logout = function (req, res) {
 };
 
 UserController.prototype.isQualified = function (req, res) {
-  db.Student.registerVerify(req.param('email'),req.param('password'), function (verify) {
+  db.Student.registerVerify(req.param('email'), req.param('password'), function (verify) {
     res.send(verify);
   });
 };
