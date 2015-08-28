@@ -8,6 +8,12 @@ $(function () {
     queryAndPage($('#query').val());
   });
 
+  $('#query').keydown(function (event) {
+    if(event.keyCode==13){
+      queryAndPage($('#query').val());
+    }
+  });
+
   $('.category').on('click', 'a', function () {
     var level = $(this).parents('li').attr('level');
     classify($(this).attr('categoryId'), level);

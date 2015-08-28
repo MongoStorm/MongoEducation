@@ -1,4 +1,4 @@
-mixin course-item(name,index,description,categoryId)
+mixin course-item(name,index,description)
   .col-lg-6
     a.thumbnail(href="courses/#{index}")
       .row
@@ -11,11 +11,11 @@ mixin course-item(name,index,description,categoryId)
             h4= categoryId
 
 if !courses.length
-  h3 0条课程
+  h3 无相关课程
 else
   each course in courses
-    +course-item(course.name,course.id,course.description,course.categoryId)
-    
+    +course-item(course.name,course.id,course.description)
+
 
 .text-center.col-lg-12
   ul#pagination.pagination(totalPages="#{totalPages}")
