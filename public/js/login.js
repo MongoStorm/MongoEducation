@@ -101,7 +101,7 @@ $(function () {
       bteacherPassword = true;
     }
   });
-    
+
   $('#studentSubmit').on('click', function () {
     if (bemail && bstudentPassword) {
       $.ajax({

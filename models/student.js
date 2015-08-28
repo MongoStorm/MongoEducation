@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
           }
         })
       },
-      judge: function (email, callback) {
+      registerVerify: function (email, callback) {
         this.findAll({
           where: {
             email: email
