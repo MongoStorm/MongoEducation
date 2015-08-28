@@ -8,32 +8,32 @@ function ChapterController() {
 }
 
 ChapterController.prototype.show = function(req,res) {
-  Chapter.findAll().then(function(chaptersInfo){
+  Chapter.findAll().then(function(chapters){
     var currentCourseId = parseInt(req.params.course_id);
     var currentChapterId = parseInt(req.params.chapter_id);
 
-    var currentChapters = chaptersInfo.filter(function(chapter){
+    var currentChapters = chapters.filter(function(chapter){
       return chapter.dataValues.CourseId === currentCourseId
     });
 
     var currentVideoUrl = '';
-    currentChapters.forEach(function(chapter){
-        if(chapter.dataValues.id === currentChapterId){
+    currentChapters.forEach(function(chapter, index){
+        if(index + 1 === currentChapterId){
           currentVideoUrl = chapter.dataValues.videoUrl;
         }
       });
 
     var previousChapterId;
-    currentChapters.forEach(function(chapter){
-      if(chapter.dataValues.id === currentChapterId - 1){
-        previousChapterId = chapter.dataValues.id;
+    currentChapters.forEach(function(chapter, index){
+      if(index + 1 === currentChapterId - 1){
+        previousChapterId = index + 1;
       }
     });
 
     var nextChapterId;
-    currentChapters.forEach(function(chapter){
-      if(chapter.dataValues.id === currentChapterId + 1){
-        nextChapterId = chapter.dataValues.id;
+    currentChapters.forEach(function(chapter, index){
+      if(index +1 === currentChapterId + 1){
+        nextChapterId = index + 1;
       }
     });
 
