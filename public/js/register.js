@@ -83,7 +83,7 @@ $(function () {
         function (verify) {
 
           if(verify.isCorrect){
-            if (!verify.isExist) {
+            if (verify.isExist) {
               $('#email-repeat').css('display', 'block');
             } else {
               $('form').submit();
