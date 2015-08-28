@@ -39,6 +39,13 @@ $(function () {
     if ($employeeId.val() === '') {
       showBlock('#employeeId-null');
     }
+
+    var teacherIdValidation = /^[0-9]\d*$/;
+    if (teacherIdValidation.test($employeeId.val()) === false) {
+      hideBlock('#employeeId-null');
+      showBlock('#teacherPassword-error');
+      bemplyeeId = false;
+    }
     else {
       hideBlock('#employeeId-null');
       bemplyeeId = true;
@@ -48,10 +55,12 @@ $(function () {
   var $teacherPassword = $('#teacherPassword');
   $($teacherPassword).keydown(function () {
     if ($teacherPassword.val() === '') {
+      hideBlock('#teacherPassword-error');
       showBlock('#teacherPassword-null');
       bteacherPassword = false;
     }
     else {
+      hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-null');
       bteacherPassword = true;
     }
