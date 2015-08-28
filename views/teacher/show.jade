@@ -8,20 +8,24 @@ block head
 block content
   .container
     .text-center
-      h1 我的课程
+      h1#title 我的课程
     .row
+      a#all(href='/management/courses') 全部课程
       form#custom-search-form.pull-right(action='/management/courses')
         .form-inline
           input.form-control.search-query(type='text', name='search', placeholder='搜索', value='#{search}')#search
           button.btn.btn-default(type='button')
             i.glyphicon.glyphicon-search
     #content.center-block
-      each course in courses
-        .panel.panel-default.item
-          .panel-body.course-list
-            a(href='/courses/#{course.id}').course
-              h4(style='display: inline') #{course.dataValues.name}
-            button.btn.btn-danger.col-xs-1.col-xs-push-10.delete(value='#{course.dataValues.id}', data-toggle='modal', data-target='deleteModal') 删除
+      if !courses.length
+        h3.text-center 无相关课程
+      else
+        each course in courses
+          .panel.panel-default.item
+            .panel-body.course-list
+              a(href='/courses/#{course.id}').course
+                h4(style='display: inline') #{course.dataValues.name}
+              button.btn.btn-danger.col-xs-1.col-xs-push-10.delete(value='#{course.dataValues.id}', data-toggle='modal', data-target='deleteModal') 删除
     #addCourse.text-center
       a.add(href='/management/courses/new')
         span.glyphicon.glyphicon-plus-sign

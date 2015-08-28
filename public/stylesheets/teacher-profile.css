@@ -1,9 +1,9 @@
 #content {
-  height: 600px;
   margin-top: 10px;
 }
 
 #addCourse {
+  margin-top: 20px;
   height: 30px;
 }
 
@@ -13,4 +13,12 @@
 
 .item {
   margin: 5px;
+}
+
+#all {
+  margin-left: 25px;
+}
+
+#title {
+  color: #005599;
 }
