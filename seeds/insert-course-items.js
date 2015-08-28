@@ -50,7 +50,9 @@ Category.bulkCreate(categories).then(function () {
       {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 10},
       {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 11},
       {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 12},
-      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 13}
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 13},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 14},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 15}
     ]);
   })
 });
