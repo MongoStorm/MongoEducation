@@ -6,7 +6,7 @@ var Category = require('../models/index').Category;
 
 var formidable = require('formidable');
 var fs = require('fs');
-var UPLOAD_FOLDER = '/components/video';
+var UPLOAD_FOLDER = require('../config/path').video;
 
 function TeacherController() {
 
@@ -60,12 +60,12 @@ TeacherController.prototype.create = function(req, res) {
       Course.findLastId(function(currentId){
         if(typeof(req.body.chapter_name) === 'string'){
 
-          Chapter.create({name: req.body.chapter_name, courseId:currentId, videoUrl: req.body.commit_file});
+          Chapter.create({name: req.body.chapter_name, courseId:currentId, videoUrl: UPLOAD_FOLDER+req.body.showName});
 
         }else {
 
           for (var i = 0; i < req.body.chapter_name.length; i++) {
-            Chapter.create({name: req.body.chapter_name[i], courseId: currentId, videoUrl: req.body.commit_file[i]});
+            Chapter.create({name: req.body.chapter_name[i], courseId: currentId, videoUrl: UPLOAD_FOLDER+req.body.showName[i]});
           }
 
         }
@@ -84,8 +84,11 @@ TeacherController.prototype.updata = function(req, res) {
   form.keepExtensions = true;
   form.maxFieldsSize = 2 * 1024 * 1024;
 
-  form.parse(req, function( fields, files) {
+  form .on('file', function(field, file) {
+    fs.rename(file.path, form.uploadDir + "/" + file.name);
+  });
 
+  form.parse(req, function(err,fields, files) {
   });
   res.locals.success = '上传成功';
   res.redirect('/management/courses');
