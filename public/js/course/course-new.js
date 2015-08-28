@@ -7,18 +7,18 @@ $(function () {
   });
 
   $('#category_parent').on('change',function(){
-    if($('#category_parent').val()=='1') {
+    if($('#category_parent').val()=='Language') {
       $('#category_child').empty();
-      $('#category_child').append('<option>11</option>' +
-        '<option>12</option>'+
-        '<option>13</option>')
+      $('#category_child').append('<option>French</option>' +
+        '<option>English</option>'+
+        '<option>Physics</option>')
     }
-    else if($('#category_parent').val()=='2') {
+    else if($('#category_parent').val()=='Computer') {
       $('#category_child').empty();
-      $('#category_child').append('<option>21</option>' +
-        '<option>22</option>')
+      $('#category_child').append('<option>Web</option>' +
+        '<option>Android</option>')
     }
-    else if($('#category_parent').val()=='3') {
+    else if($('#category_parent').val()=='Physics') {
       $('#category_child').empty();
 
     }
