@@ -9,9 +9,10 @@ block content
     hr
     div
       h4
-        | 所有课程
+        a(href='/') 所有课程
         span.glyphicon.glyphicon-chevron-right
-        |#{course.name}
+        - var h = '/courses/'+ course.id;
+        a(href = h) #{course.name}
     hr
     .container
       .row
