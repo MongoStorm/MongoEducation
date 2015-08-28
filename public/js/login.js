@@ -15,7 +15,7 @@ $(function () {
       return;
     }
 
-    var validEmail = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+    var validEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;;
     if (validEmail.test($email.val()) == false) {
       hideBlock('#email-null');
       showBlock('#email-error');
