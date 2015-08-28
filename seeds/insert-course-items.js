@@ -36,30 +36,22 @@ var categories = [{id: 1, name:'Language'},{id:2 ,name:'Computer'},
 
 Category.bulkCreate(categories).then(function (data) {
   Course.bulkCreate(courses).then(function(){
-    Chapter.bulkCreate([{name: '1', videoUrl:video.path+'1-1.ogg', courseId: 1},
-<<<<<<< HEAD
-      {name: '2', videoUrl:video.path+'1-2.ogg', courseId: 1},
-      {name: '3', videoUrl:video.path+'1-2.ogg', courseId: 1},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 2},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 3},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 4},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 5},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 6},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 7},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 8},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 9},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 10},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 11},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 12},
-      {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 13}
-    ]);
-=======
+    Chapter.bulkCreate([{name: '1', videoUrl:path.video+'1-1.ogg', courseId: 1},
       {name: '2', videoUrl:path.video+'1-2.ogg', courseId: 1},
       {name: '3', videoUrl:path.video+'1-2.ogg', courseId: 1},
       {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 2},
-      {name: '2', videoUrl:path.video+'1-2.ogg', courseId: 2},
-      {name: '3', videoUrl:path.video+'1-2.ogg', courseId: 2}]);
->>>>>>> rename video.path to path.video
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 3},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 4},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 5},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 6},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 7},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 8},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 9},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 10},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 11},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 12},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 13}
+    ]);
   })
 });
 
