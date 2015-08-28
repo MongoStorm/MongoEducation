@@ -15,8 +15,8 @@ $(function () {
       return;
     }
 
-    var validEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;;
-    if (validEmail.test($email.val()) == false) {
+    var emailValidation = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;;
+    if (emailValidation.test($email.val()) == false) {
       hideBlock('#email-null');
       showBlock('#email-error');
       bemail = false;
@@ -42,8 +42,8 @@ $(function () {
       return;
     }
 
-    var validStudentPassword = /^(\w){5,16}$/;
-    if (validStudentPassword.test($studentPassword.val()) === false) {
+    var studentPasswordValidation = /^(\w){5,16}$/;
+    if (studentPasswordValidation.test($studentPassword.val()) === false) {
       hideBlock('#studentPassword-error');
       hideBlock('#studentPassword-null');
       showBlock('#studentPassword-length');
@@ -65,8 +65,8 @@ $(function () {
       return;
     }
 
-    var validTeacherId = /^[1-9]\d*|0$/;
-    if (validTeacherId.test($employeeId.val()) === false) {
+    var teacherIdValidation = /^[0-9]\d*$/;
+    if (teacherIdValidation.test($employeeId.val()) === false) {
       hideBlock('#employeeId-null');
       showBlock('#employeeId-error');
       bemplyeeId = false;
@@ -88,8 +88,8 @@ $(function () {
       return;
     }
 
-    var validTeacherPassword = /^(\w){5,16}$/;
-    if (validTeacherPassword.test($teacherPassword.val()) === false) {
+    var teacherPasswordValidation = /^(\w){5,16}$/;
+    if (teacherPasswordValidation.test($teacherPassword.val()) === false) {
       hideBlock('#teacherPassword-error');
       hideBlock('#teacherPassword-null');
       showBlock('#teacherPassword-length');
