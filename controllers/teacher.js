@@ -47,7 +47,8 @@ TeacherController.prototype.new = function(req, res) {
 };
 
 TeacherController.prototype.create = function(req, res) {
-  Course.create({name: req.body.course_name, description: req.body.course_desc,categoryId: req.body.category_child}).then(function(){
+  var teacherId = req.cookies.teacherId;
+  Course.create({name: req.body.course_name, description: req.body.course_desc,teacherId:teacherId,categoryId: req.body.category_child}).then(function(){
 
     Course.findLastId(function(currentId){
       if(typeof(req.body.chapter_name) === 'string'){
