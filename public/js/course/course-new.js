@@ -10,18 +10,23 @@ $(function () {
     if($('#category_parent').val()=='Language') {
       $('#category_child').empty();
       $('#category_child').append('<option>French</option>' +
-        '<option>English</option>'+
-        '<option>Physics</option>')
+                                  '<option>English</option>'+
+                                  '<option>Physics</option>')
     }
     else if($('#category_parent').val()=='Computer') {
       $('#category_child').empty();
       $('#category_child').append('<option>Web</option>' +
-        '<option>Android</option>')
+                                  '<option>Android</option>')
     }
     else if($('#category_parent').val()=='Physics') {
       $('#category_child').empty();
 
     }
+  });
+
+
+  $("#commit_file").on('change',function(){
+   showFileName()
   });
 
   $('#submit').on('click',function(){
@@ -30,13 +35,19 @@ $(function () {
       url: "/management/courses/create",
       data: $("form").serialize(),
       complete: function(data){
-        alert(data);
       }
     });
   });
 
 
 });
+
+function showFileName(){
+  var filePath = ($('input[name="commit_file"]:last').val()).split("\\");
+  var fileName = filePath[filePath.length-1];
+  $('input[name="showName"]:last').val(fileName);
+}
+
 
 function addChapter(){
   var chapterId = parseInt($('label[name="chapterId"]:last').text()[1]) + 1;
@@ -47,7 +58,8 @@ function addChapter(){
     '<input type="text" name="chapter_name" class="form-control" placeholder="请输入章节名" />' +
     '</li>' +
     '<li class="list-group-item col-md-12"> <div class="col-md-12">上传文件:</div>' +
-    '<input id="fulAvatar" name="commit_file" type="file" class="form-control"/>' +
+    '<input id="commit_file" name="commit_file" type="file" onchange="showFileName()" class="form-control"/>' +
+    '<input type="text" name="showName" id="showName" class="form-control"/>'+
     '<div class="col-md-5"> </div> ' +
     '</li> ' +
     '<li class="list-group"><div class="col-md-9"></div> ' +
@@ -59,3 +71,4 @@ function addChapter(){
 function delChapter(){
   $('form section:last').remove();
 }
+
