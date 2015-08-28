@@ -20,6 +20,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "mysql": "^2.9.0",
+    "regex-box": "^0.2.1",
     "sequelize": "^3.6.0",
     "sequelize-cli": "^1.7.4"
   },
