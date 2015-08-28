@@ -15,15 +15,17 @@ HomeController.prototype.index = function (req, res) {
 
 HomeController.prototype.page = function (req, res) {
 
-  Course.queryAndPage(8,req.query.page,req.query.query,function(totalPages,courses) {
+  var id = req.query.categoryId || '';
+  Course.queryAndPage(8,req.query.page,req.query.query,id ,function(totalPages,courses) {
     res.render('page-content', {courses: courses, totalPages: totalPages});
   });
 };
 
 HomeController.prototype.classify = function (req, res) {
 
-  Category.findAll({where: {parentId: req.query.id }}).then(function(categories) {
-    res.render('category', {parentId: req.query.id,level:+req.query.level+1,categories: categories});
+  var id = req.query.id || null;
+  Category.findAll({where: {parentId: id }}).then(function(categories) {
+    res.render('category', {parentId: id,level:+req.query.level+1,categories: categories});
   });
 
 };

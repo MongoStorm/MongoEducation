@@ -8,10 +8,12 @@ $(function () {
     queryAndPage($('#query').val());
   });
 
-  $('.category').on('click','a',function () {
+  $('.category').on('click', 'a', function () {
     var level = $(this).parents('li').attr('level');
-    classify($(this).attr('categoryId'),level);
+    classify($(this).attr('categoryId'), level);
   });
+
+
 });
 
 
@@ -24,19 +26,24 @@ function queryAndPage(query) {
 
 function init() {
   queryAndPage('');
-  classify(0,0);
+  classify('',0);
 }
 
-function classify(id,level) {
-  $.get('/category', {id: id,level:level},function(result) {
-   $('.category ul:gt(' + (level-1) + ')').remove();
-   $(result).appendTo('.category');
+function classify(id, level) {
+  $.get('/category', {id: id, level: level}, function (result) {
+    $('.category ul:gt(' + (level - 1) + ')').remove();
+    $(result).appendTo('.category');
+  });
+
+  $.get('/page-content', {page: 1, query:'', categoryId: id}, function (result) {
+    $('#page-content').html(result);
+    initPagination(1, $('#pagination').attr('totalPages'));
   });
 }
 
-function initPagination(currentPage,totalPages) {
+function initPagination(currentPage, totalPages) {
   $('#pagination').remove();
-  $('.text-center').html('<div id="pagination" totalPages='+ totalPages +'></div>');
+  $('.text-center').html('<div id="pagination" totalPages=' + totalPages + '></div>');
   $('#pagination').twbsPagination({
     startPage: currentPage,
     first: '第一页',
@@ -46,9 +53,9 @@ function initPagination(currentPage,totalPages) {
     totalPages: totalPages,
     visiblePages: 7,
     onPageClick: function (event, page) {
-      $.get('/page-content',{page:page, query: $('#query').val()},function (result) {
+      $.get('/page-content', {page: page, query: $('#query').val()}, function (result) {
         $('#page-content').html(result);
-        initPagination(page,totalPages);
+        initPagination(page, totalPages);
       });
     }
   });

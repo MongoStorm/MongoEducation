@@ -46,8 +46,8 @@ var courses = [
 
 ];
 
-var categories = [{id: 1, name:'1',parentId:0},{id:2 ,name:'2',parentId:0},
-  {id:3, name:'3',parentId:0},{id:11,name:'11',parentId:1},
+var categories = [{id: 1, name:'1'},{id:2 ,name:'2'},
+  {id:3, name:'3'},{id:11,name:'11',parentId:1},
   {id:12, name:'12',parentId:1},{id:13,name:'13',parentId:1},
   {id:21, name:'21',parentId:2},{id:22,name:'22',parentId:2},
   {id:122, name:'122',parentId:12},{id:131,name:'131',parentId:13}

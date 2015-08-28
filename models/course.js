@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
   var Course = sequelize.define('Course', {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    categoryId: DataTypes.INTEGER
+    categoryId: DataTypes.STRING
   }, {
     classMethods: {
       associate: function (models) {
@@ -53,9 +53,9 @@ module.exports = function (sequelize, DataTypes) {
           callback(totalPages, courses);
         });
       },
-      queryAndPage: function (pageSize, pageIndex, query, callback) {
+      queryAndPage: function (pageSize, pageIndex, query, categoryId, callback) {
 
-        this.findAndCountAll({where:{name: {$like: '%' + query + '%'}},offset: (pageIndex-1) * pageSize, limit: pageSize}).then(function (result) {
+        this.findAndCountAll({where:{name: {$like: '%' + query + '%'}, categoryId: {$like:categoryId + '%'}},offset: (pageIndex-1) * pageSize, limit: pageSize}).then(function (result) {
           var totalPages = Math.ceil(result.count / pageSize);
           var courses = result.rows;
           callback(totalPages, courses);
