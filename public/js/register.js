@@ -78,7 +78,8 @@ $(function () {
 
       $.post("/register/judge",
         {
-          email: $email.val()
+          email: $email.val(),
+          password: $password.val()
         },
         function (res) {
           if (res.isExist) {
