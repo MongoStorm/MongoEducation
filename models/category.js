@@ -7,8 +7,14 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+      },
+      findIdByName: function(name,callback){
+        this.find({where:{name:name}}).then(function (result) {
+          callback(result.id);
+        });
       }
     }
+
   });
   return Category;
 };
