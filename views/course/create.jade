@@ -16,6 +16,9 @@ block content
             option Computer
             option Physics
           select(id='category_child' name='category_child' style='width:300px').form-control
+            option French
+            option English
+            option Physics
         li.list-group-item
           label 请输入课程简要信息
           textarea(rows='3' cols='134' name='course_desc' ).form-control
@@ -26,7 +29,8 @@ block content
           input(type='text' placeholder='请输入章节名' name="chapter_name").form-control
         li.list-group-item.col-md-12
           .col-md-12 上传文件:
-          input#commit_file.form-control(name='commit_file' type='file' )
+          input#commit_file.form-control(name='commit_file'  type='file' )
+          input(type='text'  name="showName" id="showName").form-control
           .col-md-3
         li.list-group
           .col-md-10
