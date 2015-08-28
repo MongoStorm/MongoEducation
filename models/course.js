@@ -26,16 +26,6 @@ module.exports = function (sequelize, DataTypes) {
           callback(courses);
         });
       },
-      findCoursesData: function (callback) {
-        this.findAll()
-          .then(function (datas) {
-            var result = [];
-            datas.forEach(function(data) {
-               result.push(data.dataValues);
-            });
-            callback(result);
-          });
-      },
       deleteById: function (courseId, callback) {
         this.destroy({
           where: {
