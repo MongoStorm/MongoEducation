@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       verify:function(employeeId,password,callback){
 
-        this.findAll({
+        this.find({
           where: {
             employeeId: employeeId,
             password: password

@@ -13,7 +13,6 @@ module.exports = function (sequelize, DataTypes) {
             email: email
           }
         }).then(function (data) {
-            console.log(data);
           if (data) {
             var hash = data.dataValues.password;
             var isTrue = bcrypt.compareSync(password, hash);
