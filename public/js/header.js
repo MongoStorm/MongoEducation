@@ -15,6 +15,6 @@ $(function () {
     $dropdownMenu.prepend('<li><a href="/management/courses ">个人中心</a></li>');
   }
 
-  $('.offline').css('display', 'none');
-  $('.online').css('display', 'block');
+  $('.offline').toggle();
+  $('.online').toggle();
 });
