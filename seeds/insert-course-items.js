@@ -3,7 +3,7 @@
 var Course = require('../models/index').Course;
 var Category = require('../models/index').Category;
 var Chapter = require('../models/index').Chapter;
-var video = require('../config/video.json');
+var path = require('../config/path.json');
 var Student = require('../models/index').Student;
 var Teacher = require('../models/index').Teacher;
 
@@ -37,6 +37,7 @@ var categories = [{id: 1, name:'Language'},{id:2 ,name:'Computer'},
 Category.bulkCreate(categories).then(function (data) {
   Course.bulkCreate(courses).then(function(){
     Chapter.bulkCreate([{name: '1', videoUrl:video.path+'1-1.ogg', courseId: 1},
+<<<<<<< HEAD
       {name: '2', videoUrl:video.path+'1-2.ogg', courseId: 1},
       {name: '3', videoUrl:video.path+'1-2.ogg', courseId: 1},
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 2},
@@ -52,6 +53,13 @@ Category.bulkCreate(categories).then(function (data) {
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 12},
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 13}
     ]);
+=======
+      {name: '2', videoUrl:path.video+'1-2.ogg', courseId: 1},
+      {name: '3', videoUrl:path.video+'1-2.ogg', courseId: 1},
+      {name: '1', videoUrl:path.video+'1-2.ogg', courseId: 2},
+      {name: '2', videoUrl:path.video+'1-2.ogg', courseId: 2},
+      {name: '3', videoUrl:path.video+'1-2.ogg', courseId: 2}]);
+>>>>>>> rename video.path to path.video
   })
 });
 
