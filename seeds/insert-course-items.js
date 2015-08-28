@@ -4,6 +4,8 @@ var Course = require('../models/index').Course;
 var Category = require('../models/index').Category;
 var Chapter = require('../models/index').Chapter;
 var video = require('../config/video.json');
+var Student = require('../models/index').Student;
+var Teacher = require('../models/index').Teacher;
 
 var courses = [
   {"name": "Math1", "description": "This is an English course","categoryId": 1},
@@ -67,3 +69,18 @@ Category.bulkCreate(categories).then(function (data) {
 });
 
 
+Student.bulkCreate([
+  {email:'12345678@qq.com',password:'1234567'},
+  {email:'zxcvbnm@163.com',password:'1234567'},
+  {email:'star@163.com',password:'12345676'},
+  {email:'mongo@163.com',password:'12345676'}
+]);
+
+Teacher.bulkCreate([
+  {employeeId:1,password:'123456'},
+  {employeeId:2,password:'123456'},
+  {employeeId:3,password:'123456'},
+  {employeeId:4,password:'123456'},
+  {employeeId:5,password:'123456'},
+  {employeeId:6,password:'123456'}
+]);
