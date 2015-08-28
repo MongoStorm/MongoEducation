@@ -1,5 +1,7 @@
 'use strict';
 var bcrypt = require('../node_modules/bcrypt-nodejs/bCrypt');
+var email = require('regex-box').email;
+var PASSWORD_VERIFY = /^(\w){6,16}$/;
 
 module.exports = function (sequelize, DataTypes) {
   var Student = sequelize.define('Student', {
@@ -23,14 +25,24 @@ module.exports = function (sequelize, DataTypes) {
           }
         })
       },
-      registerVerify: function (email, callback) {
-        this.findAll({
-          where: {
-            email: email
-          }
-        }).then(function (result) {
-          callback(result.length > 0);
-        });
+      registerVerify: function (registerEmail, registerPassword, callback) {
+
+        if(email.is(registerEmail) && PASSWORD_VERIFY.test(registerPassword)){
+          this.findAll({
+            where: {
+              email: registerEmail
+            }
+          }).then(function (result) {
+            if(result.length < 0){
+              callback({isCorrect:true,isExist:false})
+            }else{
+              callback({isCorrect:true,isExist:true})
+            }
+          });
+        }else{
+          callback({isCorrect:false,isExist:null});
+        }
+
       },
       add: function (email, password) {
         var salt = bcrypt.genSaltSync(8);
