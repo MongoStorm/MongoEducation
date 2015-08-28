@@ -1,6 +1,6 @@
 'use strict';
 var bcrypt = require('../node_modules/bcrypt-nodejs/bCrypt');
-var email = require('regex-box').email;
+var EMAIL_VERIFY = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;
 var PASSWORD_VERIFY = /^(\w){6,16}$/;
 
 module.exports = function (sequelize, DataTypes) {
@@ -15,6 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             email: email
           }
         }).then(function (data) {
+
           if (data) {
             var hash = data.dataValues.password;
             var isTrue = bcrypt.compareSync(password, hash);
@@ -27,13 +28,14 @@ module.exports = function (sequelize, DataTypes) {
       },
       registerVerify: function (registerEmail, registerPassword, callback) {
 
-        if(email.is(registerEmail) && PASSWORD_VERIFY.test(registerPassword)){
+        if(EMAIL_VERIFY.test(registerEmail) && PASSWORD_VERIFY.test(registerPassword)){
           this.findAll({
             where: {
               email: registerEmail
             }
           }).then(function (result) {
-            if(result.length < 0){
+
+            if(result.length <= 0){
               callback({isCorrect:true,isExist:false})
             }else{
               callback({isCorrect:true,isExist:true})
