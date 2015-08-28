@@ -1,6 +1,5 @@
 'use strict';
 
-var db = require('../models/index');
 var Course = require('../models/index').Course;
 var Chapter = require('../models/index').Chapter;
 
@@ -15,8 +14,11 @@ function TeacherController() {
 
 TeacherController.prototype.show = function(req, res) {
 
-  //TODO get teacherId from session, if not, redirect to login page
-  var teacherId = 1;
+  var teacherId = req.cookies.teacherId;
+
+  if(!teacherId) {
+    res.redirect('/login');
+  }
 
   var pageIndex = req.query.pageIndex || 1;
   var pageSize = req.query.pageSize || 8;
