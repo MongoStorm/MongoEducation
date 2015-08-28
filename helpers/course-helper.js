@@ -18,7 +18,7 @@ CourseHelper.prototype.getFormatData = function(datas) {
 
     singleCourse.chapters = chapters;
     courses.push(singleCourse);
-    
+
   });
   return courses;
 };

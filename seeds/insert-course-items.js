@@ -8,6 +8,7 @@ var Student = require('../models/index').Student;
 var Teacher = require('../models/index').Teacher;
 
 var courses = [
+
   {"name": "Advance French", "description": "This is an Advanced French course","categoryId": 11, "teacherId": 1},
   {"name": "Basic French", "description": "This is an Basic French course","categoryId": 11, "teacherId": 1},
   {"name": "Middle French", "description": "This is an Middle French course","categoryId": 11, "teacherId": 1},
@@ -23,7 +24,6 @@ var courses = [
   {"name": "Web Basic", "description": "This is an Web Basic course","categoryId": 21, "teacherId": 1},
   {"name": "Web Middle", "description": "This is an Web Middle course","categoryId": 21, "teacherId": 1},
   {"name": "Web Advanced", "description": "This is an Web Advanced course","categoryId": 21, "teacherId": 1}
-
 
 ];
 
@@ -51,11 +51,9 @@ Category.bulkCreate(categories).then(function (data) {
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 11},
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 12},
       {name: '1', videoUrl:video.path+'1-2.ogg', courseId: 13}
-
     ]);
   })
 });
-
 
 Student.bulkCreate([
   {email:'12345678@qq.com',password:'1234567'},
