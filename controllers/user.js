@@ -29,7 +29,7 @@ UserController.prototype.submit = function (req, res) {
     db.Student.verify(userInput, password, function (data) {
 
       if (data) {
-        req.session.studentId = data.dataValues.id;
+        res.cookie('studentId', data.dataValues.id, {expires: new Date(Date.now() + 1800000)});
         res.cookie('type', user, {expires: new Date(Date.now() + 1800000)});
         res.cookie('id', userInput, {expires: new Date(Date.now() + 1800000)});
         res.send({isTrue: true});
